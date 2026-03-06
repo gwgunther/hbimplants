@@ -6,9 +6,9 @@ import FAQBlock from '../../components/FAQBlock.astro';
 const localBusiness = {
   '@context': 'https://schema.org', '@type': 'Dentist',
   'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com',
-  'telephone': '[PHONE]',
-  'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' },
-  'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics',
+  'telephone': '(714) 846-1386',
+  'address': { '@type': 'PostalAddress', 'streetAddress': '16141 Bolsa Chica St., Suite C', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '92649', 'addressCountry': 'US' },
+  'openingHours': ['Mo 09:00-17:00', 'We 09:00-17:00', 'Fr 09:00-17:00', 'Sa 10:00-14:00'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics',
 };
 const procedureSchema = {
   '@context': 'https://schema.org', '@type': 'MedicalProcedure',
@@ -20,7 +20,7 @@ const procedureSchema = {
 const faqs = [
   { question: 'How is a single tooth implant different from a dental bridge?', answer: 'A bridge requires grinding down the two adjacent healthy teeth to serve as anchors. A single tooth implant stands completely independently — no neighboring teeth are touched. This preserves your healthy tooth structure, eliminates the risk of decay under bridge crowns, and maintains the jawbone where the tooth was lost. Implants are the superior long-term solution for single tooth replacement in virtually every clinical situation.' },
   { question: 'How long does the single tooth implant process take?', answer: 'From consultation to final crown, expect 4–6 months for a straightforward single tooth implant without bone grafting. The implant placement surgery itself takes about 1 hour. The 3–4 month healing period (osseointegration) is the longest phase — once the implant has integrated, crown placement typically takes 2–3 weeks from impression to final placement.' },
-  { question: 'Will my implant crown look natural?', answer: 'Yes. The crown placed on your single tooth implant is custom-made from high-quality porcelain or zirconia and shade-matched to your surrounding teeth. At Huntington Beach Prosthodontics, Dr. [DOCTOR_NAME] designs each crown with meticulous attention to shape, shade, and texture to achieve a completely natural appearance that only a trained eye can distinguish from your natural teeth.' },
+  { question: 'Will my implant crown look natural?', answer: 'Yes. The crown placed on your single tooth implant is custom-made from high-quality porcelain or zirconia and shade-matched to your surrounding teeth. At Huntington Beach Prosthodontics, Dr. Favian Cheong designs each crown with meticulous attention to shape, shade, and texture to achieve a completely natural appearance that only a trained eye can distinguish from your natural teeth.' },
   { question: 'Does the single tooth implant procedure hurt?', answer: 'The surgery is performed under local anesthesia. You will feel pressure during placement but should not experience pain. Post-operative discomfort is typically mild — comparable to a tooth extraction — and most patients manage it with over-the-counter ibuprofen. Most people return to work the following day.' },
   { question: 'What happens if I don\'t replace my missing tooth?', answer: 'When a tooth is lost, the jawbone underneath begins to resorb (shrink) because it no longer receives stimulation from a tooth root. Over 1–3 years, this bone loss can become significant, causing adjacent teeth to shift, alter your bite, change your facial appearance, and make future implant placement more difficult or impossible without bone grafting. The sooner you replace a missing tooth with an implant, the simpler and less costly the process.' },
   { question: 'Is a single tooth implant covered by insurance?', answer: 'Many dental insurance plans now cover a portion of implant costs. Coverage varies widely by plan. We verify your benefits before treatment and provide a clear breakdown of what your insurance will cover and what your out-of-pocket cost will be. We also offer financing options for the patient-responsible balance.' },
@@ -29,7 +29,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainE
 ---
 <BaseLayout
   title="Single Tooth Implant Huntington Beach | Replace One Missing Tooth"
-  description="Replace a single missing tooth with a permanent dental implant in Huntington Beach. Natural look and feel. Specialist care from Dr. [DOCTOR_NAME]. Call [PHONE]."
+  description="Replace a single missing tooth with a permanent dental implant in Huntington Beach. Natural look and feel. Specialist care from Dr. Favian Cheong. Call (714) 846-1386."
   schema={[localBusiness, procedureSchema, faqSchema]}
 >
   <section class="bg-brand-navy text-white py-16 md:py-20">
@@ -65,7 +65,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainE
         <h2 class="section-subheading mt-10 mb-6">What to Expect: Single Tooth Implant Process</h2>
         <div class="space-y-6">
           {[
-            { phase: 'Consultation & CBCT Imaging', detail: 'Dr. [DOCTOR_NAME] evaluates your jawbone volume, gum health, and bite. A 3D CBCT X-ray maps the exact implant site including bone depth, nerve location, and sinus anatomy. This data drives the surgical plan.' },
+            { phase: 'Consultation & CBCT Imaging', detail: 'Dr. Favian Cheong evaluates your jawbone volume, gum health, and bite. A 3D CBCT X-ray maps the exact implant site including bone depth, nerve location, and sinus anatomy. This data drives the surgical plan.' },
             { phase: 'Implant Placement Surgery', detail: 'Under local anesthesia, a small titanium post is placed precisely into the jawbone. The gum is sutured closed. A temporary crown or healing cap is fitted. The procedure takes 45–90 minutes, and most patients feel minimal post-operative discomfort.' },
             { phase: 'Osseointegration (3–4 Months)', detail: 'The implant integrates with the surrounding bone. You will have a check X-ray at 12 weeks to confirm integration. During this period, you can eat normally with minor precautions.' },
             { phase: 'Crown Placement', detail: 'A digital scan or impression captures the integrated implant\'s position. Your custom crown is fabricated to match your adjacent teeth in color, shape, and contour. At your final appointment, the crown is secured — your new tooth is complete.' },

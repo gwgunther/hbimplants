@@ -4,7 +4,7 @@ description: "Dental implants vs. dentures in Huntington Beach: an honest compar
 publishDate: 2025-01-29
 targetKeyword: "dental implants vs dentures Huntington Beach"
 category: "dental-implants"
-author: "Dr. [DOCTOR_NAME]"
+author: "Dr. Favian Cheong"
 draft: false
 ---
 
@@ -110,4 +110,4 @@ If you are facing this decision and would like an expert evaluation, I encourage
 
 ---
 
-*Dr. [DOCTOR_NAME] is a board-certified prosthodontist at Huntington Beach Prosthodontics, specializing in dental implants, dentures, and full-arch rehabilitation. Schedule a consultation to discuss your specific situation.*
+*Dr. Favian Cheong is a board-certified prosthodontist at Huntington Beach Prosthodontics, specializing in dental implants, dentures, and full-arch rehabilitation. Schedule a consultation to discuss your specific situation.*

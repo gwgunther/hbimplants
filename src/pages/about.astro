@@ -7,25 +7,52 @@ const localBusiness = {
   '@type': 'Dentist',
   'name': 'Huntington Beach Prosthodontics',
   'url': 'https://hbimplants.com',
-  'telephone': '[PHONE]',
+  'telephone': '(714) 846-1386',
+  'email': 'hbprosth@gmail.com',
   'address': {
     '@type': 'PostalAddress',
-    'streetAddress': '[STREET]',
+    'streetAddress': '16141 Bolsa Chica St., Suite C',
     'addressLocality': 'Huntington Beach',
     'addressRegion': 'CA',
-    'postalCode': '[ZIP]',
+    'postalCode': '92649',
     'addressCountry': 'US',
   },
-  'openingHours': ['[HOURS]'],
+  'openingHours': ['Mo 09:00-17:00', 'We 09:00-17:00', 'Fr 09:00-17:00', 'Sa 10:00-14:00'],
   'priceRange': '$$$$',
   'medicalSpecialty': 'Prosthodontics',
 };
+
+const physicians = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Physician',
+    'name': 'Dr. Favian Cheong',
+    'medicalSpecialty': 'Prosthodontics',
+    'affiliation': { '@type': 'Organization', 'name': 'Huntington Beach Prosthodontics' },
+    'alumniOf': [
+      { '@type': 'EducationalOrganization', 'name': 'UC Irvine' },
+      { '@type': 'EducationalOrganization', 'name': 'UCLA School of Dentistry' },
+      { '@type': 'EducationalOrganization', 'name': 'UCSF / VA San Francisco Prosthodontic Residency' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Physician',
+    'name': 'Dr. Janelle Cheong',
+    'medicalSpecialty': 'General Dentistry',
+    'affiliation': { '@type': 'Organization', 'name': 'Huntington Beach Prosthodontics' },
+    'alumniOf': [
+      { '@type': 'EducationalOrganization', 'name': 'UCLA School of Dentistry' },
+      { '@type': 'EducationalOrganization', 'name': 'UCLA Advanced Education in General Dentistry' },
+    ],
+  },
+];
 ---
 
 <BaseLayout
-  title="About Dr. [DOCTOR_NAME] | Prosthodontist in Huntington Beach, CA"
-  description="Meet Dr. [DOCTOR_NAME], [DOCTOR_CREDENTIALS], a board-certified prosthodontist at Huntington Beach Prosthodontics. Specializing in dental implants, veneers, and smile restoration."
-  schema={localBusiness}
+  title="About Dr. Favian Cheong | Prosthodontist in Huntington Beach, CA"
+  description="Meet Dr. Favian Cheong, prosthodontist, and Dr. Janelle Cheong, DDS, at Huntington Beach Prosthodontics. Specialist-level implant and cosmetic dentistry."
+  schema={[localBusiness, ...physicians]}
 >
   <!-- Hero -->
   <section class="bg-brand-navy text-white py-16 md:py-20">
@@ -33,69 +60,124 @@ const localBusiness = {
       <div class="max-w-3xl">
         <div class="text-brand-gold text-sm font-semibold uppercase tracking-wide mb-3">About Our Practice</div>
         <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">
-          Meet Dr. [DOCTOR_NAME],<br />
-          <span class="text-brand-gold">Your Huntington Beach Prosthodontist</span>
+          Meet the Doctors at<br />
+          <span class="text-brand-gold">Huntington Beach Prosthodontics</span>
         </h1>
         <p class="text-gray-300 text-lg leading-relaxed">
-          Board-certified prosthodontist dedicated to restoring smiles and changing lives through advanced implant dentistry and cosmetic restoration.
+          Our team combines specialist-level prosthodontic expertise with comprehensive general dental care — giving every patient access to the highest standard of treatment under one roof.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Doctor Bio -->
+  <!-- Dr. Favian Cheong Bio -->
   <section class="py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div>
-          <!-- Placeholder for doctor photo -->
           <div class="bg-brand-light rounded-2xl aspect-[4/5] flex items-center justify-center">
             <div class="text-center text-neutral-mid">
               <svg class="w-24 h-24 mx-auto mb-4 text-neutral-border" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
               </svg>
-              <p class="text-sm">Dr. [DOCTOR_NAME]<br />[DOCTOR_CREDENTIALS]</p>
+              <p class="text-sm font-medium">Dr. Favian Cheong<br /><span class="text-xs font-normal">Prosthodontist</span></p>
             </div>
           </div>
         </div>
 
         <div>
-          <h2 class="section-heading mb-6">A Specialist Dedicated to Your Best Smile</h2>
+          <div class="inline-block bg-brand-light text-brand-blue text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-4">Board-Certified Prosthodontist</div>
+          <h2 class="section-heading mb-6">Dr. Favian Cheong</h2>
 
-          <p class="text-neutral-mid leading-relaxed mb-4">
-            Dr. [DOCTOR_NAME] founded Huntington Beach Prosthodontics with a single mission: to bring specialist-level care to patients who deserve more than what a general dentist can offer. As a board-certified prosthodontist, Dr. [DOCTOR_NAME] completed three years of advanced residency training beyond dental school, focusing exclusively on the art and science of restoring and replacing teeth.
+          <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+            Hi! I'm Dr. Favian Cheong — a Southern California native, born and raised in Long Beach, CA. I attended UC Irvine where I received my B.S. in Biological Sciences with a Minor in Psychology and Human Behavior. I then attended UCLA where I received my Doctor of Dental Surgery degree.
           </p>
 
           <p class="text-neutral-mid leading-relaxed mb-4">
-            Prosthodontics is the dental specialty recognized by the American Dental Association that deals with complex tooth replacement, oral rehabilitation, and the aesthetic restoration of smiles. That means when you come to Huntington Beach Prosthodontics, you're not seeing a generalist who does implants on the side — you're seeing someone whose entire career is built around exactly the procedure you need.
+            After dental school, my goal was to treat patients with a range of needs — from cosmetic and restorative treatment to complex functional issues that go beyond the scope of general dentistry. So I continued my education at UC San Francisco and the Veterans Affairs San Francisco Medical Center, where I was certified as a specialist in prosthodontics — one of nine dental specialties accredited by the American Dental Association.
+          </p>
+
+          <p class="text-neutral-mid leading-relaxed mb-4">
+            A prosthodontist is a dentist who has completed three additional years of intensive post-doctoral training in a CODA-accredited graduate prosthodontic program — specifically focused on the restoration and replacement of teeth. This training covers everything from single implant crowns to full-arch rehabilitation, from precision veneers to complete mouth reconstructions.
           </p>
 
           <p class="text-neutral-mid leading-relaxed mb-6">
-            Dr. [DOCTOR_NAME] has restored thousands of smiles in Huntington Beach, CA and the surrounding communities, including patients who have struggled with tooth loss, implant failures elsewhere, complex cosmetic cases, and full-mouth reconstructions. Every case is approached with meticulous attention to detail, advanced 3D imaging, and a commitment to outcomes that are both functional and beautiful.
+            With my background in psychology, I understand the functional, psychological, and social importance of a healthy, confident smile. Whether your needs are minor or major, your treatment will be performed with precision and care at the highest level. I actively listen to your goals so I can guide you toward the best options — ones that will last a lifetime.
           </p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {[
-              { label: 'Specialty Training', value: '3 Additional Years' },
-              { label: 'Board Certification', value: 'American Board of Prosthodontics' },
+              { label: 'Undergraduate', value: 'UC Irvine — B.S. Biological Sciences' },
+              { label: 'Dental School', value: 'UCLA — Doctor of Dental Surgery' },
+              { label: 'Specialty Residency', value: 'UCSF / VA San Francisco' },
               { label: 'Specialty', value: 'Prosthodontics (ADA Recognized)' },
-              { label: 'Focus Areas', value: 'Implants, Full Arch, Veneers' },
             ].map((item) => (
               <div class="bg-brand-light rounded-lg p-4">
                 <div class="text-xs text-neutral-mid font-medium uppercase tracking-wide mb-1">{item.label}</div>
-                <div class="font-semibold text-brand-navy">{item.value}</div>
+                <div class="font-semibold text-brand-navy text-sm">{item.value}</div>
               </div>
             ))}
           </div>
 
-          <a href="/schedule" class="btn-primary">Schedule a Consultation</a>
+          <a href="/schedule" class="btn-primary">Schedule with Dr. Favian Cheong</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dr. Janelle Cheong Bio -->
+  <section class="bg-brand-light py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div class="order-2 lg:order-1">
+          <div class="inline-block bg-white text-brand-blue text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full mb-4">General Dentist</div>
+          <h2 class="section-heading mb-6">Dr. Janelle Cheong</h2>
+
+          <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+            Dr. Janelle Cheong is a Southern California native who spent 10 years at UCLA — earning both her Bachelor of Science in Physiological Science and her Doctor of Dental Surgery degree. After graduating from dental school in 2016, she completed a postgraduate residency in the UCLA Advanced Education in General Dentistry program.
+          </p>
+
+          <p class="text-neutral-mid leading-relaxed mb-4">
+            Since her residency, Dr. Janelle has worked in dental offices throughout the Bay Area and Southern California, bringing a wide range of clinical experience to her practice. She is affiliated with the American Dental Association, the California Dental Association, and the Harbor Dental Society. Dr. Janelle strives to create a comfortable experience while delivering quality care across all general dental services — cleanings, examinations, fillings, and crowns.
+          </p>
+
+          <p class="text-neutral-mid leading-relaxed mb-6">
+            Outside the office, Dr. Janelle enjoys spending time with her husband and two sons. She's also an avid baker and loves playing soccer and golf.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            {[
+              { label: 'Undergraduate', value: 'UCLA — B.S. Physiological Science' },
+              { label: 'Dental School', value: 'UCLA — Doctor of Dental Surgery (2016)' },
+              { label: 'Residency', value: 'UCLA Advanced Education in General Dentistry' },
+              { label: 'Affiliations', value: 'ADA · CDA · Harbor Dental Society' },
+            ].map((item) => (
+              <div class="bg-white rounded-lg p-4">
+                <div class="text-xs text-neutral-mid font-medium uppercase tracking-wide mb-1">{item.label}</div>
+                <div class="font-semibold text-brand-navy text-sm">{item.value}</div>
+              </div>
+            ))}
+          </div>
+
+          <a href="/schedule" class="btn-secondary">Schedule with Dr. Janelle Cheong</a>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <div class="bg-white rounded-2xl aspect-[4/5] flex items-center justify-center border border-neutral-border">
+            <div class="text-center text-neutral-mid">
+              <svg class="w-24 h-24 mx-auto mb-4 text-neutral-border" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+              <p class="text-sm font-medium">Dr. Janelle Cheong<br /><span class="text-xs font-normal">DDS</span></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Practice Philosophy -->
-  <section class="bg-brand-light py-16 md:py-20">
+  <section class="py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="section-heading mb-4">Our Philosophy of Care</h2>
@@ -108,18 +190,18 @@ const localBusiness = {
         {[
           {
             title: 'Specialist Expertise',
-            desc: 'Prosthodontics is all we do. Every procedure, every day, at the highest level of dental specialty training.',
+            desc: 'Dr. Favian Cheong is a board-certified prosthodontist with three additional years of post-doctoral training focused exclusively on restoring and replacing teeth at the highest level.',
           },
           {
             title: 'Technology-First Approach',
-            desc: 'Advanced 3D CBCT imaging, digital smile design, and CAD/CAM restorations deliver precision that manual methods cannot match.',
+            desc: 'Advanced 3D CBCT imaging, digital oral scanning, intraoral photography, and digital impressions deliver precision and predictability that traditional methods cannot match.',
           },
           {
             title: 'Patient-Centered Care',
-            desc: 'We take time to understand your concerns, your goals, and your budget before recommending any treatment.',
+            desc: 'Your initial visit includes a thorough medical and dental history review, a complete examination, and an honest discussion of treatment options, timelines, and costs — before any commitment.',
           },
         ].map((item) => (
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-border text-center">
+          <div class="bg-brand-light rounded-xl p-6 text-center">
             <h3 class="font-serif text-xl font-semibold text-brand-navy mb-3">{item.title}</h3>
             <p class="text-neutral-mid text-sm leading-relaxed">{item.desc}</p>
           </div>
@@ -129,9 +211,9 @@ const localBusiness = {
   </section>
 
   <!-- CTA -->
-  <section class="py-12 pb-16">
+  <section class="pb-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <CTABlock heading="Meet Dr. [DOCTOR_NAME] In Person" subheading="Schedule your complimentary consultation and discover what specialist-level care can do for your smile." />
+      <CTABlock heading="Meet Dr. Favian Cheong In Person" subheading="Your first visit includes a thorough examination, complete records, and an honest discussion of your treatment options — no pressure, no surprises." />
     </div>
   </section>
 </BaseLayout>

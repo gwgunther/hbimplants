@@ -8,16 +8,16 @@ const localBusiness = {
   '@type': 'Dentist',
   'name': 'Huntington Beach Prosthodontics',
   'url': 'https://hbimplants.com',
-  'telephone': '[PHONE]',
+  'telephone': '(714) 846-1386',
   'address': {
     '@type': 'PostalAddress',
-    'streetAddress': '[STREET]',
+    'streetAddress': '16141 Bolsa Chica St., Suite C',
     'addressLocality': 'Huntington Beach',
     'addressRegion': 'CA',
-    'postalCode': '[ZIP]',
+    'postalCode': '92649',
     'addressCountry': 'US',
   },
-  'openingHours': ['[HOURS]'],
+  'openingHours': ['Mo 09:00-17:00', 'We 09:00-17:00', 'Fr 09:00-17:00', 'Sa 10:00-14:00'],
   'priceRange': '$$$$',
   'medicalSpecialty': 'Prosthodontics',
 };
@@ -72,7 +72,7 @@ const faqSchema = {
 
 <BaseLayout
   title="Dental Implants Huntington Beach | Board-Certified Prosthodontist"
-  description="Dental implants in Huntington Beach from a board-certified prosthodontist. Permanent tooth replacement with natural results. Free consultation. Call [PHONE]."
+  description="Dental implants in Huntington Beach from a board-certified prosthodontist. Permanent tooth replacement with natural results. Free consultation. Call (714) 846-1386."
   schema={[localBusiness, procedureSchema, faqSchema]}
 >
   <!-- Hero -->
@@ -85,7 +85,7 @@ const faqSchema = {
           <span class="text-brand-gold">The Permanent Solution to Tooth Loss</span>
         </h1>
         <p class="text-gray-300 text-lg leading-relaxed mb-8">
-          As a board-certified prosthodontist, Dr. [DOCTOR_NAME] specializes in the complete dental implant process — from evaluation and surgical coordination to custom crown design and long-term maintenance. If you're missing one tooth or several, dental implants in Huntington Beach are the closest thing dentistry has to growing a natural tooth back.
+          As a board-certified prosthodontist, Dr. Favian Cheong specializes in the complete dental implant process — from evaluation and surgical coordination to custom crown design and long-term maintenance. If you're missing one tooth or several, dental implants in Huntington Beach are the closest thing dentistry has to growing a natural tooth back.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold text-center">Schedule Free Consultation</a>
@@ -133,7 +133,7 @@ const faqSchema = {
       <p class="text-neutral-mid text-center max-w-2xl mx-auto mb-12">Every implant case is unique. Here is the general process for a straightforward single implant from consultation to final crown.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {[
-          { step: '1', title: 'Consultation & 3D Imaging', desc: 'We capture a 3D CBCT scan of your jaw to assess bone volume, sinus proximity, and nerve location. Dr. [DOCTOR_NAME] reviews your health history and designs your implant plan — including whether bone grafting is needed.' },
+          { step: '1', title: 'Consultation & 3D Imaging', desc: 'We capture a 3D CBCT scan of your jaw to assess bone volume, sinus proximity, and nerve location. Dr. Favian Cheong reviews your health history and designs your implant plan — including whether bone grafting is needed.' },
           { step: '2', title: 'Implant Placement', desc: 'The titanium post is surgically placed under local anesthesia (sedation available). The procedure takes 1–2 hours. A healing cap or temporary crown is placed same day. Most patients return to work the next day.' },
           { step: '3', title: 'Osseointegration', desc: 'Over 3–6 months, the implant fuses with your jawbone. You\'ll have a check appointment at 12 weeks to confirm integration with an X-ray. During this phase, normal diet with minor restrictions applies.' },
           { step: '4', title: 'Crown Placement', desc: 'An impression or digital scan is taken of your implant and surrounding teeth. Your custom crown is designed for perfect fit, color match, and bite alignment. At the crown placement appointment, your new tooth is complete.' },

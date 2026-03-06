@@ -6,16 +6,16 @@ const localBusiness = {
   '@type': 'Dentist',
   'name': 'Huntington Beach Prosthodontics',
   'url': 'https://hbimplants.com',
-  'telephone': '[PHONE]',
+  'telephone': '(714) 846-1386',
   'address': {
     '@type': 'PostalAddress',
-    'streetAddress': '[STREET]',
+    'streetAddress': '16141 Bolsa Chica St., Suite C',
     'addressLocality': 'Huntington Beach',
     'addressRegion': 'CA',
-    'postalCode': '[ZIP]',
+    'postalCode': '92649',
     'addressCountry': 'US',
   },
-  'openingHours': ['[HOURS]'],
+  'openingHours': ['Mo 09:00-17:00', 'We 09:00-17:00', 'Fr 09:00-17:00', 'Sa 10:00-14:00'],
   'priceRange': '$$$$',
   'medicalSpecialty': 'Prosthodontics',
 };
@@ -35,7 +35,7 @@ const formspreeEndpoint = import.meta.env.FORMSPREE_ENDPOINT || '#';
         Schedule Your Appointment
       </h1>
       <p class="text-gray-300 text-lg max-w-2xl mx-auto">
-        Fill out the form below and our team will contact you within one business day to confirm your appointment. Or call us directly at <a href="tel:[PHONE]" class="text-brand-gold font-semibold hover:underline">[PHONE]</a>.
+        Fill out the form below and our team will contact you within one business day to confirm your appointment. Or call us directly at <a href="tel:(714) 846-1386" class="text-brand-gold font-semibold hover:underline">(714) 846-1386</a>.
       </p>
     </div>
   </section>
@@ -237,11 +237,11 @@ const formspreeEndpoint = import.meta.env.FORMSPREE_ENDPOINT || '#';
       <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div class="text-center p-4 bg-brand-light rounded-xl">
           <div class="font-semibold text-brand-navy mb-1">Phone</div>
-          <a href="tel:[PHONE]" class="text-brand-blue text-sm">[PHONE]</a>
+          <a href="tel:(714) 846-1386" class="text-brand-blue text-sm">(714) 846-1386</a>
         </div>
         <div class="text-center p-4 bg-brand-light rounded-xl">
           <div class="font-semibold text-brand-navy mb-1">Address</div>
-          <div class="text-neutral-mid text-sm">[ADDRESS]<br />Huntington Beach, CA</div>
+          <div class="text-neutral-mid text-sm">16141 Bolsa Chica St., Suite C<br />Huntington Beach, CA</div>
         </div>
         <div class="text-center p-4 bg-brand-light rounded-xl">
           <div class="font-semibold text-brand-navy mb-1">Hours</div>

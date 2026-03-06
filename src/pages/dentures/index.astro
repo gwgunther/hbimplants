@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import FAQBlock from '../../components/FAQBlock.astro';
 
-const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '(714) 846-1386', 'address': { '@type': 'PostalAddress', 'streetAddress': '16141 Bolsa Chica St., Suite C', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '92649', 'addressCountry': 'US' }, 'openingHours': ['Mo 09:00-17:00', 'We 09:00-17:00', 'Fr 09:00-17:00', 'Sa 10:00-14:00'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
 const procedureSchema = { '@context': 'https://schema.org', '@type': 'MedicalProcedure', 'name': 'Dentures', 'description': 'Dentures are removable prosthetic devices that replace missing teeth. Modern dentures are custom-fabricated for a natural appearance and comfortable fit.', 'procedureType': 'https://schema.org/TherapeuticProcedure', 'bodyLocation': 'Mouth', 'followup': 'As recommended by your prosthodontist' };
 const faqs = [
   { question: 'How long do dentures last?', answer: 'Traditional dentures last 5–10 years before they typically need replacement. As your jaw changes shape over time (bone resorption), dentures may need relining every 3–5 years to maintain a proper fit. Implant-supported dentures last longer because the implants prevent bone resorption and maintain jaw shape, meaning the prosthesis fits more consistently over time.' },
@@ -17,7 +17,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainE
 ---
 <BaseLayout
   title="Dentures Huntington Beach | Full & Partial Dentures HB, CA Prosthodontist"
-  description="Modern full and partial dentures in Huntington Beach, CA. Comfortable, natural-looking dentures from a board-certified prosthodontist. Call [PHONE]."
+  description="Modern full and partial dentures in Huntington Beach, CA. Comfortable, natural-looking dentures from a board-certified prosthodontist. Call (714) 846-1386."
   schema={[localBusiness, procedureSchema, faqSchema]}
 >
   <section class="bg-brand-navy text-white py-16 md:py-24">

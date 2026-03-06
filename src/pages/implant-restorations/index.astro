@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import FAQBlock from '../../components/FAQBlock.astro';
 
-const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '(714) 846-1386', 'address': { '@type': 'PostalAddress', 'streetAddress': '16141 Bolsa Chica St., Suite C', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '92649', 'addressCountry': 'US' }, 'openingHours': ['Mo 09:00-17:00', 'We 09:00-17:00', 'Fr 09:00-17:00', 'Sa 10:00-14:00'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
 const faqs = [
   { question: 'What is an implant restoration?', answer: 'An implant restoration is the prosthetic component (crown, bridge, or denture) that is attached to a dental implant post to replace the visible portion of a missing tooth. The implant post (inserted into bone) serves as the root; the restoration is the tooth itself. The quality and design of the restoration is just as important as the implant placement — a poorly designed crown on a well-placed implant still produces a poor outcome.' },
   { question: 'Can I use my existing implants and get a new restoration at Huntington Beach Prosthodontics?', answer: 'Yes. If you have existing implants that were placed elsewhere and need a new crown, bridge, or denture, we can evaluate your implants and fabricate a new restoration to fit them. We work with all major implant systems and can identify your implant brand from X-rays and components to ensure a compatible restoration.' },
@@ -15,7 +15,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainE
 ---
 <BaseLayout
   title="Implant Restorations Huntington Beach | Crowns, Bridges & Implant Dentures"
-  description="Implant restorations in Huntington Beach include crowns, bridges, and dentures anchored to implants. Maximum stability and natural results. Call [PHONE]."
+  description="Implant restorations in Huntington Beach include crowns, bridges, and dentures anchored to implants. Maximum stability and natural results. Call (714) 846-1386."
   schema={[localBusiness, faqSchema]}
 >
   <section class="bg-brand-navy text-white py-16 md:py-24">
@@ -26,7 +26,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainE
           <span class="text-brand-gold">Crowns, Bridges, and Dentures on Implants</span>
         </h1>
         <p class="text-gray-300 text-lg leading-relaxed mb-8">
-          The restoration placed on your implant is as important as the implant itself. At Huntington Beach Prosthodontics, every implant crown, bridge, and denture is designed by Dr. [DOCTOR_NAME] for a result that looks, feels, and functions like natural teeth.
+          The restoration placed on your implant is as important as the implant itself. At Huntington Beach Prosthodontics, every implant crown, bridge, and denture is designed by Dr. Favian Cheong for a result that looks, feels, and functions like natural teeth.
         </p>
         <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule Your Restoration Consultation</a>
       </div>
@@ -41,7 +41,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainE
           Dental implant treatment has two critical phases: the surgical placement of the titanium post and the restorative placement of the prosthesis (crown, bridge, or denture) on top. Many patients receive excellent implant placement from an oral surgeon or periodontist, only to receive a mediocre restoration from a general dentist — resulting in poor aesthetics or bite problems that could have been avoided.
         </p>
         <p class="text-neutral-mid leading-relaxed mb-4">
-          At Huntington Beach Prosthodontics, Dr. [DOCTOR_NAME] specializes in the restorative phase. Whether you had your implant placed here or elsewhere, we design and deliver implant restorations that are: precisely shaped for natural emergence profile (the way the crown exits the gum line), shade-matched to your surrounding teeth with nuance and detail, and bite-calibrated for even force distribution that protects both the implant and surrounding teeth.
+          At Huntington Beach Prosthodontics, Dr. Favian Cheong specializes in the restorative phase. Whether you had your implant placed here or elsewhere, we design and deliver implant restorations that are: precisely shaped for natural emergence profile (the way the crown exits the gum line), shade-matched to your surrounding teeth with nuance and detail, and bite-calibrated for even force distribution that protects both the implant and surrounding teeth.
         </p>
         <p class="text-neutral-mid leading-relaxed mb-6">
           Explore the specific types of implant restorations we provide: <a href="/implant-restorations/crowns" class="text-brand-blue hover:underline">implant crowns</a> for single tooth replacement, <a href="/implant-restorations/bridges" class="text-brand-blue hover:underline">implant bridges</a> for multiple adjacent missing teeth, <a href="/implant-restorations/dentures" class="text-brand-blue hover:underline">implant-supported dentures</a> for full arch rehabilitation, and <a href="/implant-restorations/snap-on" class="text-brand-blue hover:underline">snap-on dentures</a> for the most affordable implant retention option.

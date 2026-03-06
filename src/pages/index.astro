@@ -8,16 +8,16 @@ const localBusiness = {
   '@type': 'Dentist',
   'name': 'Huntington Beach Prosthodontics',
   'url': 'https://hbimplants.com',
-  'telephone': '[PHONE]',
+  'telephone': '(714) 846-1386',
   'address': {
     '@type': 'PostalAddress',
-    'streetAddress': '[STREET]',
+    'streetAddress': '16141 Bolsa Chica St., Suite C',
     'addressLocality': 'Huntington Beach',
     'addressRegion': 'CA',
-    'postalCode': '[ZIP]',
+    'postalCode': '92649',
     'addressCountry': 'US',
   },
-  'openingHours': ['[HOURS]'],
+  'openingHours': ['Mo 09:00-17:00', 'We 09:00-17:00', 'Fr 09:00-17:00', 'Sa 10:00-14:00'],
   'priceRange': '$$$$',
   'medicalSpecialty': 'Prosthodontics',
 };
@@ -225,7 +225,7 @@ const faqs = [
             When it comes to dental implants, veneers, or full-mouth reconstruction, the difference between a general dentist and a prosthodontist isn't subtle — it's fundamental. Prosthodontists complete 3 additional years of residency training dedicated entirely to complex tooth restoration and replacement.
           </p>
           <p class="text-neutral-mid leading-relaxed mb-6">
-            At Huntington Beach Prosthodontics, Dr. [DOCTOR_NAME] brings that specialized expertise to every case. Whether you need a single implant or a full-arch transformation, you're in the hands of someone who does nothing else, every day, at the highest level.
+            At Huntington Beach Prosthodontics, Dr. Favian Cheong brings that specialized expertise to every case. Whether you need a single implant or a full-arch transformation, you're in the hands of someone who does nothing else, every day, at the highest level.
           </p>
           <ul class="space-y-3">
             {[
@@ -244,7 +244,7 @@ const faqs = [
             ))}
           </ul>
           <div class="mt-8">
-            <a href="/about" class="btn-primary">Meet Dr. [DOCTOR_NAME]</a>
+            <a href="/about" class="btn-primary">Meet Dr. Favian Cheong</a>
           </div>
         </div>
 
@@ -274,6 +274,58 @@ const faqs = [
             <a href="/schedule" class="btn-primary w-full block">Schedule Free Consultation</a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="section-heading mb-4">What Our Patients Say</h2>
+        <div class="flex items-center justify-center gap-1 mb-2">
+          {[1,2,3,4,5].map(() => (
+            <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+            </svg>
+          ))}
+        </div>
+        <p class="text-neutral-mid text-sm">Rated 5 stars by patients in Huntington Beach and beyond</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          {
+            quote: 'Dr. Cheong transformed my smile completely. I can\'t thank him enough for the exceptional care I received! Highly recommend!',
+            name: 'Lindsey U.',
+            location: 'Huntington Beach',
+          },
+          {
+            quote: 'Dr. Cheong\'s office and team are incredible... I drive from Newport Beach to see them. Excellent experience.',
+            name: 'Spencer L.',
+            location: 'Newport Beach',
+          },
+          {
+            quote: 'By far the best dental experience I\'ve ever had. Amazing service and quality care. Dr. Cheong is simply the best dentist in So-Cal. Efficient, honest, skilled and super chill.',
+            name: 'Michelle L.',
+            location: 'Southern California',
+          },
+        ].map((t) => (
+          <div class="bg-brand-light rounded-xl p-6 flex flex-col">
+            <div class="flex gap-0.5 mb-4">
+              {[1,2,3,4,5].map(() => (
+                <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              ))}
+            </div>
+            <p class="text-neutral-mid leading-relaxed text-sm flex-1 mb-4 italic">"{t.quote}"</p>
+            <div>
+              <div class="font-semibold text-brand-navy text-sm">{t.name}</div>
+              <div class="text-xs text-neutral-mid">{t.location}</div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>

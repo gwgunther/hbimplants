@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import FAQBlock from '../../components/FAQBlock.astro';
 
-const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '(714) 846-1386', 'address': { '@type': 'PostalAddress', 'streetAddress': '16141 Bolsa Chica St., Suite C', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '92649', 'addressCountry': 'US' }, 'openingHours': ['Mo 09:00-17:00', 'We 09:00-17:00', 'Fr 09:00-17:00', 'Sa 10:00-14:00'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
 const procedureSchema = { '@context': 'https://schema.org', '@type': 'MedicalProcedure', 'name': 'All-on-4 / All-on-X Full Arch Dental Implants', 'description': 'All-on-4 and All-on-X implant procedures replace an entire arch of teeth using 4–6 strategically placed dental implants supporting a fixed, permanent prosthesis.', 'procedureType': 'https://schema.org/TherapeuticProcedure', 'bodyLocation': 'Mouth', 'followup': 'As recommended by your prosthodontist' };
 const faqs = [
   { question: 'What is All-on-4 and how is it different from regular implants?', answer: 'All-on-4 (also called All-on-X) is a full-arch implant procedure where 4–6 implants support an entire arch of teeth — upper, lower, or both. Unlike individual implants that replace one tooth each, All-on-4 uses 4 strategically placed implants as anchors for a fixed prosthesis holding all your teeth. The posterior implants are angled (typically 30–45 degrees) to take advantage of denser bone and avoid sinus cavities, often eliminating the need for bone grafting.' },
@@ -17,7 +17,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainE
 ---
 <BaseLayout
   title="All-on-4 Huntington Beach | Full Arch Dental Implants & Teeth in a Day"
-  description="All-on-4 dental implants in Huntington Beach, CA. Replace an entire arch of teeth with just 4 implants in one day. Board-certified prosthodontist. Call [PHONE]."
+  description="All-on-4 dental implants in Huntington Beach, CA. Replace an entire arch of teeth with just 4 implants in one day. Board-certified prosthodontist. Call (714) 846-1386."
   schema={[localBusiness, procedureSchema, faqSchema]}
 >
   <section class="bg-brand-navy text-white py-16 md:py-24">
@@ -50,7 +50,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainE
           The procedure is transformative. Patients who have struggled with uncomfortable dentures, who are missing most of their teeth, or who have failing teeth requiring extraction are ideal candidates. All-on-4 delivers a complete set of fixed teeth — you eat, speak, and smile with full confidence. Unlike dentures, they do not slip, require no adhesives, and do not come out at night.
         </p>
         <p class="text-neutral-mid leading-relaxed mb-6">
-          At Huntington Beach Prosthodontics, Dr. [DOCTOR_NAME] provides comprehensive All-on-4 care — from the initial 3D planning through the final prosthesis delivery. The ability to handle both the surgical coordination and the restorative design in one specialist practice is a significant advantage for outcome quality. Learn more about our specific <a href="/all-on-x/all-on-4" class="text-brand-blue hover:underline">All-on-4 implant procedure</a> or explore <a href="/all-on-x/full-arch" class="text-brand-blue hover:underline">full arch implant options</a>.
+          At Huntington Beach Prosthodontics, Dr. Favian Cheong provides comprehensive All-on-4 care — from the initial 3D planning through the final prosthesis delivery. The ability to handle both the surgical coordination and the restorative design in one specialist practice is a significant advantage for outcome quality. Learn more about our specific <a href="/all-on-x/all-on-4" class="text-brand-blue hover:underline">All-on-4 implant procedure</a> or explore <a href="/all-on-x/full-arch" class="text-brand-blue hover:underline">full arch implant options</a>.
         </p>
 
         <h2 class="section-subheading mt-10 mb-6">All-on-X vs. Traditional Dentures vs. Individual Implants</h2>
@@ -88,7 +88,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainE
           All-on-4 is among the most technically demanding procedures in dentistry. It requires precise implant angulation, sophisticated occlusal planning, and expert prosthetic design. Mistakes in any of these areas lead to implant failure, prosthesis fracture, or bite problems — outcomes that are costly and painful to correct.
         </p>
         <p class="text-neutral-mid leading-relaxed mb-4">
-          Prosthodontists receive the deepest training in full-arch rehabilitation. Dr. [DOCTOR_NAME] applies specialist-level knowledge to every All-on-4 case: 3D surgical planning, implant angulation optimization, immediate-load protocols, and high-quality prosthetic fabrication. The result is a fixed arch that functions comfortably for decades.
+          Prosthodontists receive the deepest training in full-arch rehabilitation. Dr. Favian Cheong applies specialist-level knowledge to every All-on-4 case: 3D surgical planning, implant angulation optimization, immediate-load protocols, and high-quality prosthetic fabrication. The result is a fixed arch that functions comfortably for decades.
         </p>
         <p class="text-neutral-mid leading-relaxed">
           If you are considering All-on-4, also explore our <a href="/all-on-x/all-on-6" class="text-brand-blue hover:underline">All-on-6 option</a> for maximum stability, <a href="/all-on-x/full-mouth-reconstruction" class="text-brand-blue hover:underline">full mouth reconstruction</a> for complex cases, or our <a href="/dentures" class="text-brand-blue hover:underline">denture alternatives</a> comparison. For patients who want a removable implant solution, our <a href="/implant-restorations/snap-on" class="text-brand-blue hover:underline">snap-on denture</a> option may also be suitable.

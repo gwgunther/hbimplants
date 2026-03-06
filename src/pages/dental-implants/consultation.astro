@@ -3,9 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABlock from '../../components/CTABlock.astro';
 import FAQBlock from '../../components/FAQBlock.astro';
 
-const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '(714) 846-1386', 'address': { '@type': 'PostalAddress', 'streetAddress': '16141 Bolsa Chica St., Suite C', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '92649', 'addressCountry': 'US' }, 'openingHours': ['Mo 09:00-17:00', 'We 09:00-17:00', 'Fr 09:00-17:00', 'Sa 10:00-14:00'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
 const faqs = [
-  { question: 'What happens at my dental implant consultation?', answer: 'Your consultation includes a review of your medical and dental history, an oral examination, a 3D CBCT scan of your jaw (if not done recently), and a detailed discussion of your tooth replacement options. Dr. [DOCTOR_NAME] will explain your candidacy, any preparatory steps like bone grafting, the full treatment timeline, and the expected investment. You will leave with a clear written treatment plan.' },
+  { question: 'What happens at my dental implant consultation?', answer: 'Your consultation includes a review of your medical and dental history, an oral examination, a 3D CBCT scan of your jaw (if not done recently), and a detailed discussion of your tooth replacement options. Dr. Favian Cheong will explain your candidacy, any preparatory steps like bone grafting, the full treatment timeline, and the expected investment. You will leave with a clear written treatment plan.' },
   { question: 'Is the implant consultation free?', answer: 'Yes — initial consultations at Huntington Beach Prosthodontics are complimentary for implant patients. The 3D CBCT scan may have a separate fee depending on your insurance coverage. We confirm any fees with you before the appointment.' },
   { question: 'Do I need a referral from my dentist to see a prosthodontist?', answer: 'No referral is needed. You can call or request an appointment directly through our website. Many of our patients self-refer after researching dental implants online. We coordinate with your general dentist after treatment as needed.' },
   { question: 'How do I prepare for my implant consultation?', answer: 'Bring your dental insurance card, a list of current medications (including supplements), and any recent dental X-rays if available. If you have dentures, bring them so we can evaluate fit and aesthetics. If you have specific concerns or questions, write them down so you don\'t forget during your appointment.' },
@@ -15,7 +15,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainE
 ---
 <BaseLayout
   title="Free Dental Implant Consultation Huntington Beach | HB Prosthodontics"
-  description="Schedule your free dental implant consultation in Huntington Beach. Get a personalized implant plan from Dr. [DOCTOR_NAME], board-certified prosthodontist."
+  description="Schedule your free dental implant consultation in Huntington Beach. Get a personalized implant plan from Dr. Favian Cheong, board-certified prosthodontist."
   schema={[localBusiness, faqSchema]}
 >
   <section class="bg-brand-navy text-white py-16 md:py-20">
@@ -26,7 +26,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainE
           <span class="text-brand-gold">in Huntington Beach, CA</span>
         </h1>
         <p class="text-gray-300 text-lg leading-relaxed mb-8">
-          Get a comprehensive, no-obligation evaluation from Dr. [DOCTOR_NAME], board-certified prosthodontist. You'll leave with a clear treatment plan, timeline, and investment summary — no pressure, no guesswork.
+          Get a comprehensive, no-obligation evaluation from Dr. Favian Cheong, board-certified prosthodontist. You'll leave with a clear treatment plan, timeline, and investment summary — no pressure, no guesswork.
         </p>
         <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Book My Free Consultation</a>
       </div>
@@ -41,10 +41,10 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainE
           <div class="space-y-4">
             {[
               { title: '3D CBCT Scan Analysis', desc: 'We analyze your jawbone volume, bone density, nerve pathways, and sinus anatomy to determine implant feasibility and plan precise placement.' },
-              { title: 'Comprehensive Oral Exam', desc: 'Dr. [DOCTOR_NAME] evaluates your gum health, remaining teeth, bite relationship, and overall oral health as it relates to implant success.' },
+              { title: 'Comprehensive Oral Exam', desc: 'Dr. Favian Cheong evaluates your gum health, remaining teeth, bite relationship, and overall oral health as it relates to implant success.' },
               { title: 'Customized Treatment Plan', desc: 'You receive a written treatment plan including all procedures, their sequence, and timing — from bone grafting (if needed) through final crown placement.' },
               { title: 'Transparent Fee Estimate', desc: 'We provide an itemized cost breakdown and review your insurance benefits so you know exactly what to expect financially before committing.' },
-              { title: 'Q&A with the Specialist', desc: 'Bring every question you have. Dr. [DOCTOR_NAME] takes time to address your concerns thoroughly, because informed patients make better decisions and have better outcomes.' },
+              { title: 'Q&A with the Specialist', desc: 'Bring every question you have. Dr. Favian Cheong takes time to address your concerns thoroughly, because informed patients make better decisions and have better outcomes.' },
             ].map(item => (
               <div class="flex gap-4">
                 <svg class="w-5 h-5 text-brand-gold flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
