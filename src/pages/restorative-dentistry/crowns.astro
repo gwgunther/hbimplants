@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const faqs = [
+  { question: 'What is a dental crown and when do I need one?', answer: 'A dental crown is a tooth-shaped cap that fits over the entire visible portion of a tooth, restoring its original shape, size, and function. Crowns are indicated when: a tooth is fractured or cracked, decay is too extensive for a filling, a tooth has undergone root canal treatment (which weakens the structure), a tooth is severely worn, or for cosmetic restoration of a misshapen tooth. Crowns are also used to anchor dental bridges and to cap implant abutments.' },
+  { question: 'What materials are dental crowns made from?', answer: 'Modern dental crowns are most commonly made from: (1) IPS e.max lithium disilicate — a glass-ceramic that provides exceptional translucency and shade matching, ideal for front teeth; (2) Monolithic zirconia — extremely strong, appropriate for back teeth with heavy bite forces; (3) PFM (porcelain-fused-to-metal) — an older standard, still used in some cases; (4) Full-cast metal — gold alloys, used in some posterior situations. Dr. [DOCTOR_NAME] selects the optimal material based on the tooth position, bite forces, adjacent tooth shade, and gum tissue characteristics.' },
+  { question: 'How long does the crown procedure take?', answer: 'A dental crown typically requires two appointments spaced 2–3 weeks apart. At the first appointment, the tooth is prepared (reshaped), impressions or digital scans are taken, and a temporary crown is placed. The permanent crown is fabricated by a dental laboratory during the interim. At the second appointment, the temporary is removed, the permanent crown is tried in for fit and aesthetics, then permanently cemented. Each appointment takes approximately 60–90 minutes.' },
+  { question: 'Does getting a crown hurt?', answer: 'Crown preparation is performed under local anesthesia — you should feel nothing during the procedure. Mild sensitivity to temperature and pressure may occur for a few days after the preparation appointment while the temporary crown is in place. After final cementation, most patients have no significant discomfort. Any sensitivity that persists beyond 2–3 weeks after final placement should be reported to your dentist.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="Dental Crowns Huntington Beach | Porcelain & Zirconia Crowns by a Prosthodontist"
+  description="Dental crowns in Huntington Beach designed and placed by a prosthodontist. IPS e.max and zirconia crowns matched precisely to your natural teeth. Call [PHONE]."
+  schema={[localBusiness, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">
+          Dental Crowns Huntington Beach —<br />
+          <span class="text-brand-gold">Prosthodontist-Designed for Precision and Longevity</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">A dental crown restores a damaged, weakened, or root-canal-treated tooth to full function and natural appearance. At Huntington Beach Prosthodontics, every crown is designed by a specialist with dedicated training in material science, occlusion, and esthetic dentistry.</p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule Your Crown Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <h2 class="section-heading mb-6">Why Crown Design Requires a Specialist</h2>
+      <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+        A dental crown may seem straightforward, but it involves a series of interdependent decisions that significantly affect the long-term outcome. The preparation design (how much tooth structure to remove and in what shape) must be conservative enough to preserve the tooth yet adequate for the chosen material's minimum thickness requirements. The shade must be matched not just to an adjacent tooth's base color, but to its translucency, value, and surface texture.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-4">
+        The crown's emergence profile — the shape as it exits the gumline — must be contoured to maintain healthy gum tissue contact without creating areas that trap plaque. The occlusal contacts (how the crown meets the opposing teeth) must be calibrated to distribute bite forces correctly, preventing premature wear on both the crown and its neighbors. These details separate a well-made crown that lasts 20 years from a poorly designed one that fails in five.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-4">
+        Dr. [DOCTOR_NAME]'s prosthodontic training included dedicated coursework in material science, occlusal analysis, shade analysis, and esthetic principles — the precise skill set required to design crowns that perform optimally over decades. Every crown at Huntington Beach Prosthodontics is sent to a certified dental laboratory with detailed prescription notes, digital scans, and shade photographs to ensure the laboratory technician has everything needed to fabricate an exceptional restoration.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-6">
+        For teeth that are missing rather than damaged, see our <a href="/implant-restorations/crowns" class="text-brand-blue hover:underline">implant crown page</a> or <a href="/restorative-dentistry/bridges" class="text-brand-blue hover:underline">dental bridges</a> for multi-tooth replacement options.
+      </p>
+
+      <h2 class="section-subheading mt-10 mb-6">Crown Material Selection by Situation</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        {[
+          { label: 'Front Teeth (Esthetic Zone)', mat: 'IPS e.max Lithium Disilicate', why: 'Matches translucency and shade variation of natural enamel. Highest esthetic result.' },
+          { label: 'Back Teeth (Heavy Bite Forces)', mat: 'Monolithic Zirconia', why: 'Exceptional fracture resistance, no porcelain to chip. Ideal for molars and grinders.' },
+          { label: 'Thin Gum Tissue', mat: 'Metal-Free Ceramic (e.max / Zirconia)', why: 'No metal substructure means no dark shadow at the gumline.' },
+          { label: 'Very Large Restorations', mat: 'Zirconia or PFM', why: 'Zirconia and PFM provide added strength for heavily restored tooth structures.' },
+        ].map(item => (
+          <div class="card">
+            <div class="text-xs font-semibold uppercase tracking-wide text-brand-blue mb-1">{item.label}</div>
+            <div class="font-serif font-semibold text-brand-navy mb-1">{item.mat}</div>
+            <p class="text-neutral-mid text-sm">{item.why}</p>
+          </div>
+        ))}
+      </div>
+
+      <a href="/schedule" class="btn-primary">Schedule Your Crown Evaluation</a>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Dental Crown FAQ" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

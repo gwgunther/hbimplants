@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const faqs = [
+  { question: 'What is the difference between cosmetic dentistry and prosthodontics?', answer: '"Cosmetic dentistry" is not a recognized dental specialty — any licensed dentist can call themselves a cosmetic dentist. Prosthodontics is the ADA-recognized specialty that focuses on the restoration and replacement of teeth. Prosthodontists complete 3 additional years of training after dental school, which includes comprehensive cosmetic training. At Huntington Beach Prosthodontics, cosmetic procedures are performed by a board-certified specialist with a higher level of training than most "cosmetic dentists."' },
+  { question: 'What cosmetic dental procedures do you offer?', answer: 'We offer the full spectrum of cosmetic dentistry including porcelain veneers, teeth whitening (in-office and take-home), dental bonding, gum contouring, smile makeovers (combining multiple procedures), and cosmetic implant crowns. Many patients combine procedures for a complete transformation that addresses both aesthetics and function.' },
+  { question: 'Does dental insurance cover cosmetic procedures?', answer: 'Most dental insurance plans do not cover elective cosmetic procedures like veneers and whitening. However, some restorative procedures with cosmetic benefits (like implants, crowns, and bonding for chips from injury) may be partially covered. We verify your benefits and maximize what coverage is available before beginning treatment.' },
+  { question: 'How do I know which cosmetic procedure is right for me?', answer: 'The right procedure depends on the specific concerns you want to address, the condition of your existing teeth, your bite, and your goals. Veneers are ideal for multiple teeth with color, shape, or minor alignment issues. Whitening works best for surface and intrinsic staining on otherwise healthy, well-shaped teeth. Bonding is best for minor chips and gaps. Implants are needed for missing teeth. Your consultation with Dr. [DOCTOR_NAME] will clarify which approach delivers the result you want.' },
+  { question: 'How long do cosmetic dental results last?', answer: 'Porcelain veneers: 10–20 years. Teeth whitening: 6 months to 3 years depending on diet and habits. Dental bonding: 5–10 years. Implant crowns: 15–25 years. Proper maintenance, regular professional cleanings, and avoiding habits like nail biting significantly extend the life of all cosmetic work.' },
+  { question: 'Will cosmetic dental work look natural?', answer: 'When designed by a prosthodontist with specialized aesthetic training, yes — emphatically. Dr. [DOCTOR_NAME] prioritizes results that look like the best version of your natural smile, not results that look obviously "done." The goal is for people to notice that you look great and confident, not that you have dental work.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="Cosmetic Dentist Huntington Beach | Prosthodontist-Level Smile Design"
+  description="Cosmetic dentistry in Huntington Beach from a board-certified prosthodontist. Veneers, whitening, bonding, and complete smile makeovers. Call [PHONE]."
+  schema={[localBusiness, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          Cosmetic Dentist Huntington Beach —<br />
+          <span class="text-brand-gold">Smile Enhancement at the Specialist Level</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          At Huntington Beach Prosthodontics, cosmetic dentistry is not a side service — it's part of our specialist DNA. Every cosmetic procedure is planned and delivered by Dr. [DOCTOR_NAME], board-certified prosthodontist, with the precision that only specialty training provides.
+        </p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule Cosmetic Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="section-heading mb-4">Cosmetic Dentistry Services in Huntington Beach</h2>
+        <p class="text-neutral-mid max-w-2xl mx-auto leading-relaxed">From single-tooth improvements to complete smile makeovers — every cosmetic procedure at our Huntington Beach practice is planned with specialist precision.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {[
+          { title: 'Porcelain Veneers', desc: 'Ultra-thin ceramic shells that transform color, shape, and alignment. The most dramatic single-visit cosmetic improvement available.', href: '/veneers' },
+          { title: 'Smile Makeover', desc: 'A customized combination of procedures designed around your unique facial features, goals, and timeline.', href: '/veneers/smile-makeover' },
+          { title: 'Teeth Whitening', desc: 'In-office whitening for same-day results or custom take-home trays for gradual brightening at your own pace.', href: '/cosmetic-dentistry/whitening' },
+          { title: 'Dental Bonding', desc: 'Same-day repair of chips, cracks, gaps, and discoloration using tooth-colored composite resin.', href: '/cosmetic-dentistry/bonding' },
+          { title: 'Implant Crowns', desc: 'Custom-designed crowns for dental implants that perfectly match your natural teeth in color and shape.', href: '/implant-restorations/crowns' },
+          { title: 'Gum Contouring', desc: 'Reshaping an uneven gumline to create a more balanced, symmetrical smile — often combined with veneers.', href: '/schedule' },
+        ].map(svc => (
+          <a href={svc.href} class="card hover:shadow-lg hover:border-brand-blue transition-all duration-200 group">
+            <h3 class="font-serif text-xl font-semibold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">{svc.title}</h3>
+            <p class="text-neutral-mid text-sm leading-relaxed mb-3">{svc.desc}</p>
+            <span class="text-brand-blue text-sm font-semibold">Learn more →</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-heading mb-6">Why a Prosthodontist Is Your Best Cosmetic Dentist</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          "Cosmetic dentistry" is marketing language. There is no ADA-recognized specialty of cosmetic dentistry — any licensed dentist can use the term. Prosthodontics is different: it is the recognized specialty that focuses on the restoration and replacement of teeth, which inherently includes the highest level of cosmetic training.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          Prosthodontists study facial aesthetics, dental proportions, shade science, and material behavior at a depth that general dental education simply does not reach. The result is cosmetic work that accounts for how your teeth relate to your lips, face, and bite — not just how the teeth themselves look in isolation. This holistic approach is what separates beautiful, long-lasting cosmetic work from work that looks good in photos but fails clinically over time.
+        </p>
+        <p class="text-neutral-mid leading-relaxed">
+          If you're investing in your smile, invest with a specialist. Explore <a href="/veneers" class="text-brand-blue hover:underline">porcelain veneers</a>, read about <a href="/restorative-dentistry" class="text-brand-blue hover:underline">restorative dentistry</a> options, or <a href="/schedule" class="text-brand-blue hover:underline">schedule your consultation</a> today.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Cosmetic Dentistry FAQ — Huntington Beach" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const faqs = [
+  { question: 'What is the difference between a regular cleaning and a deep cleaning?', answer: 'A regular prophylaxis (preventive cleaning) removes plaque and calculus from above the gumline and slightly below in healthy gum pockets. A deep cleaning (scaling and root planing) is a therapeutic procedure for patients with periodontal disease, treating pockets that are 4mm or deeper. Deep cleaning involves removing calculus from deeper below the gumline and smoothing (planing) the root surfaces to eliminate bacterial toxins and allow the gum tissue to reattach. Deep cleaning is typically done in two appointments (one side of the mouth at a time) with local anesthesia.' },
+  { question: 'How do I know if I have gum disease?', answer: 'Early gum disease (gingivitis) often causes no pain but produces symptoms like bleeding gums during brushing, red or swollen gum tissue, and persistent bad breath. Advanced gum disease (periodontitis) may cause gum recession, loose teeth, bone loss visible on X-rays, and deep pockets on probing. The only reliable way to diagnose gum disease and measure its severity is through a dental examination with periodontal probing and X-rays — which is why regular check-ups are essential even in the absence of symptoms.' },
+  { question: 'How often should patients with implants get cleanings?', answer: 'Patients with dental implants should generally maintain more frequent cleaning intervals — every 3–4 months — especially in the first year after implant placement. This allows close monitoring of peri-implant tissue health. Peri-implantitis (bacterial infection around an implant) can progress rapidly if untreated and may lead to implant loss. More frequent cleanings significantly reduce this risk by controlling bacterial load and detecting problems early.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="Dental Cleanings Huntington Beach | Professional Teeth Cleaning & Periodontal Care"
+  description="Professional dental cleanings in Huntington Beach at a prosthodontic specialist practice. Routine and deep cleanings, periodontal maintenance, and implant-specific care."
+  schema={[localBusiness, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">
+          Dental Cleanings Huntington Beach —<br />
+          <span class="text-brand-gold">Professional Care That Protects Your Whole Investment</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">Professional dental cleanings remove what brushing and flossing cannot — calculus that hardens on teeth and implants and drives gum disease. At Huntington Beach Prosthodontics, every cleaning is an opportunity to monitor the health of your natural teeth and all dental restorations.</p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule Your Cleaning</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <h2 class="section-heading mb-6">Why Cleanings Matter More When You Have Restorations</h2>
+      <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+        Professional dental cleanings are essential for everyone — but they take on additional importance for patients who have invested in restorative or implant dentistry. Dental implants, crowns, bridges, and veneers can all be undermined by gum disease and bone loss. The bacteria that cause periodontal disease do not distinguish between natural teeth and implants: peri-implantitis (infection around an implant) is one of the leading causes of implant failure, and it is almost always preventable with proper maintenance.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-4">
+        During your cleaning appointment, our hygienist removes calculus (tartar) using both ultrasonic instruments and hand scalers. Calculus cannot be removed by brushing — it is mineralized plaque that adheres to tooth and implant surfaces and harbors the bacteria responsible for gum disease. Once removed, teeth and implant surfaces are polished to remove surface staining and reduce the adhesion surface for future plaque accumulation.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-4">
+        Your cleaning appointment also includes periodontal probing — measuring the depth of the pockets between your gums and teeth (or gums and implants). Healthy pockets are 1–3mm. Pockets of 4mm or more indicate gum disease is developing or present. This measurement, taken and recorded at every visit, provides an objective trend line that identifies any deterioration early — before it becomes a significant problem.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-6">
+        For patients with a history of periodontal disease or with multiple implants, we may recommend 3–4 month recall intervals rather than the standard 6-month schedule. More frequent cleanings in these situations are supported by extensive clinical evidence and can mean the difference between maintaining a healthy implant indefinitely and losing it to infection.
+      </p>
+      <a href="/schedule" class="btn-primary">Schedule Your Cleaning Appointment</a>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Dental Cleaning FAQ" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

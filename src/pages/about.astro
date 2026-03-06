@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABlock from '../components/CTABlock.astro';
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  'name': 'Huntington Beach Prosthodontics',
+  'url': 'https://hbimplants.com',
+  'telephone': '[PHONE]',
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': '[STREET]',
+    'addressLocality': 'Huntington Beach',
+    'addressRegion': 'CA',
+    'postalCode': '[ZIP]',
+    'addressCountry': 'US',
+  },
+  'openingHours': ['[HOURS]'],
+  'priceRange': '$$$$',
+  'medicalSpecialty': 'Prosthodontics',
+};
+---
+
+<BaseLayout
+  title="About Dr. [DOCTOR_NAME] | Prosthodontist in Huntington Beach, CA"
+  description="Meet Dr. [DOCTOR_NAME], [DOCTOR_CREDENTIALS], a board-certified prosthodontist at Huntington Beach Prosthodontics. Specializing in dental implants, veneers, and smile restoration."
+  schema={localBusiness}
+>
+  <!-- Hero -->
+  <section class="bg-brand-navy text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-brand-gold text-sm font-semibold uppercase tracking-wide mb-3">About Our Practice</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">
+          Meet Dr. [DOCTOR_NAME],<br />
+          <span class="text-brand-gold">Your Huntington Beach Prosthodontist</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Board-certified prosthodontist dedicated to restoring smiles and changing lives through advanced implant dentistry and cosmetic restoration.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor Bio -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <!-- Placeholder for doctor photo -->
+          <div class="bg-brand-light rounded-2xl aspect-[4/5] flex items-center justify-center">
+            <div class="text-center text-neutral-mid">
+              <svg class="w-24 h-24 mx-auto mb-4 text-neutral-border" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+              <p class="text-sm">Dr. [DOCTOR_NAME]<br />[DOCTOR_CREDENTIALS]</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="section-heading mb-6">A Specialist Dedicated to Your Best Smile</h2>
+
+          <p class="text-neutral-mid leading-relaxed mb-4">
+            Dr. [DOCTOR_NAME] founded Huntington Beach Prosthodontics with a single mission: to bring specialist-level care to patients who deserve more than what a general dentist can offer. As a board-certified prosthodontist, Dr. [DOCTOR_NAME] completed three years of advanced residency training beyond dental school, focusing exclusively on the art and science of restoring and replacing teeth.
+          </p>
+
+          <p class="text-neutral-mid leading-relaxed mb-4">
+            Prosthodontics is the dental specialty recognized by the American Dental Association that deals with complex tooth replacement, oral rehabilitation, and the aesthetic restoration of smiles. That means when you come to Huntington Beach Prosthodontics, you're not seeing a generalist who does implants on the side — you're seeing someone whose entire career is built around exactly the procedure you need.
+          </p>
+
+          <p class="text-neutral-mid leading-relaxed mb-6">
+            Dr. [DOCTOR_NAME] has restored thousands of smiles in Huntington Beach, CA and the surrounding communities, including patients who have struggled with tooth loss, implant failures elsewhere, complex cosmetic cases, and full-mouth reconstructions. Every case is approached with meticulous attention to detail, advanced 3D imaging, and a commitment to outcomes that are both functional and beautiful.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            {[
+              { label: 'Specialty Training', value: '3 Additional Years' },
+              { label: 'Board Certification', value: 'American Board of Prosthodontics' },
+              { label: 'Specialty', value: 'Prosthodontics (ADA Recognized)' },
+              { label: 'Focus Areas', value: 'Implants, Full Arch, Veneers' },
+            ].map((item) => (
+              <div class="bg-brand-light rounded-lg p-4">
+                <div class="text-xs text-neutral-mid font-medium uppercase tracking-wide mb-1">{item.label}</div>
+                <div class="font-semibold text-brand-navy">{item.value}</div>
+              </div>
+            ))}
+          </div>
+
+          <a href="/schedule" class="btn-primary">Schedule a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Philosophy -->
+  <section class="bg-brand-light py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="section-heading mb-4">Our Philosophy of Care</h2>
+        <p class="text-neutral-mid max-w-2xl mx-auto leading-relaxed">
+          We believe every patient deserves a customized treatment plan built around their specific anatomy, goals, and life circumstances — not a one-size-fits-all solution.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            title: 'Specialist Expertise',
+            desc: 'Prosthodontics is all we do. Every procedure, every day, at the highest level of dental specialty training.',
+          },
+          {
+            title: 'Technology-First Approach',
+            desc: 'Advanced 3D CBCT imaging, digital smile design, and CAD/CAM restorations deliver precision that manual methods cannot match.',
+          },
+          {
+            title: 'Patient-Centered Care',
+            desc: 'We take time to understand your concerns, your goals, and your budget before recommending any treatment.',
+          },
+        ].map((item) => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-border text-center">
+            <h3 class="font-serif text-xl font-semibold text-brand-navy mb-3">{item.title}</h3>
+            <p class="text-neutral-mid text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CTABlock heading="Meet Dr. [DOCTOR_NAME] In Person" subheading="Schedule your complimentary consultation and discover what specialist-level care can do for your smile." />
+    </div>
+  </section>
+</BaseLayout>

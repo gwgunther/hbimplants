@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, getEntry } from 'astro:content';
+import CTABlock from '../../components/CTABlock.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  'headline': post.data.title,
+  'description': post.data.description,
+  'datePublished': post.data.publishDate.toISOString(),
+  'dateModified': (post.data.updatedDate || post.data.publishDate).toISOString(),
+  'author': {
+    '@type': 'Organization',
+    'name': post.data.author,
+  },
+  'publisher': {
+    '@type': 'Organization',
+    'name': 'Huntington Beach Prosthodontics',
+    'url': 'https://hbimplants.com',
+  },
+};
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  'name': 'Huntington Beach Prosthodontics',
+  'url': 'https://hbimplants.com',
+  'telephone': '[PHONE]',
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': '[STREET]',
+    'addressLocality': 'Huntington Beach',
+    'addressRegion': 'CA',
+    'postalCode': '[ZIP]',
+    'addressCountry': 'US',
+  },
+  'openingHours': ['[HOURS]'],
+  'priceRange': '$$$$',
+  'medicalSpecialty': 'Prosthodontics',
+};
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogImage={post.data.featuredImage}
+  schema={[localBusiness, articleSchema]}
+>
+  <!-- Breadcrumb -->
+  <nav class="bg-brand-light border-b border-neutral-border py-3">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ol class="flex items-center gap-2 text-sm text-neutral-mid">
+        <li><a href="/" class="hover:text-brand-blue transition-colors">Home</a></li>
+        <li class="text-neutral-border">/</li>
+        <li><a href="/blog" class="hover:text-brand-blue transition-colors">Blog</a></li>
+        <li class="text-neutral-border">/</li>
+        <li class="text-brand-navy font-medium truncate">{post.data.title}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Article Header -->
+  <header class="bg-white py-12 md:py-16 border-b border-neutral-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-xs text-brand-blue font-semibold uppercase tracking-wide mb-3">
+        {post.data.category.replace(/-/g, ' ')}
+      </div>
+      <h1 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-brand-navy mb-6 leading-tight">
+        {post.data.title}
+      </h1>
+      <div class="flex items-center gap-4 text-sm text-neutral-mid">
+        <span>By {post.data.author}</span>
+        <span>·</span>
+        <time datetime={post.data.publishDate.toISOString()}>
+          {post.data.publishDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+        </time>
+        {post.data.updatedDate && (
+          <>
+            <span>·</span>
+            <span>Updated {post.data.updatedDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+          </>
+        )}
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Content -->
+  <article class="py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {post.data.featuredImage && (
+        <div class="mb-8 rounded-xl overflow-hidden">
+          <img
+            src={post.data.featuredImage}
+            alt={post.data.featuredImageAlt || post.data.title}
+            width="800"
+            height="450"
+            loading="eager"
+            fetchpriority="high"
+            class="w-full h-auto"
+          />
+        </div>
+      )}
+
+      <div class="prose-dental max-w-none">
+        <Content />
+      </div>
+    </div>
+  </article>
+
+  <!-- CTA -->
+  <section class="pb-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CTABlock />
+    </div>
+  </section>
+</BaseLayout>

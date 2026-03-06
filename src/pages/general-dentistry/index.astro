@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const faqs = [
+  { question: 'Does a prosthodontist do regular dental cleanings?', answer: 'Yes. Huntington Beach Prosthodontics provides preventive and general dental care including professional cleanings, oral examinations, X-rays, and cavity treatment. Many of our patients choose to have their preventive care here in addition to their specialty treatments, so all records are centralized and Dr. [DOCTOR_NAME] has complete visibility into their oral health — which is especially important for patients with implants, crowns, or complex restorations that require careful monitoring.' },
+  { question: 'How often should I get a dental cleaning?', answer: 'For most patients, professional cleanings every 6 months (twice per year) are sufficient to control tartar buildup, detect early decay, and screen for gum disease. Patients with a history of periodontal disease, active orthodontic treatment, implants, or multiple crowns and bridges may benefit from more frequent cleanings — every 3–4 months — to catch problems before they affect restorations. Your cleaning schedule is determined based on your individual oral health status.' },
+  { question: 'Do you accept new patients for general dentistry?', answer: 'Yes. We welcome new patients for all general dentistry services. If you are also interested in restorative or specialty treatment, your general dentistry appointments provide an excellent opportunity for comprehensive evaluation. We review your complete dental history and take baseline records so any future treatment planning has a complete foundation.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="General Dentistry Huntington Beach | Cleanings & Preventive Care at a Prosthodontist"
+  description="General dentistry in Huntington Beach including professional cleanings, exams, and X-rays at a prosthodontic specialist practice. Comprehensive care under one roof."
+  schema={[localBusiness, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          General Dentistry Huntington Beach —<br />
+          <span class="text-brand-gold">Preventive Care at a Specialist Practice</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          Preventive dental care — professional cleanings, comprehensive exams, and X-rays — is the foundation of long-term oral health. At Huntington Beach Prosthodontics, your preventive visits are conducted by or under the direct supervision of Dr. [DOCTOR_NAME], ensuring that any restorations, implants, or complex dental work you have receives specialist-level monitoring at every visit.
+        </p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule a Cleaning or Exam</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-heading mb-6">General Dentistry at a Prosthodontic Specialist</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+          Many patients with complex dental histories — multiple crowns, implants, bridges, veneers, or dentures — benefit from receiving their routine preventive care at the same practice that manages their restorations. Consolidating all care in one location means your complete dental record is always current, Dr. [DOCTOR_NAME] can spot early signs of problems with any restoration during your cleaning visit, and there is no coordination required between multiple practices when treatment planning becomes necessary.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          Professional dental cleanings remove calculus (tartar) that cannot be removed by brushing and flossing alone. Calculus buildup leads to gum disease, which in turn affects the supporting bone around both natural teeth and dental implants. For patients with implants, peri-implant disease (the implant analog of gum disease) is a significant concern — and catching it early at routine cleaning appointments can prevent implant loss.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-8">
+          Comprehensive examinations include digital X-rays (using low-radiation digital sensors), periodontal charting (measuring gum pocket depths), oral cancer screening, bite assessment, and evaluation of all existing restorations. For new patients, a complete records appointment establishes your baseline — the reference point against which all future changes are measured.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { title: 'Professional Cleanings', desc: 'Ultrasonic and hand-scaling to remove calculus above and below the gumline. Every 6 months for most patients.', href: '/general-dentistry/cleanings' },
+            { title: 'Comprehensive Exams', desc: 'Digital X-rays, periodontal charting, oral cancer screening, and full restoration assessment.', href: '/schedule' },
+            { title: 'Cavity Treatment', desc: 'Tooth-colored composite fillings and larger restorations when decay is present.', href: '/schedule' },
+            { title: 'Emergency Dental Care', desc: 'Urgent care for toothaches, broken teeth, and lost restorations.', href: '/schedule' },
+          ].map(r => (
+            <a href={r.href} class="card hover:shadow-lg hover:border-brand-blue transition-all group">
+              <h3 class="font-serif text-lg font-semibold text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">{r.title}</h3>
+              <p class="text-neutral-mid text-sm leading-relaxed mb-2">{r.desc}</p>
+              <span class="text-brand-blue text-sm font-semibold">Learn more →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="General Dentistry FAQ" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

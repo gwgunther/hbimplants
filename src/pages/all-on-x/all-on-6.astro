@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const procedureSchema = { '@context': 'https://schema.org', '@type': 'MedicalProcedure', 'name': 'All-on-6 Dental Implants', 'description': 'All-on-6 uses 6 dental implants to support a full arch prosthesis, offering enhanced stability and load distribution compared to All-on-4.', 'procedureType': 'https://schema.org/TherapeuticProcedure', 'bodyLocation': 'Mouth', 'followup': 'As recommended by your prosthodontist' };
+const faqs = [
+  { question: 'Who is All-on-6 best for?', answer: 'All-on-6 is ideal for patients with good bone density and volume across the full arch who want maximum implant support for their prosthesis. It is also commonly recommended for the upper arch (maxilla), where bone density is generally lower than the mandible (lower jaw), making additional implant support particularly beneficial. Patients with strong biting forces (bruxers) may also benefit from the additional stability.' },
+  { question: 'Is All-on-6 stronger than All-on-4?', answer: 'All-on-6 distributes bite forces across 6 implants rather than 4, which reduces the mechanical load per implant and can improve long-term prosthesis stability. This does not necessarily mean All-on-4 is inadequate — both protocols have excellent track records. The appropriate number of implants is determined by bone quality, bone volume, arch size, prosthesis design, and bite forces, not a one-size preference.' },
+  { question: 'How much does All-on-6 cost?', answer: 'All-on-6 typically costs $3,000–$8,000 more per arch than All-on-4, reflecting the additional implants and surgical time. The final investment depends on the type of prosthesis, any preparatory procedures, and your specific anatomy. We provide an itemized quote after your 3D consultation.' },
+  { question: 'Can I switch from All-on-4 to All-on-6?', answer: 'Yes, in many cases additional implants can be added to an existing All-on-4 restoration to convert it to All-on-6. This is sometimes done when a patient wants additional support after treatment or if an implant fails and needs a replacement. The feasibility depends on available bone and the design of the existing prosthesis.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="All-on-6 Dental Implants Huntington Beach | More Implants, More Stability"
+  description="All-on-6 dental implants in Huntington Beach offer maximum stability with 6 implant posts. Ideal for patients with strong bone. Prosthodontist-placed. Call [PHONE]."
+  schema={[localBusiness, procedureSchema, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-brand-gold text-sm font-semibold uppercase tracking-wide mb-3">All-on-X › All-on-6</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          All-on-6 Dental Implants in Huntington Beach —<br />
+          <span class="text-brand-gold">Enhanced Full Arch Support</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          All-on-6 uses 6 implants to support your full arch prosthesis — maximizing stability, distributing bite forces evenly, and providing an exceptional foundation for your permanent smile.
+        </p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule Your All-on-6 Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-heading mb-6">All-on-6: The Premium Full Arch Implant Solution</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+          While <a href="/all-on-x/all-on-4" class="text-brand-blue hover:underline">All-on-4</a> has an excellent clinical track record, All-on-6 takes full-arch implant support one step further. By distributing the load of your complete prosthesis across 6 implants rather than 4, each individual implant bears less mechanical stress — potentially extending both implant longevity and prosthesis lifespan.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          All-on-6 is particularly well-suited for patients with sufficient bone volume across the full arch, patients who are heavy grinders (bruxers), and patients choosing a larger, heavier final prosthesis material like monolithic full-zirconia. In the upper jaw, where bone is inherently less dense than the lower jaw, 6 implants often provide a more secure foundation.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-6">
+          The procedure timeline for All-on-6 is identical to All-on-4: same-day temporary prosthesis, 3–6 month osseointegration period, and final prosthesis delivery. The surgical procedure takes slightly longer due to the additional implants, but patients' recovery experience is comparable. If you are considering a <a href="/all-on-x/full-arch" class="text-brand-blue hover:underline">full arch restoration</a> or exploring <a href="/all-on-x/full-mouth-reconstruction" class="text-brand-blue hover:underline">full mouth reconstruction</a>, All-on-6 deserves serious consideration for patients with adequate bone.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {[
+            { label: 'Implants Used', value: '6 per arch' },
+            { label: 'Same-Day Teeth', value: 'Yes, in most cases' },
+            { label: 'Bone Graft Needed', value: 'Rarely if bone is sufficient' },
+          ].map(s => (
+            <div class="bg-brand-light rounded-xl p-6 text-center">
+              <div class="font-serif text-2xl font-bold text-brand-navy mb-1">{s.value}</div>
+              <div class="text-sm text-neutral-mid">{s.label}</div>
+            </div>
+          ))}
+        </div>
+        <a href="/schedule" class="btn-primary">Get Your All-on-6 Assessment</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="All-on-6 FAQ" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

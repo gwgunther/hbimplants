@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const faqs = [
+  { question: 'How long does dental bonding last?', answer: 'Dental bonding typically lasts 5–10 years with proper care. Composite resin is more porous than porcelain and more susceptible to staining from coffee, tea, and red wine. Avoiding these habits and maintaining good oral hygiene extends bonding longevity. Eventually, bonding can be touched up or replaced at the chair without significant preparation.' },
+  { question: 'When is bonding better than veneers?', answer: 'Bonding is preferred when: the correction is minor (a small chip, a subtle gap), the patient wants the most conservative and affordable option, or the correction is needed quickly (bonding is same-day). Veneers are superior for: multiple teeth with significant color or shape concerns, patients who want a longer-lasting result, or situations requiring precise shade control. We help you choose the right approach for your specific situation.' },
+  { question: 'Is dental bonding reversible?', answer: 'Yes — dental bonding is one of the most conservative cosmetic procedures. Minimal to no enamel is removed, and the resin is bonded to the existing tooth surface. Bonding can be removed, modified, or replaced at any future appointment. This makes it a good option for patients who want to "try out" a cosmetic improvement before committing to veneers.' },
+  { question: 'How much does dental bonding cost?', answer: 'Dental bonding typically costs $300–$600 per tooth, making it one of the most affordable cosmetic dental options. For minor chips or gaps affecting 1–2 teeth, bonding provides an excellent result at a fraction of the cost of veneers. Some bonding procedures for injury-related chips may be partially covered by insurance.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="Dental Bonding Huntington Beach | Cosmetic Tooth Repair HB, CA"
+  description="Dental bonding in Huntington Beach repairs chips, cracks, gaps, and discoloration in a single visit. Affordable cosmetic restoration. Call [PHONE]."
+  schema={[localBusiness, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">
+          Dental Bonding Huntington Beach —<br />
+          <span class="text-brand-gold">Repair Chips, Gaps, and Discoloration Same Day</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">Dental bonding is the fastest, most affordable cosmetic fix for minor imperfections — completed in a single appointment with no lab wait and minimal tooth preparation.</p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule a Bonding Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <h2 class="section-heading mb-6">What Is Dental Bonding?</h2>
+      <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+        Dental bonding uses tooth-colored composite resin to repair or improve the appearance of a tooth. The resin is applied directly to the tooth surface, sculpted to the desired shape, and hardened with a curing light — all in a single appointment. No laboratory wait time, no temporaries, no second visit.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-4">
+        Bonding is commonly used for: chipped or cracked teeth, small gaps between teeth (diastema closure), discolored teeth that don't respond to whitening, slightly misshapen teeth, and exposed root surfaces that are sensitive. It is the most conservative cosmetic option because little to no enamel removal is required.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-6">
+        While bonding is durable for its purpose, it is not as strong or stain-resistant as porcelain veneers. For patients with multiple teeth requiring cosmetic improvement or those who want the longest-lasting result, <a href="/veneers" class="text-brand-blue hover:underline">porcelain veneers</a> are the superior investment. For minor, isolated corrections, bonding delivers excellent results at a fraction of the cost. See our full <a href="/cosmetic-dentistry" class="text-brand-blue hover:underline">cosmetic dentistry</a> overview for all options.
+      </p>
+      <a href="/schedule" class="btn-primary">Schedule Your Same-Day Consultation</a>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Dental Bonding FAQ" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

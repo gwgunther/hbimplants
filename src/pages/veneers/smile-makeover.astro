@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const procedureSchema = { '@context': 'https://schema.org', '@type': 'MedicalProcedure', 'name': 'Smile Makeover', 'description': 'A smile makeover is a comprehensive cosmetic dental treatment plan combining multiple procedures — veneers, whitening, implants, bonding — to achieve a dramatic smile transformation.', 'procedureType': 'https://schema.org/TherapeuticProcedure', 'bodyLocation': 'Mouth', 'followup': 'As recommended by your prosthodontist' };
+const faqs = [
+  { question: 'What procedures are included in a smile makeover?', answer: 'A smile makeover is fully customized to each patient\'s needs and goals. Common procedures include: porcelain veneers (to reshape and whiten multiple teeth), teeth whitening (as a starting point or for non-veneered teeth), dental implants (to replace missing teeth), composite bonding (for minor chips or gaps), gum contouring (to create an even gumline), and dental crowns (for damaged or severely discolored teeth). Not every patient needs all procedures — the plan is built around what YOUR smile needs.' },
+  { question: 'How long does a smile makeover take?', answer: 'A straightforward smile makeover using veneers and whitening can be completed in 4–8 weeks. More complex cases involving implants, bone grafting, or orthodontic preparation may span 12–24 months. During your consultation, Dr. [DOCTOR_NAME] provides a detailed timeline for your specific treatment plan so you know exactly what to expect from start to finish.' },
+  { question: 'Is a smile makeover painful?', answer: 'Individual procedures within a smile makeover are performed under local anesthesia and are not painful during treatment. Post-procedure sensitivity (from veneer preparation or whitening) is typically mild and temporary. The overall experience is designed to be as comfortable as possible, and sedation options are available for patients with dental anxiety.' },
+  { question: 'How much does a smile makeover cost in Huntington Beach?', answer: 'Smile makeover costs vary widely based on the procedures involved. A whitening + bonding makeover may cost $1,000–$3,000. A full veneer makeover for 8–10 teeth typically ranges from $12,000–$25,000. Cases involving implants can range from $20,000–$50,000+. We provide a detailed, itemized treatment plan with associated fees so you can plan your investment with full transparency.' },
+  { question: 'Can I finance my smile makeover?', answer: 'Yes. We offer flexible financing options to help you achieve your smile goals without delay. Many patients finance their makeovers over 12–24 months with competitive interest rates. Dental insurance may cover some component procedures (like implants or crowns). Our treatment coordinator will review all payment options during your consultation.' },
+  { question: 'Will my new smile look natural?', answer: 'Absolutely — when designed by a prosthodontist with an eye for facial harmony and dental aesthetics. Dr. [DOCTOR_NAME] designs every smile makeover around your facial proportions, skin tone, lip shape, and personality. The goal is never teeth that look too white or too perfect — it\'s a smile that looks genuinely like the best version of yours, natural enough that people notice you look great but can\'t pinpoint why.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="Smile Makeover Huntington Beach | Cosmetic Dentist & Prosthodontist HB"
+  description="Smile makeover in Huntington Beach combining veneers, whitening, implants, and more. Custom cosmetic treatment plans from Dr. [DOCTOR_NAME]. Call [PHONE]."
+  schema={[localBusiness, procedureSchema, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-brand-gold text-sm font-semibold uppercase tracking-wide mb-3">Veneers › Smile Makeover</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          Smile Makeover in Huntington Beach —<br />
+          <span class="text-brand-gold">Your Most Beautiful Smile, Designed by a Specialist</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          A smile makeover is a customized combination of cosmetic procedures designed to transform your smile completely — addressing color, shape, alignment, and missing teeth in a single coordinated plan.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold text-center">Design My New Smile</a>
+          <a href="/veneers" class="btn-secondary text-base px-8 py-4 font-semibold text-center border-white text-white hover:bg-white hover:text-brand-navy">Learn About Veneers</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-heading mb-6">What Is a Smile Makeover?</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+          A smile makeover is not a single procedure — it's a comprehensive plan that combines whatever cosmetic and restorative treatments are needed to create your ideal smile. It begins with your goals, not a menu of services. What bothers you about your current smile? What do you wish were different? What aspects do you love and want to keep?
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          Dr. [DOCTOR_NAME] uses digital smile design technology to preview your transformation before any tooth is touched. Facial photography, digital planning software, and in some cases a digital wax-up allow you to preview the planned result and provide feedback. This design phase is critical — it ensures alignment between what you envision and what is clinically achievable.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-6">
+          Common procedures in a smile makeover include <a href="/veneers/porcelain" class="text-brand-blue hover:underline">porcelain veneers</a> for the visible front teeth, <a href="/cosmetic-dentistry/whitening" class="text-brand-blue hover:underline">teeth whitening</a> as a starting point, <a href="/dental-implants" class="text-brand-blue hover:underline">dental implants</a> if teeth are missing, <a href="/cosmetic-dentistry/bonding" class="text-brand-blue hover:underline">composite bonding</a> for minor corrections, and gum contouring if uneven gum levels affect aesthetics. Each case is different — your plan is built entirely around your unique needs.
+        </p>
+
+        <h2 class="section-subheading mt-10 mb-6">The Prosthodontist Advantage in Smile Design</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          Smile makeovers require the ability to see the whole picture — the relationship between teeth, gums, lips, facial proportions, and bite function. Prosthodontists receive the most comprehensive training in dental aesthetics of any dental specialty. While cosmetic dentistry is not a recognized specialty by the ADA (any dentist can call themselves a cosmetic dentist), prosthodontics is — and prosthodontic training includes deep coursework in aesthetic principles, occlusion, and full-arch design.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-6">
+          The result of prosthodontist-designed smile makeovers is consistently more harmonious, longer-lasting, and functionally correct than work done without that level of training and specialization. When your smile makeover is complete, you should have teeth that look and function beautifully for the next 15–20+ years.
+        </p>
+        <a href="/schedule" class="btn-primary">Schedule Your Smile Design Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Smile Makeover FAQ" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

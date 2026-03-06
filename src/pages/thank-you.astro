@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Appointment Request Received | Huntington Beach Prosthodontics"
+  description="Thank you for requesting an appointment with Huntington Beach Prosthodontics. We'll contact you within one business day."
+  noindex={true}
+>
+  <section class="min-h-screen bg-brand-light flex items-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <div class="bg-white rounded-2xl p-10 shadow-lg border border-neutral-border">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+
+        <h1 class="font-serif text-3xl font-bold text-brand-navy mb-4">
+          Thank You! We'll Be in Touch Soon.
+        </h1>
+
+        <p class="text-neutral-mid leading-relaxed mb-6">
+          Your appointment request has been received. A member of our team at Huntington Beach Prosthodontics will contact you within <strong>one business day</strong> to confirm your appointment.
+        </p>
+
+        <div class="bg-brand-light rounded-xl p-6 mb-8 text-left">
+          <h2 class="font-serif text-lg font-semibold text-brand-navy mb-3">What to Expect Next</h2>
+          <ul class="space-y-2 text-sm text-neutral-mid">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold font-bold mt-0.5">1.</span>
+              Our scheduling coordinator will call or text you to confirm your appointment date and time.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold font-bold mt-0.5">2.</span>
+              We'll email you a confirmation with our address, parking info, and new patient forms.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold font-bold mt-0.5">3.</span>
+              At your consultation, Dr. [DOCTOR_NAME] will review your concerns, examine your teeth and bone structure, and explain all treatment options.
+            </li>
+          </ul>
+        </div>
+
+        <p class="text-sm text-neutral-mid mb-6">
+          Need to reach us sooner? Call us directly at{' '}
+          <a href="tel:[PHONE]" class="text-brand-blue font-semibold">[PHONE]</a>.
+        </p>
+
+        <a href="/" class="btn-primary">Return to Homepage</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Fire GA4 conversion event
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'conversion', {
+      'event_category': 'appointment_request',
+    });
+  }
+</script>

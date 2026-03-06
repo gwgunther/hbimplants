@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Referral Program | Huntington Beach Prosthodontics"
+  description="Refer a friend or family member to Huntington Beach Prosthodontics and earn rewards. Learn about our patient referral program."
+  noindex={true}
+>
+  <section class="bg-brand-navy text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="font-serif text-4xl md:text-5xl font-bold mb-4">
+        Patient Referral Program
+      </h1>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        The greatest compliment you can give us is referring a friend or family member. Thank you for sharing your experience with others.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-neutral-border">
+        <h2 class="font-serif text-2xl font-bold text-brand-navy mb-6">Refer a Friend</h2>
+        <form>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label class="block text-sm font-semibold text-brand-navy mb-2">Your Name</label>
+              <input type="text" name="yourName" class="w-full px-4 py-3 border border-neutral-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Your name" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-brand-navy mb-2">Your Phone</label>
+              <input type="tel" name="yourPhone" class="w-full px-4 py-3 border border-neutral-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="(714) 555-0000" />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label class="block text-sm font-semibold text-brand-navy mb-2">Friend's Name</label>
+              <input type="text" name="friendName" class="w-full px-4 py-3 border border-neutral-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Friend's name" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-brand-navy mb-2">Friend's Phone</label>
+              <input type="tel" name="friendPhone" class="w-full px-4 py-3 border border-neutral-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="(714) 555-0000" />
+            </div>
+          </div>
+          <button type="submit" class="w-full btn-gold py-4 font-semibold">Submit Referral</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

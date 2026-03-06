@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const procedureSchema = { '@context': 'https://schema.org', '@type': 'MedicalProcedure', 'name': 'Dentures', 'description': 'Dentures are removable prosthetic devices that replace missing teeth. Modern dentures are custom-fabricated for a natural appearance and comfortable fit.', 'procedureType': 'https://schema.org/TherapeuticProcedure', 'bodyLocation': 'Mouth', 'followup': 'As recommended by your prosthodontist' };
+const faqs = [
+  { question: 'How long do dentures last?', answer: 'Traditional dentures last 5–10 years before they typically need replacement. As your jaw changes shape over time (bone resorption), dentures may need relining every 3–5 years to maintain a proper fit. Implant-supported dentures last longer because the implants prevent bone resorption and maintain jaw shape, meaning the prosthesis fits more consistently over time.' },
+  { question: 'Why would I choose dental implants over dentures?', answer: 'Dental implants offer several advantages over traditional dentures: they are fixed (don\'t slip or require adhesives), they preserve jawbone by stimulating bone the way tooth roots do, they feel more like natural teeth, and they have a longer track record of stable aesthetics. However, implants require surgery and a longer treatment timeline. Implant-supported dentures (snap-on dentures) offer a middle ground. We evaluate each patient individually and recommend the solution best suited to their anatomy, health, and goals.' },
+  { question: 'Can I sleep in my dentures?', answer: 'Dentists generally recommend removing dentures at night to allow gum tissue to rest and recover. Sleeping in dentures increases the risk of gum irritation, accelerated bone resorption, and denture-related stomatitis (fungal infection). Removing and soaking dentures overnight is the standard recommendation for conventional removable dentures.' },
+  { question: 'How do I know if my dentures fit correctly?', answer: 'Well-fitting dentures should stay in place during normal speech and eating without adhesive (though adhesive can be a helpful supplement). They should not cause sore spots, clicking sounds during talking, or significant difficulty eating. If your dentures are slipping, clicking, causing sores, or require excessive adhesive, they likely need relining or replacement. A prosthodontist\'s denture evaluation can identify whether relining, rebasing, or a new denture is most appropriate.' },
+  { question: 'What are the best alternatives to traditional dentures?', answer: 'The best alternatives are implant-supported restorations. Snap-on dentures (implant overdentures) use 2–4 implants to anchor a removable denture securely — dramatically improving stability without the full investment of All-on-4. All-on-4 or All-on-6 provide a fully fixed prosthesis that never comes out. The appropriate alternative depends on bone volume, health status, and budget.' },
+  { question: 'Why see a prosthodontist for dentures?', answer: 'Prosthodontists specialize in full and partial dentures as part of their residency training. A prosthodontist-designed denture accounts for your facial proportions, bite balance, and jaw relationship at a level of detail that general dentist dentures often miss. The difference shows in how natural the dentures look, how comfortably they function, and how long they maintain their fit before needing adjustment.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="Dentures Huntington Beach | Full & Partial Dentures HB, CA Prosthodontist"
+  description="Modern full and partial dentures in Huntington Beach, CA. Comfortable, natural-looking dentures from a board-certified prosthodontist. Call [PHONE]."
+  schema={[localBusiness, procedureSchema, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-brand-gold text-sm font-semibold uppercase tracking-wide mb-3">Dentures — Huntington Beach, CA</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          Dentures in Huntington Beach —<br />
+          <span class="text-brand-gold">Modern, Natural-Looking, Custom-Fitted</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          Today's dentures bear little resemblance to the ill-fitting prosthetics of decades past. Prosthodontist-designed dentures in Huntington Beach are natural-looking, precisely fitted, and built around your facial anatomy and bite.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold text-center">Schedule Denture Consultation</a>
+          <a href="/implant-restorations/snap-on" class="btn-secondary text-base px-8 py-4 font-semibold text-center border-white text-white hover:bg-white hover:text-brand-navy">Explore Snap-on Dentures</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-heading mb-6">Modern Dentures: Not Your Grandfather's False Teeth</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+          The dentures of 30–40 years ago were notorious for looking obviously artificial and fitting poorly. Modern dental materials, digital denture design, and the expertise of prosthodontists have transformed what is possible in removable prosthetics. Today's dentures can be virtually indistinguishable from natural teeth — with personalized tooth shapes, realistic gum tissue color, and proper vertical dimension that supports natural facial contours.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          At Huntington Beach Prosthodontics, denture fabrication begins with a comprehensive evaluation of your jaw relationship, remaining bone structure, facial aesthetics, and bite. Every denture is custom-fabricated — not stock trays shaped with relining material. The attention to detail in the design phase directly determines how natural your dentures look and how comfortably they function.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-6">
+          If you are missing all your teeth or need full dentures, see our <a href="/dentures/full" class="text-brand-blue hover:underline">full denture page</a>. If you have some remaining teeth, <a href="/dentures/partial" class="text-brand-blue hover:underline">partial dentures</a> may be the right solution. And if you want the stability of dentures anchored to implants, <a href="/implant-restorations/snap-on" class="text-brand-blue hover:underline">snap-on dentures</a> and <a href="/all-on-x" class="text-brand-blue hover:underline">All-on-X</a> provide fixed alternatives.
+        </p>
+
+        <h2 class="section-subheading mt-10 mb-6">Types of Dentures at Huntington Beach Prosthodontics</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { type: 'Conventional Full Dentures', desc: 'Placed after all remaining teeth have been removed and gum tissue has healed (usually 8–12 weeks post-extraction). The most stable type of conventional denture because it is made to fit the healed ridge.', href: '/dentures/full' },
+            { type: 'Immediate Dentures', desc: 'Fabricated before tooth extraction and placed the same day. You are never without teeth, but they will require relining as your gums and bone heal and change shape over the first year.', href: '/dentures/full' },
+            { type: 'Partial Dentures', desc: 'Replace some but not all teeth in an arch. Retained by clasps or precision attachments to remaining natural teeth. A cost-effective solution for patients with healthy remaining teeth.', href: '/dentures/partial' },
+            { type: 'Implant-Supported Dentures', desc: 'The most stable removable option: 2–4 implants are placed and the denture snaps onto them. No adhesives, minimal movement, preserved bone. Removable for cleaning. The best of both worlds.', href: '/implant-restorations/snap-on' },
+          ].map(t => (
+            <a href={t.href} class="card hover:shadow-lg hover:border-brand-blue transition-all group">
+              <h3 class="font-serif text-lg font-semibold text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">{t.type}</h3>
+              <p class="text-neutral-mid text-sm leading-relaxed mb-2">{t.desc}</p>
+              <span class="text-brand-blue text-sm font-semibold">Learn more →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Denture FAQ — Huntington Beach" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

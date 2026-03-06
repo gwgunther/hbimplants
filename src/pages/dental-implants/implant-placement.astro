@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const procedureSchema = { '@context': 'https://schema.org', '@type': 'MedicalProcedure', 'name': 'Dental Implant Placement Surgery', 'description': 'Dental implant placement is a surgical procedure where a titanium post is inserted into the jawbone to serve as an artificial tooth root for a dental crown or other prosthesis.', 'procedureType': 'https://schema.org/TherapeuticProcedure', 'bodyLocation': 'Jaw', 'followup': 'As recommended by your prosthodontist' };
+const faqs = [
+  { question: 'How long does implant placement surgery take?', answer: 'A single implant placement typically takes 45–90 minutes. Patients receiving multiple implants in a single session may have procedures lasting 2–3 hours. Full-arch cases (All-on-4) typically take 3–4 hours per arch. You will be numb throughout and can listen to music or relax during the procedure.' },
+  { question: 'What kind of anesthesia is used for implant placement?', answer: 'Standard implant placement is performed under local anesthesia — the same numbing used for routine dental procedures. We also offer conscious IV sedation or oral sedation for patients with dental anxiety. General anesthesia is available for complex full-arch cases through our oral surgery partners if needed.' },
+  { question: 'How long is recovery after dental implant surgery?', answer: 'Most patients return to desk work within 24–48 hours. Physical labor or strenuous activity should be avoided for 3–5 days. Swelling peaks at 48–72 hours and resolves over 1–2 weeks. Soft diet for 2 weeks is recommended. Most patients describe the experience as easier than they expected, similar to a tooth extraction recovery.' },
+  { question: 'When can I eat normally after implant placement?', answer: 'You should stick to soft foods (yogurt, scrambled eggs, pasta, soups) for the first 2 weeks. After 2 weeks, most patients can return to a normal diet with the caution of avoiding extremely hard foods (ice, hard candy, crusty bread) directly on the implant site until osseointegration is confirmed at 12 weeks.' },
+  { question: 'What are the risks of dental implant surgery?', answer: 'Dental implant placement is among the most predictable procedures in dentistry, with failure rates below 5% at 10 years. Risks include infection at the implant site, nerve sensation changes (temporary or, rarely, permanent), sinus involvement for upper jaw implants, and implant failure to integrate (osseointegration failure). These risks are minimized by thorough 3D surgical planning, proper patient selection, and post-operative care.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="Dental Implant Placement Huntington Beach | Surgical Procedure Guide"
+  description="Learn about dental implant placement surgery at Huntington Beach Prosthodontics. What to expect, recovery, and results from our specialist prosthodontist."
+  schema={[localBusiness, procedureSchema, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-brand-gold text-sm font-semibold uppercase tracking-wide mb-3">Dental Implants › Implant Placement</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          Dental Implant Placement in Huntington Beach —<br />
+          <span class="text-brand-gold">What to Expect from Surgery to Healing</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          Understanding exactly what happens during implant placement surgery helps patients feel confident and prepared. Here is an honest, detailed overview of the surgical process at Huntington Beach Prosthodontics.
+        </p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule Your Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-heading mb-6">Precision-Guided Implant Placement</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+          Modern dental implant placement is a far cry from the freehand procedures of earlier decades. At Huntington Beach Prosthodontics, every implant surgery begins with a 3D CBCT scan that maps bone volume, sinus anatomy, nerve pathways, and the relationship between adjacent roots. This data is used to plan the precise angle, depth, and diameter of each implant before a single incision is made.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-6">
+          The planned approach can be translated into a surgical guide — a custom-fabricated device that fits over your teeth and directs the implant drill to the exact planned position. Guided implant surgery reduces surgical variability, protects anatomical structures, and improves implant angulation for optimal crown emergence and aesthetics.
+        </p>
+
+        <h2 class="section-subheading mb-6">Step-by-Step: The Implant Placement Procedure</h2>
+        <div class="space-y-5 mb-10">
+          {[
+            { title: 'Anesthesia Administration', detail: 'Local anesthetic is administered to fully numb the surgical area. For anxious patients, oral sedation or IV sedation can be arranged. You should feel pressure during the procedure but no sharp pain. If you feel discomfort at any point, let us know and additional anesthetic is administered immediately.' },
+            { title: 'Tissue Preparation', detail: 'A small incision is made in the gum tissue over the implant site. In some cases, a minimally invasive flapless technique is used where the gum is not incised — a small punch is used to access the bone directly. This technique reduces healing time significantly.' },
+            { title: 'Osteotomy (Bone Drilling)', detail: 'Using a series of progressively wider drills, the implant site is prepared in the bone. The drilling is done at precise speeds and with constant irrigation to prevent bone overheating. This is the phase where patients feel the most pressure.' },
+            { title: 'Implant Insertion', detail: 'The titanium implant post is threaded into the prepared site. The torque is carefully monitored — optimal insertion torque indicates immediate stability. A cover screw or healing abutment is placed to protect the implant during healing.' },
+            { title: 'Closure & Post-Op', detail: 'If an incision was made, it is sutured closed. You will receive a detailed post-operative care sheet and emergency contact information. Most appointments conclude within 1–2 hours from arrival to departure.' },
+          ].map((step, i) => (
+            <div class="flex gap-4 p-4 bg-brand-light rounded-xl">
+              <div class="flex-shrink-0 w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold text-sm">{i + 1}</div>
+              <div>
+                <h3 class="font-semibold text-brand-navy mb-1">{step.title}</h3>
+                <p class="text-neutral-mid text-sm leading-relaxed">{step.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="section-subheading mb-4">The Osseointegration Period</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          After placement, the implant needs 3–6 months to osseointegrate — to fuse with the surrounding jawbone through a biological process similar to bone healing after a fracture. This is the foundation for the implant's lifetime stability. During osseointegration, bone cells grow directly into the micro-textured surface of the titanium post, creating a bond that becomes stronger than the surrounding bone itself.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-6">
+          We confirm osseointegration with a 3D X-ray at approximately 12 weeks. Once confirmed, we proceed to the restorative phase — impressions, abutment selection, and <a href="/implant-restorations/crowns" class="text-brand-blue hover:underline">crown fabrication</a>. If you need a full arch replacement, visit our <a href="/all-on-x" class="text-brand-blue hover:underline">All-on-X page</a> for information about same-day implant teeth.
+        </p>
+        <a href="/dental-implants/consultation" class="btn-primary">Schedule Your Implant Planning Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Implant Placement FAQ" />
+    </div>
+  </section>
+
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

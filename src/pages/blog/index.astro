@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import CTABlock from '../../components/CTABlock.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort((a, b) =>
+  b.data.publishDate.getTime() - a.data.publishDate.getTime()
+);
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  'name': 'Huntington Beach Prosthodontics',
+  'url': 'https://hbimplants.com',
+  'telephone': '[PHONE]',
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': '[STREET]',
+    'addressLocality': 'Huntington Beach',
+    'addressRegion': 'CA',
+    'postalCode': '[ZIP]',
+    'addressCountry': 'US',
+  },
+  'openingHours': ['[HOURS]'],
+  'priceRange': '$$$$',
+  'medicalSpecialty': 'Prosthodontics',
+};
+---
+
+<BaseLayout
+  title="Patient Education Blog | Huntington Beach Prosthodontics"
+  description="Learn about dental implants, veneers, dentures, and prosthodontic care from the experts at Huntington Beach Prosthodontics. Evidence-based patient education."
+  schema={localBusiness}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-4">
+          Patient Education Blog
+        </h1>
+        <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+          Expert insight on dental implants, full-arch restorations, veneers, and prosthodontic care — written by specialists, for patients.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {sortedPosts.length === 0 ? (
+        <div class="text-center py-16 text-neutral-mid">
+          <p>Blog posts coming soon. Check back shortly.</p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedPosts.map((post) => (
+            <a href={`/blog/${post.slug}`} class="card hover:shadow-lg hover:border-brand-blue transition-all duration-200 group">
+              {post.data.featuredImage && (
+                <div class="aspect-video bg-brand-light rounded-lg overflow-hidden mb-4">
+                  <img
+                    src={post.data.featuredImage}
+                    alt={post.data.featuredImageAlt || post.data.title}
+                    width="400"
+                    height="225"
+                    loading="lazy"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              )}
+              <div class="text-xs text-brand-blue font-semibold uppercase tracking-wide mb-2">
+                {post.data.category.replace('-', ' ')}
+              </div>
+              <h2 class="font-serif text-lg font-semibold text-brand-navy mb-2 group-hover:text-brand-blue transition-colors leading-tight">
+                {post.data.title}
+              </h2>
+              <p class="text-neutral-mid text-sm leading-relaxed mb-4">{post.data.description}</p>
+              <div class="flex items-center justify-between text-xs text-neutral-mid">
+                <span>{post.data.author}</span>
+                <span>{post.data.publishDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CTABlock />
+    </div>
+  </section>
+</BaseLayout>

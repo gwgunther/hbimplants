@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const faqs = [
+  { question: 'What are clear aligners and how do they work?', answer: 'Clear aligners are a series of custom-fabricated, removable plastic trays that gradually move teeth into the desired position. Each tray is worn for approximately 1–2 weeks before progressing to the next in the series. The total number of trays depends on the complexity of the movement required — ranging from 6–10 trays for minor corrections to 30+ for comprehensive realignment. Clear aligners are nearly invisible when worn and can be removed for eating, brushing, and special occasions.' },
+  { question: 'Why have clear aligners planned by a prosthodontist?', answer: 'Prosthodontists approach orthodontic movement with a restorative endpoint in mind. When clear aligners are part of a broader treatment plan that includes crowns, veneers, or implants, the tooth positions achieved through alignment must be specifically planned to accommodate the restorative work. A prosthodontist can sequence treatment so that alignment creates the ideal foundation for final restorations — achieving results that neither orthodontics nor restorative work alone could accomplish. For patients whose primary goal is cosmetic, clear aligners can also reduce or eliminate the amount of tooth reduction needed for veneers.' },
+  { question: 'How long does clear aligner treatment take?', answer: 'Treatment duration depends on the complexity of the case. Minor corrections (small spacing or crowding issues) may be addressed in 3–6 months. Moderate cases typically require 6–18 months. Comprehensive cases may take 18–24 months or longer. Your specific timeline is determined after a digital treatment planning simulation, which shows the projected tooth movement and estimated tray count before you begin treatment.' },
+  { question: 'Can I get clear aligners if I also need crowns or veneers?', answer: 'Yes — and in many cases, doing so is the preferred sequence. Straightening teeth with aligners before placing veneers or crowns reduces the amount of tooth reduction required, since the teeth are already in better position. This is particularly relevant for patients with crowded or slightly misaligned front teeth who are considering veneers: orthodontic alignment first may allow ultra-thin veneers (or even no-prep veneers) rather than requiring more aggressive tooth preparation.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="Clear Aligners Huntington Beach | Invisalign-Style Aligners by a Prosthodontist"
+  description="Clear aligner treatment in Huntington Beach planned by a prosthodontist. Ideal for patients combining orthodontic alignment with veneers, crowns, or implant preparation."
+  schema={[localBusiness, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          Clear Aligners Huntington Beach —<br />
+          <span class="text-brand-gold">Orthodontic Movement Planned for Your Final Smile</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          Clear aligner treatment at Huntington Beach Prosthodontics is planned with your complete restorative picture in mind. Whether you're straightening teeth before veneers, creating space for an implant, or simply improving your alignment, Dr. [DOCTOR_NAME] designs a treatment plan where every tooth movement serves a purpose.
+        </p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule Your Aligner Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-heading mb-6">Clear Aligners as Part of a Comprehensive Smile Plan</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+          Clear aligners have transformed orthodontic treatment for adult patients who want straighter teeth without the visibility of metal brackets and wires. The technology behind modern clear aligners — digital treatment planning, 3D-printed trays, attachment buttons for precise tooth control — has advanced to the point where a wide range of orthodontic movements are achievable without traditional braces.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          At Huntington Beach Prosthodontics, clear aligner treatment is frequently part of a broader treatment plan. A common example: a patient with crowded or misaligned front teeth who wants veneers. If the veneers are placed on misaligned teeth, the dentist must remove more tooth structure to create the straight, aligned appearance the patient wants. But if orthodontic alignment is done first — moving the teeth into better position — the veneers require far less reduction, or in some cases, ultra-thin "prep-less" veneers become possible. The patient gets a better result with less irreversible alteration of their natural teeth.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          Another important use case: creating space for a dental implant. When a tooth is lost, the adjacent teeth sometimes drift into the gap over time. Before implant placement, the drifted teeth must be moved back to create sufficient space. Clear aligners accomplish this tooth movement predictably, establishing the correct anatomy for the implant crown before the implant is placed.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-8">
+          Dr. [DOCTOR_NAME] provides comprehensive treatment planning that integrates alignment with all planned restorative work. This integrated approach — common among prosthodontists but rare in general practice — ensures that the final tooth positions are optimal for both appearance and the restorative work that follows. Explore related treatments: <a href="/veneers" class="text-brand-blue hover:underline">porcelain veneers</a>, <a href="/cosmetic-dentistry" class="text-brand-blue hover:underline">cosmetic dentistry</a>, and <a href="/dental-implants" class="text-brand-blue hover:underline">dental implants</a>.
+        </p>
+
+        <h2 class="section-subheading mb-6">Is Clear Aligner Treatment Right for You?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          {[
+            'Mild to moderate crowding or spacing',
+            'Slight bite discrepancies (overbite, underbite)',
+            'Planning veneers and want to minimize tooth reduction',
+            'Creating implant space after tooth loss',
+            'Relapse after prior orthodontic treatment',
+            'Adult patients preferring discreet treatment',
+          ].map(item => (
+            <div class="flex items-start gap-3 p-4 bg-brand-light rounded-lg">
+              <span class="text-brand-gold font-bold mt-0.5">✓</span>
+              <span class="text-neutral-mid text-sm">{item}</span>
+            </div>
+          ))}
+        </div>
+
+        <a href="/schedule" class="btn-primary">Schedule Your Clear Aligner Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Clear Aligner FAQ" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

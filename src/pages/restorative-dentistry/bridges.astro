@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const faqs = [
+  { question: 'How does a dental bridge work?', answer: 'A dental bridge spans the gap where a tooth is missing by anchoring to the teeth on either side (called abutment teeth). The bridge consists of two crowns on the abutment teeth and one or more artificial teeth (pontics) suspended in between. The abutment teeth must be prepared (reshaped) to receive crowns, and the entire bridge is cemented as one unit. The result is a fixed, non-removable restoration that fills the gap and restores chewing function.' },
+  { question: 'What are the downsides of a traditional dental bridge?', answer: 'The primary downside is the permanent alteration of healthy adjacent teeth. To support the bridge, the teeth on either side of the gap must be ground down (prepared) regardless of their current health. This removes healthy tooth structure that cannot be restored. Additionally, conventional bridges do not prevent the bone loss that occurs beneath a missing tooth — the jawbone gradually resorbs in the gap area. Bridges also fail at three points rather than one (both anchor crowns and the bridge itself). For most patients with healthy adjacent teeth and sufficient bone, a dental implant is a superior long-term solution.' },
+  { question: 'How long does a dental bridge last?', answer: 'Conventional dental bridges typically last 10–15 years with good oral hygiene and regular dental check-ups. The longevity depends on the material (zirconia bridges outlast porcelain-fused-to-metal), the quality of the preparation and cementation, and how well the patient maintains the restoration. Bridges require special cleaning under the pontic (suspended tooth) using floss threaders or water flossers, as a toothbrush cannot reach this area.' },
+  { question: 'When is a bridge a better choice than an implant?', answer: 'A dental bridge may be preferred when: the adjacent teeth already need crowns for other reasons (making implants an unnecessary additional intervention), the patient is not a surgical candidate for implants, insufficient bone volume exists for implants and bone grafting is not desired, or cost constraints make implants impractical. For young patients whose adjacent teeth are otherwise healthy, dental implants preserve those teeth and should be the strong default consideration.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="Dental Bridges Huntington Beach | Fixed Tooth Replacement Without Implants"
+  description="Dental bridges in Huntington Beach replace missing teeth using adjacent teeth as anchors. Fixed, non-removable. Prosthodontist-designed for lasting results."
+  schema={[localBusiness, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">
+          Dental Bridges Huntington Beach —<br />
+          <span class="text-brand-gold">Fixed Tooth Replacement, Expertly Designed</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">A dental bridge replaces one or more missing teeth using the neighboring teeth as anchors — no implant surgery required. When the clinical situation calls for a bridge, a prosthodontist-designed restoration ensures the best possible fit, function, and longevity.</p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule Your Bridge Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <h2 class="section-heading mb-6">Dental Bridges: A Fixed Solution for Missing Teeth</h2>
+      <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+        A dental bridge has been a foundational restorative option for over a century, and remains an appropriate solution for many patients today. When a tooth is missing and the adjacent teeth are already planned for crown restoration — or when implant surgery is not the right option — a conventional bridge provides a fixed, non-removable replacement that restores both function and aesthetics in approximately two appointments.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-4">
+        The procedure involves preparing the two teeth on either side of the gap (the abutment teeth) to receive crowns, taking precise impressions or digital scans of the prepared teeth and the opposing bite, and fabricating the bridge at a dental laboratory. A temporary bridge protects the prepared teeth during the 2–3 week fabrication period. At the second appointment, the final bridge is tried in, adjusted for fit and bite, and permanently cemented.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-4">
+        The design of the bridge — the shape of the pontic (artificial tooth), the contact between the pontic and the gum tissue (the pontic design), the emergence of the abutment crowns, and the occlusal contacts — requires the same level of care as any complex restoration. Poorly designed pontics trap food and cause gum inflammation. Poorly calibrated occlusal contacts cause premature wear and fracture. Dr. [DOCTOR_NAME]'s prosthodontic training is directly applicable to achieving bridges that function well and last.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-6">
+        If you are undecided between a bridge and an implant, we provide objective guidance based on your specific clinical situation. For patients with healthy adjacent teeth, we will honestly discuss the advantages of an <a href="/implant-restorations/bridges" class="text-brand-blue hover:underline">implant-supported bridge</a> over a conventional bridge. For patients whose adjacent teeth are already compromised or planned for crowns, a conventional bridge may be the more practical and cost-effective choice.
+      </p>
+      <a href="/schedule" class="btn-primary">Schedule Your Bridge Evaluation</a>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Dental Bridge FAQ" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

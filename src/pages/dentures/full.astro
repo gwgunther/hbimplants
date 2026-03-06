@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const faqs = [
+  { question: 'How long does it take to get full dentures?', answer: 'Conventional full dentures require waiting 8–12 weeks after all extractions for gum tissue to heal before final impressions. The denture fabrication process then takes 3–6 weeks. Total timeline: approximately 3–4 months from extractions to final dentures. Immediate dentures are placed the same day as extraction but require relining 6–12 months later as healing completes.' },
+  { question: 'How do I care for my full dentures?', answer: 'Remove and rinse after eating. Brush daily with a soft denture brush and non-abrasive denture cleaner — avoid regular toothpaste which is too abrasive. Soak overnight in water or denture-cleaning solution. Never use hot water (warps acrylic). Handle carefully over a towel to prevent breakage from dropping. Rinse your gums, tongue, and palate daily with a soft brush before reinserting dentures.' },
+  { question: 'Will full dentures affect how I eat and speak?', answer: 'There is an adjustment period of 4–8 weeks during which eating and speaking may feel awkward. Most patients adapt fully and can eat a wide variety of foods comfortably, though tough meats and very hard foods remain challenging. Speech typically normalizes within the first few weeks as your tongue and lips adapt. Professional-quality dentures designed with proper occlusion and vertical dimension minimize these challenges significantly.' },
+  { question: 'Can full dentures be converted to implant-supported dentures later?', answer: 'Yes — this is actually a popular upgrade path. Patients who start with conventional full dentures can later have 2–4 implants placed to convert their existing (or new) denture to an implant-supported snap-on design. This dramatically improves stability and prevents the bone resorption that conventional dentures accelerate. It\'s one reason we always design dentures with future implant options in mind.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="Full Dentures Huntington Beach | Complete Dentures HB, CA"
+  description="Full dentures in Huntington Beach replace all upper or lower teeth. Custom-fitted for comfort and a natural appearance. Prosthodontist-designed dentures."
+  schema={[localBusiness, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-brand-gold text-sm font-semibold uppercase tracking-wide mb-3">Dentures › Full Dentures</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">
+          Full Dentures Huntington Beach —<br />
+          <span class="text-brand-gold">Complete Upper and Lower Arch Replacement</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">Complete full dentures replace all teeth in the upper jaw, lower jaw, or both with a custom-fabricated removable prosthesis designed by a prosthodontist for natural appearance and comfortable function.</p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule Full Denture Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <h2 class="section-heading mb-6">Complete Dentures: What to Expect</h2>
+      <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+        Full dentures replace all teeth in an arch and rest on the gum ridges. Upper dentures typically achieve excellent suction-based retention. Lower dentures have less natural retention because the tongue and jaw muscles occupy much of the space, which is why lower dentures more frequently benefit from implant support.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-4">
+        At Huntington Beach Prosthodontics, full dentures are designed with careful attention to vertical dimension of occlusion (the space between your jaws when teeth are together) — one of the most commonly under-addressed aspects of conventional denture work. Proper vertical dimension supports natural facial contours, prevents the "sunken" look associated with ill-fitting dentures, and creates the bite stability that comfortable chewing requires.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-6">
+        For patients seeking better retention than conventional dentures provide, <a href="/implant-restorations/snap-on" class="text-brand-blue hover:underline">implant-supported snap-on dentures</a> use 2–4 implants to anchor the denture securely throughout the day. For the most stable fixed solution, <a href="/all-on-x" class="text-brand-blue hover:underline">All-on-4</a> provides a non-removable prosthesis permanently attached to implants. See our <a href="/dentures" class="text-brand-blue hover:underline">denture overview</a> for the full picture of options.
+      </p>
+      <a href="/schedule" class="btn-primary">Schedule Your Full Denture Evaluation</a>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Full Denture FAQ" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

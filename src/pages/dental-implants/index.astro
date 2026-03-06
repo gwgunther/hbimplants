@@ -1,0 +1,258 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  'name': 'Huntington Beach Prosthodontics',
+  'url': 'https://hbimplants.com',
+  'telephone': '[PHONE]',
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': '[STREET]',
+    'addressLocality': 'Huntington Beach',
+    'addressRegion': 'CA',
+    'postalCode': '[ZIP]',
+    'addressCountry': 'US',
+  },
+  'openingHours': ['[HOURS]'],
+  'priceRange': '$$$$',
+  'medicalSpecialty': 'Prosthodontics',
+};
+
+const procedureSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalProcedure',
+  'name': 'Dental Implants',
+  'description': 'Dental implants are titanium posts surgically placed into the jawbone to replace missing tooth roots, topped with a custom crown for a permanent, natural-looking tooth replacement.',
+  'procedureType': 'https://schema.org/TherapeuticProcedure',
+  'bodyLocation': 'Mouth',
+  'followup': 'As recommended by your prosthodontist',
+};
+
+const faqs = [
+  {
+    question: 'How long do dental implants last?',
+    answer: 'The titanium implant post is designed to last a lifetime — clinical studies show survival rates above 95% at 10 years and above 90% at 20 years. The crown placed on top typically lasts 15–25 years depending on oral hygiene, bite forces, and material used. With proper care, many patients never need to replace either component.',
+  },
+  {
+    question: 'Am I a candidate for dental implants in Huntington Beach?',
+    answer: 'Most adults with one or more missing teeth are candidates. Key factors are sufficient jawbone density, healthy gums, and absence of uncontrolled systemic conditions (like uncontrolled diabetes). Even patients with bone loss may qualify after bone grafting. The only definitive way to know is a 3D CBCT scan at your consultation.',
+  },
+  {
+    question: 'Does the dental implant procedure hurt?',
+    answer: 'The surgery itself is performed under local anesthesia — you\'ll feel pressure but not pain during placement. Post-operatively, most patients report discomfort similar to a tooth extraction, managed comfortably with over-the-counter anti-inflammatories. Most patients return to normal activities within 1–3 days.',
+  },
+  {
+    question: 'How much do dental implants cost in Huntington Beach?',
+    answer: 'A single implant including the post, abutment, and crown typically ranges from $3,500–$6,000. Cost varies based on need for bone grafting, the type of restoration, and your specific anatomy. We provide a detailed fee breakdown after your 3D imaging consultation. Most dental insurance plans cover some portion, and we offer financing options.',
+  },
+  {
+    question: 'How many appointments does the dental implant process require?',
+    answer: 'For a straightforward single implant, expect 3–4 appointments over 4–6 months: initial consultation with 3D imaging, implant placement surgery, a healing check at 3 months (osseointegration period), and final crown placement. If bone grafting is needed, add 4–6 months before implant placement.',
+  },
+  {
+    question: 'Are dental implants better than dentures?',
+    answer: 'For most patients, yes — implants are the superior long-term solution. They preserve jawbone (dentures accelerate bone loss), function identically to natural teeth, require no adhesives, and have a 20+ year track record. However, implants require surgery and a longer treatment timeline. For patients who cannot undergo surgery, implant-supported dentures offer a middle ground. We evaluate every patient individually.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqs.map(f => ({
+    '@type': 'Question',
+    'name': f.question,
+    'acceptedAnswer': { '@type': 'Answer', 'text': f.answer },
+  })),
+};
+---
+
+<BaseLayout
+  title="Dental Implants Huntington Beach | Board-Certified Prosthodontist"
+  description="Dental implants in Huntington Beach from a board-certified prosthodontist. Permanent tooth replacement with natural results. Free consultation. Call [PHONE]."
+  schema={[localBusiness, procedureSchema, faqSchema]}
+>
+  <!-- Hero -->
+  <section class="bg-brand-navy text-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-brand-gold text-sm font-semibold uppercase tracking-wide mb-3">Dental Implants Huntington Beach</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          Dental Implants in Huntington Beach —<br />
+          <span class="text-brand-gold">The Permanent Solution to Tooth Loss</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          As a board-certified prosthodontist, Dr. [DOCTOR_NAME] specializes in the complete dental implant process — from evaluation and surgical coordination to custom crown design and long-term maintenance. If you're missing one tooth or several, dental implants in Huntington Beach are the closest thing dentistry has to growing a natural tooth back.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold text-center">Schedule Free Consultation</a>
+          <a href="/dental-implants/consultation" class="btn-secondary text-base px-8 py-4 font-semibold text-center border-white text-white hover:bg-white hover:text-brand-navy">What to Expect</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-heading mb-6">What Are Dental Implants?</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+          A dental implant is a titanium post that is surgically placed into the jawbone where a tooth root once lived. Over 3–6 months, the implant fuses with the surrounding bone in a process called osseointegration — the same biological process that makes bones heal after a fracture. Once integrated, the implant is topped with a custom-designed crown that matches your surrounding teeth in color, shape, and size.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          The result is a tooth replacement that looks, feels, and functions like a natural tooth. You brush it like a natural tooth. You bite with it like a natural tooth. You don't remove it at night or apply adhesives. And because it replaces the root — not just the crown — it stimulates the jawbone and prevents the bone loss that accelerates with dentures or bridges over time.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-6">
+          Dental implants have a 40-year clinical track record. Modern titanium implants achieve survival rates above 95% at 10 years. When you choose implant treatment at Huntington Beach Prosthodontics, you're choosing a specialist — not a generalist who does implants occasionally — but a board-certified prosthodontist who has placed and restored hundreds of implants. That specialization matters, both for initial outcomes and long-term success.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          {[
+            { label: 'Implant Survival Rate', value: '95%+', sub: 'at 10 years (clinical data)' },
+            { label: 'Bone Preserved', value: '100%', sub: 'implants prevent bone resorption' },
+            { label: 'Natural Feel', value: '1:1', sub: 'identical bite force to natural teeth' },
+          ].map(stat => (
+            <div class="bg-brand-light rounded-xl p-6 text-center">
+              <div class="font-serif text-3xl font-bold text-brand-navy mb-1">{stat.value}</div>
+              <div class="font-semibold text-brand-navy text-sm mb-1">{stat.label}</div>
+              <div class="text-neutral-mid text-xs">{stat.sub}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Expect -->
+  <section class="bg-brand-light py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-heading text-center mb-4">The Dental Implant Process at Huntington Beach Prosthodontics</h2>
+      <p class="text-neutral-mid text-center max-w-2xl mx-auto mb-12">Every implant case is unique. Here is the general process for a straightforward single implant from consultation to final crown.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { step: '1', title: 'Consultation & 3D Imaging', desc: 'We capture a 3D CBCT scan of your jaw to assess bone volume, sinus proximity, and nerve location. Dr. [DOCTOR_NAME] reviews your health history and designs your implant plan — including whether bone grafting is needed.' },
+          { step: '2', title: 'Implant Placement', desc: 'The titanium post is surgically placed under local anesthesia (sedation available). The procedure takes 1–2 hours. A healing cap or temporary crown is placed same day. Most patients return to work the next day.' },
+          { step: '3', title: 'Osseointegration', desc: 'Over 3–6 months, the implant fuses with your jawbone. You\'ll have a check appointment at 12 weeks to confirm integration with an X-ray. During this phase, normal diet with minor restrictions applies.' },
+          { step: '4', title: 'Crown Placement', desc: 'An impression or digital scan is taken of your implant and surrounding teeth. Your custom crown is designed for perfect fit, color match, and bite alignment. At the crown placement appointment, your new tooth is complete.' },
+        ].map(step => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-border">
+            <div class="w-10 h-10 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold mb-4">{step.step}</div>
+            <h3 class="font-serif text-lg font-semibold text-brand-navy mb-3">{step.title}</h3>
+            <p class="text-neutral-mid text-sm leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Candidacy -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="section-heading mb-6">Are You a Candidate for Dental Implants?</h2>
+          <p class="text-neutral-mid leading-relaxed mb-4">
+            The ideal dental implant candidate is an adult with one or more missing teeth, adequate jawbone density to support the implant, and healthy gum tissue free of active periodontal disease. Systemic health also plays a role — well-controlled diabetes, non-smoking status, and no history of bisphosphonate use all contribute to higher success rates.
+          </p>
+          <p class="text-neutral-mid leading-relaxed mb-6">
+            Many patients who are initially told they "can't have implants" due to bone loss are actually candidates after <a href="/dental-implants/bone-grafting" class="text-brand-blue hover:underline">bone grafting</a>. Modern grafting procedures can rebuild bone volume in 4–6 months, opening implant treatment to a much wider population. The only definitive answer comes from your 3D CBCT scan.
+          </p>
+          <h3 class="font-serif text-xl font-semibold text-brand-navy mb-3">Good Candidates Typically Have:</h3>
+          <ul class="space-y-2 mb-6">
+            {[
+              'One or more missing or failing teeth',
+              'Adequate bone height and width (or willingness to graft)',
+              'Healthy gum tissue without active infection',
+              'Good general health without uncontrolled systemic conditions',
+              'Non-smoking status (or willingness to quit — significantly improves outcomes)',
+              'Realistic expectations about the treatment timeline',
+            ].map(item => (
+              <li class="flex items-start gap-3 text-neutral-mid">
+                <svg class="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="/dental-implants/consultation" class="btn-primary">Check Your Candidacy — Free</a>
+        </div>
+        <div class="bg-brand-light rounded-2xl p-8">
+          <h3 class="font-serif text-2xl font-semibold text-brand-navy mb-4">Implants vs. Other Options</h3>
+          <div class="space-y-4">
+            {[
+              { option: 'Dental Implant', bone: '✓ Preserves bone', feel: '✓ Natural feel', longevity: '✓ Lifetime (post)' },
+              { option: 'Fixed Bridge', bone: '✗ Bone loss continues', feel: '✓ Fixed', longevity: '⚠ 10–15 years' },
+              { option: 'Removable Denture', bone: '✗ Accelerates bone loss', feel: '✗ Can slip', longevity: '⚠ 5–10 years' },
+            ].map(row => (
+              <div class="bg-white rounded-lg p-4 border border-neutral-border">
+                <div class="font-semibold text-brand-navy mb-2">{row.option}</div>
+                <div class="grid grid-cols-3 gap-2 text-xs text-neutral-mid">
+                  <span>{row.bone}</span>
+                  <span>{row.feel}</span>
+                  <span>{row.longevity}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p class="text-xs text-neutral-mid mt-4">Individual results vary. Longevity depends on oral hygiene, bite forces, and material quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Prosthodontist -->
+  <section class="bg-brand-light py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <h2 class="section-heading mb-6">Why Choose a Prosthodontist for Dental Implants in Huntington Beach?</h2>
+      <p class="text-neutral-mid leading-relaxed mb-4">
+        Any general dentist can legally place a dental implant — but there is a significant difference in the level of training, planning, and aesthetic precision between a general dentist who occasionally does implants and a prosthodontist who has dedicated their entire post-doctoral career to implant dentistry.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-4">
+        Prosthodontists complete 3 additional years of residency training after dental school, focused entirely on the restoration and replacement of teeth. This training covers implant planning, bone biology, occlusion (how your teeth come together), and aesthetic design at a depth that general dentistry training does not approach. The result is better implant placement angles, better crown design, better long-term outcomes.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-6">
+        At Huntington Beach Prosthodontics, we also handle the restorative side — the crown, abutment selection, and bite calibration — in-house. Many general dentists must refer out for either the surgical placement or the restorative work, leading to communication gaps. Under one specialist roof, every aspect of your implant treatment is planned and executed in coordination.
+      </p>
+      <p class="text-neutral-mid leading-relaxed">
+        Whether you need a <a href="/dental-implants/single-tooth" class="text-brand-blue hover:underline">single tooth implant</a>, a multi-tooth bridge on implants, or a full-arch <a href="/all-on-x" class="text-brand-blue hover:underline">All-on-4 restoration</a>, you deserve specialist care. Explore your <a href="/implant-restorations" class="text-brand-blue hover:underline">implant restoration options</a> or schedule your consultation to get started.
+      </p>
+    </div>
+  </section>
+
+  <!-- Cost & Insurance -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="section-heading mb-6">Dental Implant Cost & Insurance in Huntington Beach</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          Dental implant costs vary based on the number of implants, need for bone grafting, type of restoration, and individual anatomy. We provide a detailed, itemized fee estimate after your 3D imaging consultation — no surprises.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          Many dental insurance plans now offer partial coverage for implants. We verify your benefits before treatment and help you maximize what your plan covers. For the remaining balance, we offer flexible financing options so you can begin treatment without delay.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-8">
+          Think of dental implants as an investment with an extremely favorable long-term return. A bridge must be replaced every 10–15 years and damages adjacent healthy teeth. Dentures require relining and replacement every 5–10 years. A well-placed implant lasts a lifetime and protects adjacent teeth and bone for the rest of your life.
+        </p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4">Get My Custom Quote — Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Dental Implant FAQ — Huntington Beach Patients Ask" />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CTABlock />
+    </div>
+  </section>
+</BaseLayout>

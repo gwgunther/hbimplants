@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const procedureSchema = { '@context': 'https://schema.org', '@type': 'MedicalProcedure', 'name': 'All-on-4 Dental Implants', 'description': 'All-on-4 dental implants use 4 strategically angled implants to support a full arch of permanent teeth, often completed in a single surgical day.', 'procedureType': 'https://schema.org/TherapeuticProcedure', 'bodyLocation': 'Mouth', 'followup': 'As recommended by your prosthodontist' };
+const faqs = [
+  { question: 'Why are 2 of the 4 implants placed at an angle?', answer: 'The two posterior (back) implants in All-on-4 are placed at a 30–45 degree angle. This angulation serves two critical purposes: it allows the implants to engage denser anterior (front) bone that is typically better preserved after tooth loss, and it avoids the maxillary sinus in the upper jaw and the inferior alveolar nerve in the lower jaw. The angled placement also distributes bite forces more evenly across the arch and often eliminates the need for bone grafting.' },
+  { question: 'What is the All-on-4 prosthesis made of?', answer: 'The immediate (temporary) prosthesis placed the day of surgery is typically acrylic resin, designed to be lightweight while healing proceeds. The final prosthesis, placed 3–6 months after surgery, can be acrylic-on-titanium frame, porcelain-fused-to-titanium, or monolithic zirconia. Zirconia offers the best combination of aesthetics, strength, and stain resistance, and is our preferred material for final All-on-4 restorations.' },
+  { question: 'What happens during the All-on-4 surgery day?', answer: 'The day begins with anesthesia administration (local with sedation in most cases). Any remaining teeth requiring extraction are removed. The 4 implants are placed per the pre-planned surgical guide. A temporary full-arch prosthesis is fabricated and attached before you leave. Most patients are in surgery for 3–5 hours (per arch). You will need a driver home, and the first 24–48 hours require rest.' },
+  { question: 'How do I care for my All-on-4 prosthesis?', answer: 'Cleaning is simpler than it sounds. The fixed prosthesis is brushed twice daily like natural teeth. A water flosser is essential for cleaning under the prosthesis and around implant sites where a regular brush cannot reach. We recommend a soft-bristle electric toothbrush and non-abrasive toothpaste. Professional cleanings every 6 months keep gum tissue and implants healthy for the long term.' },
+  { question: 'What can I eat with All-on-4 implants?', answer: 'During the healing phase (first 3–4 months), a soft diet is required to protect the immediate prosthesis and allow osseointegration. After the final prosthesis is placed, most All-on-4 patients can eat virtually anything — steak, raw vegetables, apples, corn on the cob. However, extremely hard foods (ice, hard candy, crusty bread) and bad habits like nail biting should be avoided to protect the prosthesis.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="All-on-4 Dental Implants Huntington Beach, CA | Permanent Teeth in a Day"
+  description="All-on-4 dental implants in Huntington Beach replace an entire arch with 4 implants and a same-day prosthesis. Board-certified prosthodontist. Free consultation."
+  schema={[localBusiness, procedureSchema, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-brand-gold text-sm font-semibold uppercase tracking-wide mb-3">All-on-X › All-on-4</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          All-on-4 Dental Implants in Huntington Beach —<br />
+          <span class="text-brand-gold">Teeth in a Day, Permanent Results</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          All-on-4 uses 4 precisely angled implants to support a complete fixed arch of teeth — often placed the same day as surgery, with a beautiful temporary smile you'll wear home.
+        </p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule Free All-on-4 Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-heading mb-6">The All-on-4 Concept: Maximum Teeth on Minimum Implants</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+          All-on-4 dental implants revolutionized full-arch rehabilitation by demonstrating that a complete, fixed arch of teeth can be reliably supported by just 4 implants — dramatically reducing treatment complexity, cost, and the need for bone grafting compared to placing 8–12 individual implants across a full arch.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          The key innovation is the angulation of the two posterior implants. By tilting these implants at 30–45 degrees, the surgical team can anchor them in the denser bone that persists farther forward in the jaw — bone that is present even in patients who have experienced significant posterior bone loss. This angulation also distributes bite forces more biomechanically across the arch, reducing stress on each individual implant.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-6">
+          The clinical result: patients who would otherwise require extensive bone grafting — adding 6–12 months to their treatment — can often proceed directly to All-on-4 placement. For many patients, this is the difference between a treatment they can complete and one that feels impossibly long and complex.
+        </p>
+
+        <h2 class="section-subheading mt-10 mb-6">All-on-4 Process at Huntington Beach Prosthodontics</h2>
+        <div class="space-y-5 mb-8">
+          {[
+            { ph: 'Pre-Surgical Planning', d: '3D CBCT scan, digital surgical planning, fabrication of surgical guide and temporary prosthesis. We simulate your final result digitally so you can preview your new smile before surgery.' },
+            { ph: 'Surgery Day', d: 'Extractions if needed, 4 implant placements under local anesthesia and sedation, immediate attachment of temporary full-arch prosthesis. Most patients leave within 4–6 hours with a full smile.' },
+            { ph: 'Healing Phase (3–6 Months)', d: 'Soft diet, regular monitoring, CBCT scan at 12 weeks to confirm osseointegration. The temporary prosthesis keeps you comfortable and functional while healing progresses.' },
+            { ph: 'Final Prosthesis', d: 'Digital impressions and bite registration captured. Your permanent prosthesis — typically full-arch zirconia — is custom-fabricated and delivered at a final appointment. This is your restoration for the next 10–20+ years.' },
+          ].map((s, i) => (
+            <div class="flex gap-4 p-5 bg-brand-light rounded-xl">
+              <div class="flex-shrink-0 w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center text-white font-bold text-sm">{i + 1}</div>
+              <div>
+                <h3 class="font-semibold text-brand-navy mb-1">{s.ph}</h3>
+                <p class="text-neutral-mid text-sm leading-relaxed">{s.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-neutral-mid leading-relaxed">
+          For patients who need 6 implants for additional stability, see our <a href="/all-on-x/all-on-6" class="text-brand-blue hover:underline">All-on-6 page</a>. For complex cases involving both arches and significant restorative needs, our <a href="/all-on-x/full-mouth-reconstruction" class="text-brand-blue hover:underline">full mouth reconstruction</a> approach provides comprehensive planning. If you are currently wearing <a href="/dentures" class="text-brand-blue hover:underline">dentures</a> and want to transition to a fixed solution, All-on-4 is likely the most appropriate next step.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="All-on-4 FAQ" />
+    </div>
+  </section>
+
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

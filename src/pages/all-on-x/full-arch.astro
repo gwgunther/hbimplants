@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const procedureSchema = { '@context': 'https://schema.org', '@type': 'MedicalProcedure', 'name': 'Full Arch Dental Implants', 'description': 'Full arch dental implants replace all teeth in the upper or lower jaw with a fixed implant-supported prosthesis anchored by multiple dental implants.', 'procedureType': 'https://schema.org/TherapeuticProcedure', 'bodyLocation': 'Mouth', 'followup': 'As recommended by your prosthodontist' };
+const faqs = [
+  { question: 'What is a full arch dental implant restoration?', answer: 'A full arch restoration replaces all the teeth in your upper jaw, lower jaw, or both with a fixed implant-supported prosthesis. The prosthesis is permanently attached to 4–6 implants and is not removable by the patient. It restores complete chewing function, natural aesthetics, and bone preservation — unlike conventional full dentures.' },
+  { question: 'Upper or lower arch — which is more common?', answer: 'Both arches are commonly treated with implant-supported full arch restorations. The upper arch (maxilla) is technically more complex due to proximity to the sinus cavities and generally lower bone density. The lower arch (mandible) typically has denser bone and higher implant success rates. Many patients choose to treat both arches simultaneously for a complete smile transformation.' },
+  { question: 'What types of prostheses are available for full arch cases?', answer: 'Full arch prostheses include: acrylic-on-metal frame (durable, repairable, most affordable), porcelain-fused-to-metal (excellent aesthetics, heavier), and monolithic zirconia (strongest, most stain-resistant, thinnest profile). Hybrid prostheses combining a titanium framework with composite or acrylic teeth are popular for their combination of strength and repairability. Dr. [DOCTOR_NAME] recommends materials based on your bone anatomy, bite forces, and aesthetic goals.' },
+  { question: 'How is full arch implant treatment different from All-on-4?', answer: 'All-on-4 is a specific full arch implant protocol using exactly 4 implants with 2 angled posteriorly. "Full arch implants" is a broader term encompassing All-on-4, All-on-6, and other implant-supported full arch approaches. The fundamental goal is the same: replace all teeth in an arch with a fixed implant prosthesis.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="Full Arch Dental Implants Huntington Beach | Complete Upper or Lower Arch"
+  description="Full arch dental implants in Huntington Beach replace all teeth in the upper or lower jaw with a fixed, permanent prosthesis. Specialist prosthodontist care."
+  schema={[localBusiness, procedureSchema, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-brand-gold text-sm font-semibold uppercase tracking-wide mb-3">All-on-X › Full Arch Implants</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          Full Arch Dental Implants in Huntington Beach —<br />
+          <span class="text-brand-gold">Complete Smile Restoration for Upper or Lower Jaw</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+          Full arch implant restoration replaces every tooth in your upper or lower jaw with a fixed prosthesis anchored to 4–6 implants. Permanent, functional, and indistinguishable from natural teeth.
+        </p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule Full Arch Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-heading mb-6">Full Arch Implant Restoration: Complete Tooth Replacement</h2>
+        <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+          Full arch dental implants represent the pinnacle of tooth replacement technology. Rather than relying on suction, adhesives, or pressure against gum tissue the way dentures do, a full arch implant restoration is anchored permanently into your jawbone via 4–6 titanium implants. The prosthesis does not move, does not come out, and does not require messy adhesives. It feels and functions like natural teeth in every meaningful way.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-4">
+          Full arch implant treatment is appropriate for patients who are missing all teeth in one or both arches, patients with severely failing dentition requiring comprehensive extraction and restoration, and patients who are dissatisfied with conventional dentures and want a permanent fixed solution. It is also considered for patients undergoing <a href="/all-on-x/full-mouth-reconstruction" class="text-brand-blue hover:underline">full mouth reconstruction</a>.
+        </p>
+        <p class="text-neutral-mid leading-relaxed mb-6">
+          The specific implant protocol — whether <a href="/all-on-x/all-on-4" class="text-brand-blue hover:underline">All-on-4</a>, <a href="/all-on-x/all-on-6" class="text-brand-blue hover:underline">All-on-6</a>, or a different configuration — is determined by 3D bone analysis and treatment planning at Huntington Beach Prosthodontics. In most cases, same-day temporary teeth are provided, meaning you leave your surgical appointment with a complete set of teeth already in place.
+        </p>
+        <a href="/all-on-x" class="text-brand-blue hover:underline font-semibold">← Back to All-on-X Overview</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Full Arch Implant FAQ" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>

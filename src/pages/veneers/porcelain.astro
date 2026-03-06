@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+const localBusiness = { '@context': 'https://schema.org', '@type': 'Dentist', 'name': 'Huntington Beach Prosthodontics', 'url': 'https://hbimplants.com', 'telephone': '[PHONE]', 'address': { '@type': 'PostalAddress', 'streetAddress': '[STREET]', 'addressLocality': 'Huntington Beach', 'addressRegion': 'CA', 'postalCode': '[ZIP]', 'addressCountry': 'US' }, 'openingHours': ['[HOURS]'], 'priceRange': '$$$$', 'medicalSpecialty': 'Prosthodontics' };
+const faqs = [
+  { question: 'What porcelain material is best for veneers?', answer: 'IPS e.max (lithium disilicate) is the current gold standard for veneer material. It offers superior strength (up to 400 MPa), excellent translucency mimicking natural enamel, and outstanding aesthetics. Feldspathic porcelain offers slightly better aesthetics for very thin veneers but is more fragile. For patients with heavy bites, zirconia-reinforced porcelain provides additional strength. Dr. [DOCTOR_NAME] selects material based on your specific teeth, bite, and aesthetic goals.' },
+  { question: 'How thin are porcelain veneers?', answer: 'Modern porcelain veneers range from 0.3mm (minimal-prep or "no-prep" veneers) to 1.0mm for cases requiring significant color change. The average veneer is 0.5–0.7mm — thinner than a contact lens. This minimal thickness preserves maximum tooth structure while still achieving dramatic aesthetic improvement. The amount of tooth preparation required depends on the material used and how much correction is needed.' },
+  { question: 'What is the difference between porcelain and composite veneers?', answer: 'Porcelain veneers are fabricated in a dental laboratory from ceramic that closely mimics natural tooth translucency and is highly resistant to staining. Composite veneers are placed chairside using tooth-colored resin — faster and less expensive, but more prone to staining, chipping, and wear. Porcelain veneers last 2–3 times longer than composite and maintain their appearance significantly better over time. For a long-term investment in your smile, porcelain is the superior choice.' },
+  { question: 'Can porcelain veneers fix crooked teeth without braces?', answer: 'Yes, in many cases. Porcelain veneers can correct the appearance of mildly crowded or slightly misaligned teeth by reshaping them to appear straight. However, there are limits — severe crowding or bite issues require orthodontic treatment first, as placing veneers on significantly misaligned teeth stresses the bonding and may result in premature failure. Dr. [DOCTOR_NAME] evaluates whether veneers alone can achieve your desired result or whether orthodontic preparation is advisable.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': faqs.map(f => ({ '@type': 'Question', 'name': f.question, 'acceptedAnswer': { '@type': 'Answer', 'text': f.answer } })) };
+---
+<BaseLayout
+  title="Porcelain Veneers in Huntington Beach | Specialist Cosmetic Dentist"
+  description="Ultra-thin porcelain veneers crafted to transform your smile at Huntington Beach Prosthodontics. 2-visit process, 10-20 year lifespan. Specialist-placed veneers."
+  schema={[localBusiness, faqSchema]}
+>
+  <section class="bg-brand-navy text-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-brand-gold text-sm font-semibold uppercase tracking-wide mb-3">Veneers › Porcelain Veneers</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6">
+          Porcelain Veneers Huntington Beach —<br />
+          <span class="text-brand-gold">Ultra-Thin Cosmetic Perfection</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mb-8">The science and artistry behind our porcelain veneer cases — material selection, tooth preparation design, and shade customization explained by our prosthodontist.</p>
+        <a href="/schedule" class="btn-gold text-base px-8 py-4 font-semibold">Schedule Veneer Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <h2 class="section-heading mb-6">The Material Science of Beautiful Porcelain Veneers</h2>
+      <p class="text-neutral-mid leading-relaxed mb-4 text-lg">
+        Not all porcelain veneers are equal. The material, laboratory, and technique determine whether your veneers look genuinely natural or recognizably artificial. At Huntington Beach Prosthodontics, we use premium-grade IPS e.max lithium disilicate — the current clinical gold standard for veneer fabrication — combined with master dental technicians who hand-layer characterization to achieve tooth-like translucency, depth, and color variation.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-4">
+        Natural teeth are not uniformly white. They have subtle translucency at the edges, slight internal variation in shade from gingival (gum) to incisal (tip), and surface texture that reflects light in a way that signals "real tooth" to anyone looking at your smile. Poorly made veneers look flat, overly bright, and opaque — they can actually draw more attention to themselves than a natural smile. Our approach prioritizes veneers that integrate seamlessly with your natural appearance and facial features.
+      </p>
+      <p class="text-neutral-mid leading-relaxed mb-6">
+        Dr. [DOCTOR_NAME] works closely with a select group of top-tier dental laboratories that specialize in cosmetic work. The combination of prosthodontist-level design and master ceramist artistry produces veneers that hold up aesthetically for 10–20 years. Explore our <a href="/veneers" class="text-brand-blue hover:underline">complete veneer overview</a> or <a href="/veneers/smile-makeover" class="text-brand-blue hover:underline">smile makeover page</a> for the full picture of what's possible.
+      </p>
+      <a href="/schedule" class="btn-primary">Schedule Your Veneer Consultation</a>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Porcelain Veneer Material FAQ" />
+    </div>
+  </section>
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><CTABlock /></div>
+  </section>
+</BaseLayout>
