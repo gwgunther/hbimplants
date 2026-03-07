@@ -22,6 +22,19 @@ const galleryImages: GalleryImage[] = [
   // { src: '/images/gallery/your-photo.jpg', alt: 'Description of the result', procedure: 'Dental Implants', caption: 'Optional caption' },
 ];
 
+const imageGallery = {
+  '@context': 'https://schema.org',
+  '@type': 'ImageGallery',
+  'name': 'Patient Results Gallery — Huntington Beach Prosthodontics',
+  'description': 'Before and after photos of dental implant, veneer, and smile restoration patients treated at Huntington Beach Prosthodontics.',
+  'url': 'https://hbimplants.com/gallery',
+  'author': {
+    '@type': 'Organization',
+    'name': 'Huntington Beach Prosthodontics',
+    'url': 'https://hbimplants.com',
+  },
+};
+
 const localBusiness = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
@@ -45,7 +58,7 @@ const localBusiness = {
 <BaseLayout
   title="Before & After Gallery | Huntington Beach Prosthodontics"
   description="View real patient result photos from Huntington Beach Prosthodontics. Dental implants, veneers, full arch restorations, and smile makeovers."
-  schema={localBusiness}
+  schema={[localBusiness, imageGallery]}
 >
   <section class="bg-surface-2 py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
