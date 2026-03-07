@@ -56,48 +56,81 @@ const faqs = [
   schema={localBusiness}
 >
   <!-- Hero -->
-  <section class="bg-white py-20 md:py-28">
+  <section class="bg-white py-16 md:py-24 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 border border-border-light text-mid-gray text-xs font-medium px-4 py-1.5 rounded-full mb-8">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand-gold inline-block"></span>
-          Board-Certified Prosthodontist · Huntington Beach, CA
-        </div>
-        <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-charcoal mb-6">
-          Restore Your Smile.<br />
-          <span class="text-brand-gold">Reclaim Your Confidence.</span>
-        </h1>
-        <p class="text-lg md:text-xl text-mid-gray mb-10 leading-relaxed max-w-2xl">
-          Specialist-level implants, veneers, and full smile restorations — performed by a board-certified prosthodontist, not a generalist.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3">
-          <a href="/schedule" class="btn-primary text-base px-8 py-4 font-semibold text-center">
-            Book Free Consultation
-          </a>
-          <a href="/dental-implants" class="btn-secondary text-base px-8 py-4 font-semibold text-center">
-            Explore Dental Implants
-          </a>
-        </div>
-        <div class="flex flex-wrap items-center gap-6 mt-8 text-sm text-mid-gray">
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-charcoal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12.5l2.5 2.5 4.5-5"/>
-            </svg>
-            No referral needed
+      <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-center">
+
+        <!-- Left: Content -->
+        <div>
+          <div class="inline-flex items-center gap-2 border border-border-light text-mid-gray text-xs font-medium px-4 py-1.5 rounded-full mb-8">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-teal inline-block"></span>
+            Board-Certified Prosthodontist · Huntington Beach, CA
           </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-charcoal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12.5l2.5 2.5 4.5-5"/>
-            </svg>
-            Most insurance accepted
+          <h1 class="font-serif text-5xl md:text-6xl font-bold leading-tight text-charcoal mb-6">
+            Restore Your Smile.<br />
+            Reclaim Your Confidence.
+          </h1>
+          <p class="text-lg md:text-xl text-mid-gray mb-10 leading-relaxed">
+            Specialist-level implants, veneers, and full smile restorations — performed by a board-certified prosthodontist, not a generalist.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/schedule" class="btn-primary text-base px-8 py-4 font-semibold text-center">
+              Book Free Consultation
+            </a>
+            <a href="/dental-implants" class="btn-secondary text-base px-8 py-4 font-semibold text-center">
+              Explore Dental Implants
+            </a>
           </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-charcoal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12.5l2.5 2.5 4.5-5"/>
-            </svg>
-            Flexible financing
+          <div class="flex flex-wrap items-center gap-6 mt-8 text-sm text-mid-gray">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-charcoal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12.5l2.5 2.5 4.5-5"/>
+              </svg>
+              No referral needed
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-charcoal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12.5l2.5 2.5 4.5-5"/>
+              </svg>
+              Most insurance accepted
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-charcoal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12.5l2.5 2.5 4.5-5"/>
+              </svg>
+              Flexible financing
+            </div>
           </div>
         </div>
+
+        <!-- Right: Beach Image -->
+        <div class="relative hidden lg:block">
+          <div class="rounded-2xl overflow-hidden h-[520px]">
+            <img
+              src="/images/beach_abstract_clean_20260306_200239_01.png"
+              alt="Aerial view of ocean waves at Huntington Beach"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <!-- Floating stats card -->
+          <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-5 border border-border-light shadow-sm">
+            <div class="grid grid-cols-3 divide-x divide-border-light text-center">
+              <div class="px-3">
+                <div class="text-2xl font-bold text-charcoal leading-none mb-1">5.0★</div>
+                <div class="text-xs text-mid-gray">Google Rating</div>
+              </div>
+              <div class="px-3">
+                <div class="text-2xl font-bold text-charcoal leading-none mb-1">1k+</div>
+                <div class="text-xs text-mid-gray">Smiles Restored</div>
+              </div>
+              <div class="px-3">
+                <div class="text-2xl font-bold text-charcoal leading-none mb-1">3+</div>
+                <div class="text-xs text-mid-gray">Yrs Specialty Training</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -309,10 +342,31 @@ const faqs = [
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA with beach image background -->
   <section class="py-8 pb-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <CTABlock />
+      <div class="relative rounded-2xl overflow-hidden">
+        <img
+          src="/images/beach_abstract_20260306_195512_03.png"
+          alt=""
+          class="absolute inset-0 w-full h-full object-cover"
+          aria-hidden="true"
+        />
+        <div class="relative py-12 md:py-16 px-8 md:px-16 text-center">
+          <h2 class="font-serif text-2xl md:text-3xl font-bold mb-4 text-charcoal">Ready to Restore Your Smile?</h2>
+          <p class="max-w-2xl mx-auto mb-8 leading-relaxed text-charcoal/70">
+            Schedule a consultation with Dr. Favian Cheong, your board-certified prosthodontist in Huntington Beach. We'll create a personalized treatment plan just for you.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="/schedule" class="btn-primary text-base px-8 py-4 font-semibold">
+              Schedule Your Consultation
+            </a>
+            <a href="tel:7148461386" class="font-medium text-base text-charcoal/70 hover:text-charcoal transition-colors">
+              Or Call: (714) 846-1386
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>

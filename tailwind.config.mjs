@@ -9,6 +9,7 @@ export default {
           blue: '#2E6DA4',
           light: '#EBF2FA',
           gold: '#C9A84C',
+          teal: '#4A8FA0',
         },
         neutral: {
           dark: '#1A1A1A',
