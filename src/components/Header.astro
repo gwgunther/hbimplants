@@ -1,7 +1,7 @@
 ---
 const phone = '(714) 846-1386';
 const navLinks = [
-  { label: 'About', href: '/about' },
+  { label: 'Meet the Team', href: '/about', avatar: '/images/dr-favian-cheong.png' },
   {
     label: 'Dental Implants',
     href: '/dental-implants',
@@ -49,6 +49,9 @@ const navLinks = [
               href={link.href}
               class="nav-link text-sm py-2 flex items-center gap-1"
             >
+              {link.avatar && (
+                <img src={link.avatar} alt="" class="w-6 h-6 rounded-full object-cover object-top ring-2 ring-white" />
+              )}
               {link.label}
               {link.dropdown && (
                 <svg class="w-3 h-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
