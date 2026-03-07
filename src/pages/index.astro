@@ -70,14 +70,24 @@ const faqs = [
             Restore Your Smile.<br />
             <span class="text-brand-teal">Reclaim Your Confidence.</span>
           </h1>
-          <p class="text-lg md:text-xl text-mid-gray mb-10 leading-relaxed">
+          <p class="text-lg md:text-xl text-mid-gray mb-8 leading-relaxed">
             Specialist-level implants, veneers, and full smile restorations — performed by a board-certified prosthodontist, not a generalist.
           </p>
+
+          <!-- Mobile image banner (hidden on desktop where full panel shows) -->
+          <div class="lg:hidden rounded-2xl overflow-hidden h-36 mb-8">
+            <img
+              src="/images/beach_abstract_clean_20260306_200239_01.png"
+              alt="Aerial view of ocean waves at Huntington Beach"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
+
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="/schedule" class="btn-primary text-base px-8 py-4 font-semibold text-center">
+            <a href="/schedule" class="btn-primary text-base px-8 py-4 font-semibold text-center w-full sm:w-auto">
               Book Free Consultation
             </a>
-            <a href="/dental-implants" class="btn-secondary text-base px-8 py-4 font-semibold text-center">
+            <a href="/dental-implants" class="btn-secondary text-base px-8 py-4 font-semibold text-center w-full sm:w-auto">
               Explore Dental Implants
             </a>
           </div>
