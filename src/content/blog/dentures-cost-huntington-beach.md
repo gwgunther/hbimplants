@@ -3,7 +3,7 @@ title: "How Much Do Dentures Cost in Huntington Beach? A Complete Breakdown"
 description: "Denture costs in Huntington Beach range from $1,500 to $35,000+ depending on type. A prosthodontist explains the full spectrum and what you actually get."
 publishDate: 2026-01-13
 targetKeyword: "dentures cost Huntington Beach"
-category: "restorative"
+category: "dentures"
 author: "Dr. Favian Cheong"
 draft: false
 faqs:

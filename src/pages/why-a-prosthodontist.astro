@@ -1,0 +1,291 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABlock from '../components/CTABlock.astro';
+import FAQBlock from '../components/FAQBlock.astro';
+
+const faqs = [
+  {
+    question: 'What is a prosthodontist?',
+    answer: 'A prosthodontist is a dental specialist who completes three additional years of post-doctoral training — beyond dental school — in a residency focused exclusively on restoring and replacing teeth. Prosthodontics is one of nine dental specialties officially recognized by the American Dental Association. The training covers implants, full-arch reconstructions, veneers, crowns, bite rehabilitation, dentures, and complex smile design.',
+  },
+  {
+    question: 'Do I need a specialist for dental implants?',
+    answer: 'For a straightforward single implant in a patient with good bone and no complicating factors, a general dentist with implant training may be sufficient. But for cases involving bone loss, multiple missing teeth, full-arch reconstruction (All-on-4), previous implant failure, or complex bite rehabilitation — a prosthodontist\'s specialized training directly affects your outcome.',
+  },
+  {
+    question: 'What is the difference between a prosthodontist and an oral surgeon?',
+    answer: 'An oral surgeon specializes in surgical procedures — tooth extractions, implant placement, bone grafting, and jaw surgery. A prosthodontist specializes in the restoration and replacement of teeth — designing and placing the crowns, bridges, and prosthetics that attach to implants or replace missing teeth. For implant cases, both specialists are often involved: the surgeon places the implant, the prosthodontist designs and delivers the final restoration.',
+  },
+  {
+    question: 'Why not just see my general dentist?',
+    answer: 'Your general dentist is an excellent first contact for routine care, and many general dentists provide solid implant and restorative services. The question is whether your case is routine. If you have multiple missing teeth, significant bone loss, a history of implant failure, or want full-arch reconstruction — a prosthodontist\'s three extra years of specialist training in exactly these cases adds meaningful value to your outcome.',
+  },
+  {
+    question: 'Is Dr. Cheong board-certified?',
+    answer: 'Yes. Dr. Favian Cheong is a board-certified prosthodontist who completed his specialty residency at UCSF and the VA San Francisco Medical Center — one of the most rigorous prosthodontic programs in the country. Board certification requires passing written and clinical examinations demonstrating specialist-level competency.',
+  },
+];
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  'name': 'Huntington Beach Prosthodontics',
+  'url': 'https://hbimplants.com',
+  'telephone': '(714) 846-1386',
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': '16141 Bolsa Chica St., Suite C',
+    'addressLocality': 'Huntington Beach',
+    'addressRegion': 'CA',
+    'postalCode': '92649',
+    'addressCountry': 'US',
+  },
+};
+---
+
+<BaseLayout
+  title="Why Choose a Prosthodontist | Huntington Beach Prosthodontics"
+  description="A prosthodontist has 3 extra years of specialty training in implants, full-arch restorations, and smile rehabilitation. Here's why it matters for your care."
+  schema={localBusiness}
+>
+
+  <!-- Hero -->
+  <section class="bg-surface-2 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="text-brand-blue text-sm font-semibold uppercase tracking-wide mb-3">Specialist Care</div>
+          <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight text-brand-navy">
+            Why a prosthodontist?<br />
+            <span class="text-brand-blue">Three extra years matters.</span>
+          </h1>
+          <p class="text-neutral-mid text-lg leading-relaxed mb-8">
+            A prosthodontist completes dental school plus an additional three-year residency focused exclusively on restoring and replacing teeth. It's the specialty general dentists refer complex implant and cosmetic cases to.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/dental-implants/consultation" class="btn-primary text-base px-6 py-3 text-center">Free Consultation</a>
+            <a href="/about" class="btn-secondary text-base px-6 py-3 text-center">Meet Dr. Cheong</a>
+          </div>
+        </div>
+        <div class="relative">
+          <img
+            src="/images/dr-favian-cheong.png"
+            alt="Dr. Favian Cheong, Board-Certified Prosthodontist"
+            class="rounded-2xl w-full max-w-md mx-auto lg:mx-0 object-cover object-top aspect-[4/5]"
+          />
+          <div class="absolute bottom-4 left-4 right-4 bg-white/95 rounded-xl p-4 shadow-lg backdrop-blur-sm">
+            <div class="font-semibold text-brand-navy">Dr. Favian Cheong</div>
+            <div class="text-sm text-brand-blue font-medium">Board-Certified Prosthodontist</div>
+            <div class="text-xs text-neutral-mid mt-1">UCLA DDS · UCSF Prosthodontic Residency</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Training Difference -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <div class="text-brand-blue text-sm font-semibold uppercase tracking-wide mb-3">The Difference in Training</div>
+        <h2 class="section-heading mb-4">How a prosthodontist is different</h2>
+        <p class="text-neutral-mid max-w-2xl mx-auto leading-relaxed">
+          Both general dentists and prosthodontists complete dental school. The divergence happens after — in three additional years of intensive specialty training.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- General Dentist -->
+        <div class="bg-surface-2 rounded-2xl p-8 border border-neutral-border">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center">
+              <svg class="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <h3 class="font-serif text-xl font-semibold text-brand-navy">General Dentist</h3>
+          </div>
+          <ul class="space-y-3">
+            {[
+              '4 years of dental school',
+              'Broad training across all dental disciplines',
+              'Preventive, restorative, and basic surgical care',
+              'Can place implants and do crowns/bridges',
+              'Refers complex cases to specialists',
+            ].map((item) => (
+              <li class="flex items-start gap-2.5 text-sm text-neutral-mid">
+                <svg class="w-4 h-4 text-neutral-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-6 pt-6 border-t border-neutral-border">
+            <div class="text-xs text-neutral-mid font-medium uppercase tracking-wide mb-1">Best for</div>
+            <div class="text-sm text-neutral-mid">Routine care, preventive cleanings, standard fillings, simple crowns and extractions</div>
+          </div>
+        </div>
+
+        <!-- Prosthodontist -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-brand-blue shadow-md">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-brand-light rounded-full flex items-center justify-center">
+              <svg class="w-5 h-5 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-serif text-xl font-semibold text-brand-navy">Prosthodontist</h3>
+              <span class="text-xs bg-brand-blue text-white px-2 py-0.5 rounded-full font-medium">ADA Recognized Specialist</span>
+            </div>
+          </div>
+          <ul class="space-y-3">
+            {[
+              '4 years dental school + 3-year specialty residency',
+              'Training focused exclusively on restoring & replacing teeth',
+              'Implants, full-arch prosthetics, bite rehabilitation',
+              'Veneers, smile makeovers, complete mouth reconstruction',
+              'Who general dentists refer their complex cases to',
+            ].map((item) => (
+              <li class="flex items-start gap-2.5 text-sm text-neutral-mid">
+                <svg class="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-6 pt-6 border-t border-neutral-border">
+            <div class="text-xs text-brand-blue font-medium uppercase tracking-wide mb-1">Best for</div>
+            <div class="text-sm text-neutral-mid">Dental implants, All-on-4, bone grafting, multiple missing teeth, veneers, full-mouth reconstruction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When a Specialist Matters -->
+  <section class="bg-brand-navy py-16 md:py-20 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="text-brand-gold text-sm font-semibold uppercase tracking-wide mb-3">When It Matters Most</div>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mb-4">Cases that benefit from specialist expertise</h2>
+        <p class="text-white/70 max-w-2xl mx-auto leading-relaxed">
+          Some cases are routine. Others involve complexity where specialized training makes a measurable difference in your outcome.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            title: 'Dental Implants',
+            desc: 'From single tooth replacement to full-arch reconstruction. Prosthodontists design the restoration that goes on top of the implant — and that design determines function and longevity.',
+          },
+          {
+            title: 'All-on-4 & Full Arch',
+            desc: 'The most demanding prosthetic work in dentistry. Bite design, prosthesis engineering, and coordination with the surgical phase all require prosthodontic expertise.',
+          },
+          {
+            title: 'Bone Loss Cases',
+            desc: 'Significant bone loss requires careful planning around grafting, angulation, and what bone remains. Complex cases benefit from a specialist\'s deeper experience with these variables.',
+          },
+          {
+            title: 'Porcelain Veneers',
+            desc: 'Veneers that look truly natural require mastery of shade selection, preparation depth, and bite integration. Prosthodontists train extensively in precision cosmetic work.',
+          },
+          {
+            title: 'Previous Implant Failure',
+            desc: 'Understanding why a previous implant failed — and planning differently — requires experience with failure modes and the ability to address underlying causes.',
+          },
+          {
+            title: 'Smile Rehabilitation',
+            desc: 'When implants, crowns, veneers, and bite adjustment all need to work together, a prosthodontist plans the full picture as one coordinated treatment — not separate procedures.',
+          },
+        ].map((item) => (
+          <div class="bg-white/10 rounded-xl p-6 border border-white/20">
+            <h3 class="font-serif text-lg font-semibold text-white mb-2">{item.title}</h3>
+            <p class="text-white/70 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Dr. Cheong's Training -->
+  <section class="py-16 md:py-20 bg-surface-2">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="text-brand-blue text-sm font-semibold uppercase tracking-wide mb-3">Dr. Favian Cheong</div>
+          <h2 class="section-heading mb-4">Training you can verify</h2>
+          <p class="text-neutral-mid max-w-2xl mx-auto leading-relaxed">
+            Credentials matter when you're trusting someone with your health. Here's exactly what Dr. Cheong's training involved.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {[
+            {
+              step: '01',
+              title: 'UC Irvine',
+              sub: 'B.S. Biological Sciences, Minor in Psychology & Human Behavior',
+              detail: 'Undergraduate foundation in sciences and human behavior — informing an approach to patient care that goes beyond the clinical.',
+            },
+            {
+              step: '02',
+              title: 'UCLA School of Dentistry',
+              sub: 'Doctor of Dental Surgery (DDS)',
+              detail: 'One of the top dental programs in the United States. Four years of comprehensive dental training.',
+            },
+            {
+              step: '03',
+              title: 'UCSF / VA San Francisco',
+              sub: '3-Year Prosthodontic Specialty Residency',
+              detail: 'CODA-accredited residency — one of the most rigorous prosthodontic programs in the country. Intensive training in implants, full-arch reconstruction, and complex restorative cases.',
+            },
+            {
+              step: '04',
+              title: 'Board Certification',
+              sub: 'American Board of Prosthodontics',
+              detail: 'Board certification requires passing written and clinical examinations beyond residency completion — demonstrating specialist-level competency.',
+            },
+          ].map((item) => (
+            <div class="bg-white rounded-xl p-6 border border-neutral-border">
+              <div class="text-brand-gold font-bold text-sm mb-3">{item.step}</div>
+              <h3 class="font-serif text-lg font-semibold text-brand-navy mb-1">{item.title}</h3>
+              <div class="text-brand-blue text-sm font-medium mb-3">{item.sub}</div>
+              <p class="text-neutral-mid text-sm leading-relaxed">{item.detail}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="bg-brand-light rounded-2xl p-8 text-center">
+          <p class="text-neutral-mid text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
+            "My background in psychology helps me understand the functional, psychological, and social importance of a healthy, confident smile. Whether your needs are minor or major, your treatment will be performed with precision and care at the highest level."
+          </p>
+          <div class="font-semibold text-brand-navy">Dr. Favian Cheong</div>
+          <div class="text-brand-blue text-sm">Board-Certified Prosthodontist</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Common Questions About Prosthodontic Care" />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="pb-16 pt-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CTABlock
+        heading="See the difference specialist care makes"
+        subheading="Start with a complimentary consultation — a full clinical examination, honest assessment of your options, and no obligation to proceed."
+      />
+    </div>
+  </section>
+
+</BaseLayout>
