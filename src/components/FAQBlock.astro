@@ -15,6 +15,19 @@ const {
 } = Astro.props;
 ---
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqs.map(faq => ({
+    '@type': 'Question',
+    'name': faq.question,
+    'acceptedAnswer': {
+      '@type': 'Answer',
+      'text': faq.answer,
+    },
+  })),
+})} />
+
 <section class="py-12">
   <h2 class="section-subheading text-center mb-8">{heading}</h2>
 

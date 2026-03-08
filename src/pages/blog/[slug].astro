@@ -14,6 +14,16 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content, headings } = await post.render();
 
+const faqSchema = post.data.faqs?.length ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': post.data.faqs.map((faq) => ({
+    '@type': 'Question',
+    'name': faq.question,
+    'acceptedAnswer': { '@type': 'Answer', 'text': faq.answer },
+  })),
+} : null;
+
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -62,16 +72,6 @@ const localBusiness = {
   'priceRange': '$$$$',
   'medicalSpecialty': 'Prosthodontics',
 };
-
-const faqSchema = post.data.faqs ? {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  'mainEntity': post.data.faqs.map(f => ({
-    '@type': 'Question',
-    'name': f.question,
-    'acceptedAnswer': { '@type': 'Answer', 'text': f.answer },
-  })),
-} : null;
 
 const schemas = [localBusiness, articleSchema, ...(faqSchema ? [faqSchema] : [])];
 

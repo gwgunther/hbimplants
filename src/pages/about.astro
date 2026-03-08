@@ -1,6 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABlock from '../components/CTABlock.astro';
+import FAQBlock from '../components/FAQBlock.astro';
+
+const faqs = [
+  {
+    question: 'Is Dr. Favian Cheong board-certified?',
+    answer: 'Yes. Dr. Favian Cheong is a board-certified prosthodontist who completed a CODA-accredited three-year prosthodontic residency at UCSF and the VA San Francisco Medical Center. Prosthodontics is one of nine dental specialties officially recognized by the American Dental Association.',
+  },
+  {
+    question: 'What is the difference between a prosthodontist and a general dentist?',
+    answer: 'A prosthodontist completes three additional years of post-doctoral specialty training beyond dental school — focused exclusively on complex tooth restoration and replacement, implants, and cosmetic rehabilitations. General dentists provide excellent routine and preventive care, but when treatment involves missing teeth, implants, full-arch restorations, veneers, or complex smile design, a prosthodontist brings a higher level of precision and expertise.',
+  },
+  {
+    question: 'Do both doctors see new patients?',
+    answer: 'Yes. Dr. Favian Cheong sees patients for prosthodontic and implant procedures, while Dr. Janelle Cheong handles general dental care including cleanings, exams, fillings, and crowns. Many patients benefit from having both doctors coordinate their care under one roof.',
+  },
+  {
+    question: 'How do I know which doctor is right for me?',
+    answer: 'If you\'re interested in dental implants, full-arch restorations, veneers, or complex smile rehabilitation, Dr. Favian Cheong is the specialist you want. For general dental care, routine check-ups, or if you\'re unsure where to start, Dr. Janelle Cheong is an excellent first contact. Our team will help guide you to the right appointment when you call or submit our online form.',
+  },
+  {
+    question: 'What should I expect at my first visit?',
+    answer: 'Your first appointment includes a comprehensive oral examination, complete digital records (X-rays and photographs), and an in-depth conversation about your goals and concerns. You\'ll receive an honest assessment of your options with clear information on timelines and costs — with no pressure or obligation to proceed on the same day.',
+  },
+  {
+    question: 'What advanced technology does the practice use?',
+    answer: 'We use advanced 3D cone-beam CT (CBCT) imaging, intraoral digital scanning, intraoral photography, and digital impressions. These tools allow us to plan implant placement with high precision, detect issues invisible on standard X-rays, and give patients a clear visual understanding of their own anatomy and treatment plan.',
+  },
+];
 
 const localBusiness = {
   '@context': 'https://schema.org',
@@ -204,8 +232,15 @@ const physicians = [
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="py-16 md:py-20 bg-surface-2">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Questions About Our Doctors & Practice" />
+    </div>
+  </section>
+
   <!-- CTA -->
-  <section class="pb-16">
+  <section class="pb-16 pt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <CTABlock heading="Meet Dr. Favian Cheong In Person" subheading="Your first visit includes a thorough examination, complete records, and an honest discussion of your treatment options — no pressure, no surprises." />
     </div>

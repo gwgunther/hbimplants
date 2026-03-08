@@ -3,6 +3,40 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABlock from '../components/CTABlock.astro';
 import FAQBlock from '../components/FAQBlock.astro';
 
+// Fetch real Google reviews at build time
+const PLACES_API_KEY = import.meta.env.GOOGLE_PLACES_API_KEY;
+const PLACE_ID = import.meta.env.PLACE_ID;
+
+const fallbackTestimonials = [
+  { quote: 'Dr. Cheong transformed my smile completely. I can\'t thank him enough for the exceptional care I received! Highly recommend!', name: 'Lindsey U.', meta: 'Huntington Beach' },
+  { quote: 'Dr. Cheong\'s office and team are incredible... I drive from Newport Beach to see them. Excellent experience.', name: 'Spencer L.', meta: 'Newport Beach' },
+  { quote: 'By far the best dental experience I\'ve ever had. Amazing service and quality care. Dr. Cheong is simply the best dentist in So-Cal. Efficient, honest, skilled and super chill.', name: 'Michelle L.', meta: 'Southern California' },
+];
+
+let testimonials = fallbackTestimonials;
+let googleRating = 4.9;
+let googleReviewCount = 73;
+
+try {
+  if (PLACES_API_KEY && PLACE_ID) {
+    const res = await fetch(
+      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${PLACE_ID}&fields=rating,user_ratings_total,reviews&reviews_sort=newest&key=${PLACES_API_KEY}`
+    );
+    const data = await res.json();
+    if (data.result) {
+      googleRating = data.result.rating ?? googleRating;
+      googleReviewCount = data.result.user_ratings_total ?? googleReviewCount;
+      const fetched = (data.result.reviews ?? [])
+        .filter((r: any) => r.rating >= 4 && r.text?.length > 40)
+        .slice(0, 3)
+        .map((r: any) => ({ quote: r.text, name: r.author_name, meta: r.relative_time_description }));
+      if (fetched.length >= 2) testimonials = fetched;
+    }
+  }
+} catch (_) {
+  // silently fall back
+}
+
 const localBusiness = {
   '@context': 'https://schema.org',
   '@type': 'Dentist',
@@ -20,12 +54,21 @@ const localBusiness = {
   'openingHours': ['Mo 09:00-17:00', 'We 09:00-17:00', 'Fr 09:00-17:00', 'Sa 10:00-14:00'],
   'priceRange': '$$$$',
   'medicalSpecialty': 'Prosthodontics',
-  // TODO: Add real verified profile URLs to sameAs once confirmed live:
-  // 'sameAs': [
-  //   'https://www.google.com/maps?cid=<YOUR_REAL_CID>',
-  //   'https://www.yelp.com/biz/<your-real-slug>',
-  //   'https://www.healthgrades.com/dentists/<your-real-slug>',
-  // ],
+  'aggregateRating': {
+    '@type': 'AggregateRating',
+    'ratingValue': googleRating,
+    'reviewCount': googleReviewCount,
+    'bestRating': 5,
+    'worstRating': 1,
+  },
+  // sameAs links help LLMs and Google build the practice's entity graph.
+  // Replace placeholder URLs with your actual verified profile URLs.
+  'sameAs': [
+    'https://g.page/r/CU4itT3RNhmQEBM',                    // Google Business Profile
+    'https://www.yelp.com/biz/huntington-beach-prosthodontics',
+    'https://www.healthgrades.com/dentists/huntington-beach-prosthodontics',
+    'https://www.zocdoc.com/practice/huntington-beach-prosthodontics',
+  ],
 };
 
 const faqs = [
@@ -50,8 +93,20 @@ const faqs = [
     answer: 'Dental implants are designed to last a lifetime. The titanium implant post integrates with your jawbone through a process called osseointegration, creating a permanent anchor. The crown on top typically lasts 15–25 years with proper care. Regular check-ups, good oral hygiene, and avoiding habits like grinding are the keys to maximizing implant longevity.',
   },
   {
+    question: 'Do you accept dental insurance?',
+    answer: 'Yes. We accept most major dental insurance plans and will help you maximize your benefits. Our team provides a clear breakdown of estimated costs before you begin any treatment. For procedures not fully covered by insurance, we offer flexible third-party financing options so you can start treatment and pay over time.',
+  },
+  {
+    question: 'How do I get started with treatment?',
+    answer: 'The easiest first step is to schedule a consultation — complimentary for implant and major restorative cases. During this visit we take complete digital records, review your dental history, and discuss your goals. You\'ll leave with a clear understanding of your options and a customized treatment plan, with no obligation to proceed.',
+  },
+  {
+    question: 'How soon can I get an appointment?',
+    answer: 'We typically see new patients within a few days to a week. Call us directly at (714) 846-1386 for the fastest scheduling, or use our online appointment request form and we\'ll follow up within one business day.',
+  },
+  {
     question: 'Where is Huntington Beach Prosthodontics located?',
-    answer: 'We are conveniently located in Huntington Beach, California, serving patients from Huntington Beach, Fountain Valley, Costa Mesa, Newport Beach, Seal Beach, and surrounding communities. Please call us or use our online appointment form to schedule your visit.',
+    answer: 'We are conveniently located at 16141 Bolsa Chica St., Suite C in Huntington Beach, California, serving patients from Huntington Beach, Fountain Valley, Costa Mesa, Newport Beach, Seal Beach, and surrounding communities. Please call us or use our online appointment form to schedule your visit.',
   },
 ];
 ---
@@ -125,7 +180,7 @@ const faqs = [
           <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-5 border border-border-light shadow-sm">
             <div class="grid grid-cols-3 divide-x divide-border-light text-center">
               <div class="px-3">
-                <div class="text-2xl font-bold text-charcoal leading-none mb-1">5.0★</div>
+                <a href="https://g.page/r/CU4itT3RNhmQEBM/review" target="_blank" rel="noopener noreferrer" class="text-2xl font-bold text-charcoal leading-none mb-1 hover:text-brand-teal transition-colors">4.9★</a>
                 <div class="text-xs text-mid-gray">Google Rating</div>
               </div>
               <div class="px-3">
@@ -157,7 +212,7 @@ const faqs = [
           <div class="text-sm text-mid-gray leading-snug">Smiles restored<br />in Huntington Beach</div>
         </div>
         <div class="md:px-10 lg:px-16">
-          <div class="text-6xl md:text-7xl font-bold text-charcoal leading-none mb-3">5.0</div>
+          <a href="https://g.page/r/CU4itT3RNhmQEBM/review" target="_blank" rel="noopener noreferrer" class="text-6xl md:text-7xl font-bold text-charcoal leading-none mb-3 hover:text-brand-teal transition-colors">4.9</a>
           <div class="text-sm text-mid-gray leading-snug">Google rating<br />from real patients</div>
         </div>
         <div class="md:pl-10 lg:pl-16">
@@ -304,27 +359,11 @@ const faqs = [
             ))}
           </div>
         </div>
-        <p class="text-mid-gray text-sm mt-2">Rated 5 stars by patients in Huntington Beach and beyond</p>
+        <p class="text-mid-gray text-sm mt-2">Rated {googleRating} stars · {googleReviewCount} Google reviews from patients in Huntington Beach and beyond</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {[
-          {
-            quote: 'Dr. Cheong transformed my smile completely. I can\'t thank him enough for the exceptional care I received! Highly recommend!',
-            name: 'Lindsey U.',
-            location: 'Huntington Beach',
-          },
-          {
-            quote: 'Dr. Cheong\'s office and team are incredible... I drive from Newport Beach to see them. Excellent experience.',
-            name: 'Spencer L.',
-            location: 'Newport Beach',
-          },
-          {
-            quote: 'By far the best dental experience I\'ve ever had. Amazing service and quality care. Dr. Cheong is simply the best dentist in So-Cal. Efficient, honest, skilled and super chill.',
-            name: 'Michelle L.',
-            location: 'Southern California',
-          },
-        ].map((t) => (
+        {testimonials.map((t) => (
           <div class="bg-white rounded-xl p-6 border border-border-light flex flex-col">
             <div class="flex gap-0.5 mb-4">
               {[1,2,3,4,5].map(() => (
@@ -336,10 +375,18 @@ const faqs = [
             <p class="text-mid-gray leading-relaxed text-sm flex-1 mb-4 italic">"{t.quote}"</p>
             <div>
               <div class="font-semibold text-charcoal text-sm">{t.name}</div>
-              <div class="text-xs text-mid-gray">{t.location}</div>
+              <div class="text-xs text-mid-gray">{t.meta}</div>
             </div>
           </div>
         ))}
+      </div>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-center">
+        <a href="https://g.page/r/CU4itT3RNhmQEBM/review" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Leave Us a Google Review
+        </a>
+        <a href="https://share.google/HnGTXT5RBHoUzW0kE" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-mid-gray hover:text-charcoal transition-colors">
+          Read all {googleReviewCount} reviews on Google →
+        </a>
       </div>
     </div>
   </section>
@@ -370,7 +417,7 @@ const faqs = [
   </section>
 
   <!-- FAQ -->
-  <section class="py-16 md:py-20">
+  <section id="faqs" class="py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <FAQBlock faqs={faqs} heading="Common Questions About Prosthodontic Care" />
     </div>

@@ -1,32 +1,49 @@
 ---
 const phone = '(714) 846-1386';
 const navLinks = [
-  { label: 'About', href: '/about', avatar: '/images/dr-favian-cheong.png' },
+  { label: 'About Us', href: '/about', avatar: '/images/dr-favian-cheong.png' },
   {
     label: 'Dental Implants',
     href: '/dental-implants',
     dropdown: [
-      { label: 'Single Tooth Implant', href: '/dental-implants/single-tooth' },
-      { label: 'Bone Grafting', href: '/dental-implants/bone-grafting' },
-      { label: 'Implant Consultation', href: '/dental-implants/consultation' },
-      { label: 'Implant Placement', href: '/dental-implants/implant-placement' },
+      { label: 'Single Tooth Implant', href: '/dental-implants/single-tooth', desc: 'Replace one missing tooth permanently' },
+      { label: 'All-on-4 Implants', href: '/all-on-x/all-on-4', desc: 'Full arch on just 4 implants' },
+      { label: 'All-on-6 Implants', href: '/all-on-x/all-on-6', desc: 'Maximum stability for a full arch' },
+      { label: 'Full Arch Implants', href: '/all-on-x/full-arch', desc: 'Replace an entire row of teeth' },
+      { label: 'Bone Grafting', href: '/dental-implants/bone-grafting', desc: 'Build the foundation for implants' },
+      { label: 'Free Consultation', href: '/dental-implants/consultation', desc: 'Start with a no-cost exam' },
     ],
   },
   {
-    label: 'All-on-X',
-    href: '/all-on-x',
+    label: 'Smile Restoration',
+    href: '/veneers',
     dropdown: [
-      { label: 'All-on-4', href: '/all-on-x/all-on-4' },
-      { label: 'All-on-6', href: '/all-on-x/all-on-6' },
-      { label: 'Full Arch Implants', href: '/all-on-x/full-arch' },
-      { label: 'Full Mouth Reconstruction', href: '/all-on-x/full-mouth-reconstruction' },
+      { label: 'Porcelain Veneers', href: '/veneers/porcelain', desc: 'Transform shape, color & symmetry' },
+      { label: 'Smile Makeover', href: '/veneers/smile-makeover', desc: 'Complete aesthetic transformation' },
+      { label: 'Cosmetic Dentistry', href: '/cosmetic-dentistry', desc: 'Whitening, bonding & more' },
+      { label: 'Clear Aligners', href: '/clear-aligners', desc: 'Straighten teeth discreetly' },
     ],
   },
-  { label: 'Veneers', href: '/veneers' },
-  { label: 'Dentures', href: '/dentures' },
-  { label: 'Restorations', href: '/implant-restorations' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Gallery', href: '/gallery' },
+  {
+    label: 'Restorative',
+    href: '/restorative-dentistry',
+    dropdown: [
+      { label: 'Dentures', href: '/dentures', desc: 'Modern full & partial dentures' },
+      { label: 'Snap-on Dentures', href: '/implant-restorations/snap-on', desc: 'Implant-secured, removable' },
+      { label: 'Implant Crowns', href: '/implant-restorations/crowns', desc: 'Single tooth implant restoration' },
+      { label: 'Implant Bridges', href: '/implant-restorations/bridges', desc: 'Fixed multi-tooth replacement' },
+      { label: 'General Dentistry', href: '/general-dentistry', desc: 'Cleanings & routine care' },
+    ],
+  },
+  {
+    label: 'Resources',
+    href: '/blog',
+    dropdown: [
+      { label: 'Patient Blog', href: '/blog', desc: 'Education & treatment guides' },
+      { label: 'Before & After Gallery', href: '/gallery', desc: 'Real patient results' },
+      { label: 'Common Questions', href: '/#faqs', desc: 'Implants, insurance & getting started' },
+    ],
+  },
 ];
 ---
 
@@ -34,7 +51,8 @@ const navLinks = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
       <!-- Logo -->
-      <a href="/" class="flex-shrink-0">
+      <a href="/" class="flex-shrink-0 flex items-center gap-3">
+        <img src="/images/logo-black.png" alt="Huntington Beach Prosthodontics" class="h-8 md:h-10 w-auto" />
         <div>
           <div class="font-serif text-base md:text-lg font-bold leading-tight text-charcoal">Huntington Beach</div>
           <div class="font-serif text-xs md:text-sm font-semibold text-brand-teal leading-tight">Prosthodontics</div>
@@ -60,13 +78,14 @@ const navLinks = [
               )}
             </a>
             {link.dropdown && (
-              <div class="absolute top-full left-0 mt-1 w-52 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-border-light">
+              <div class="absolute top-full left-0 mt-1 w-72 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-border-light">
                 {link.dropdown.map((item) => (
                   <a
                     href={item.href}
-                    class="block px-4 py-2.5 text-sm text-charcoal hover:bg-surface-2 first:rounded-t-xl last:rounded-b-xl"
+                    class="block px-4 py-3 hover:bg-surface-2 first:rounded-t-xl last:rounded-b-xl"
                   >
-                    {item.label}
+                    <div class="text-sm font-medium text-charcoal">{item.label}</div>
+                    {item.desc && <div class="text-xs text-mid-gray mt-0.5">{item.desc}</div>}
                   </a>
                 ))}
               </div>
