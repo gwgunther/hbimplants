@@ -141,6 +141,6 @@ draft: false
 - Every page has `localBusiness` JSON-LD schema
 - Treatment pages also include `procedureSchema` or `faqSchema` as appropriate
 - FAQs use the `FAQBlock` component
-- All CTAs use `CTABlock` component or `btn-gold` / `btn-primary` classes
+- All CTAs use `CTABlock` component or `btn-accent` / `btn-primary` classes
 - `section-heading` class for h2, `section-subheading` for sub-h2
 - `card` class for content cards
