@@ -1,0 +1,305 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABlock from '../components/CTABlock.astro';
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  'name': 'Huntington Beach Prosthodontics',
+  'url': 'https://hbimplants.com',
+  'telephone': '(714) 846-1386',
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': '16141 Bolsa Chica St., Suite C',
+    'addressLocality': 'Huntington Beach',
+    'addressRegion': 'CA',
+    'postalCode': '92649',
+    'addressCountry': 'US',
+  },
+  'openingHours': ['Mo 09:00-17:00', 'We 09:00-17:00', 'Fr 09:00-17:00', 'Sa 10:00-14:00'],
+  'priceRange': '$$$$',
+  'medicalSpecialty': 'Prosthodontics',
+};
+
+const categories = [
+  {
+    id: 'prosthodontics',
+    heading: 'About Prosthodontic Care',
+    faqs: [
+      {
+        question: 'What is a prosthodontist?',
+        answer: 'A prosthodontist is a dental specialist who completes an additional 3 years of residency training beyond dental school, focused exclusively on restoring and replacing teeth. Prosthodontists are the recognized specialists in dental implants, veneers, crowns, bridges, dentures, and full-mouth rehabilitation. Dr. Favian Cheong is a board-certified prosthodontist serving Huntington Beach and surrounding communities.',
+      },
+      {
+        question: 'How is a prosthodontist different from a general dentist?',
+        answer: 'A general dentist provides a wide range of routine care across all areas of dentistry. A prosthodontist specializes — 100% of their training and practice is focused on restoring and replacing teeth. For complex cases involving multiple missing teeth, full-arch reconstruction, or high-stakes cosmetic work, the depth of specialist training matters significantly in both the planning and the outcome.',
+      },
+      {
+        question: 'Do I need a referral to see a prosthodontist?',
+        answer: 'No referral is needed. You can schedule directly with our office. Many patients come to us on their own after researching their options, or after a general dentist has recommended specialist care for their case.',
+      },
+      {
+        question: 'What conditions does a prosthodontist treat?',
+        answer: 'Prosthodontists treat a wide range of conditions: missing teeth (single or multiple), worn or damaged teeth, congenital tooth defects, jaw joint (TMJ) problems, sleep apnea (with oral appliances), and complex cosmetic concerns. If it involves restoring the form, function, or appearance of the teeth and surrounding structures, a prosthodontist is the appropriate specialist.',
+      },
+      {
+        question: 'Is a prosthodontist more expensive than a general dentist?',
+        answer: 'The procedures themselves are priced comparably to what a general dentist would charge for the same treatment. The difference is in the depth of expertise applied. For straightforward cases the cost may be similar; for complex restorations, a prosthodontist\'s planning and precision often prevents costly revisions down the road.',
+      },
+    ],
+  },
+  {
+    id: 'implants',
+    heading: 'Dental Implants',
+    faqs: [
+      {
+        question: 'Am I a candidate for dental implants?',
+        answer: 'Most adults with one or more missing teeth are candidates. The primary requirements are adequate bone volume in the jaw, healthy gums, and no uncontrolled systemic health conditions. Patients with bone loss may still qualify after bone grafting. The best way to know for certain is a complimentary consultation, where we perform 3D cone-beam imaging to evaluate your bone and anatomy in detail.',
+      },
+      {
+        question: 'How long do dental implants last?',
+        answer: 'The titanium implant post is designed to last a lifetime — it fuses permanently with the jawbone through osseointegration. The crown on top typically lasts 15–25 years depending on material, bite forces, and oral hygiene. With proper care, implants are the longest-lasting tooth replacement option available.',
+      },
+      {
+        question: 'How long does the implant process take from start to finish?',
+        answer: 'For a straightforward single implant: placement surgery takes about an hour, followed by a 3–4 month healing period while the implant integrates with the bone, then crown placement. Total timeline is roughly 4–6 months. If bone grafting is needed first, add 3–4 months. All-on-4 and full-arch cases can often be completed faster with immediate loading protocols.',
+      },
+      {
+        question: 'Does implant surgery hurt?',
+        answer: 'Implant placement is performed under local anesthesia — you should feel pressure but no pain during the procedure. Post-operative discomfort is typically mild and well-managed with over-the-counter pain relievers. Most patients are surprised by how comfortable the recovery is compared to expectations. Sedation options are available for anxious patients.',
+      },
+      {
+        question: 'What is the difference between All-on-4 and All-on-6?',
+        answer: 'Both replace an entire arch of teeth using implants as anchors for a fixed prosthesis. All-on-4 uses 4 strategically angled implants and is well-suited for patients with moderate bone loss. All-on-6 uses 6 implants for additional support and stability, often preferred when more bone is available or for patients who want maximum redundancy. The right choice depends on your bone volume, bite forces, and anatomy — something we evaluate at your consultation.',
+      },
+      {
+        question: 'What is bone grafting and do I need it?',
+        answer: 'Bone grafting rebuilds the jawbone in areas where it has resorbed after tooth loss. It creates the necessary volume and density for an implant to integrate successfully. Not everyone needs it — it depends on how long the tooth has been missing and how much bone has been lost. We evaluate this with 3D imaging at your consultation. Grafting adds 3–4 months to the timeline but makes implants possible for patients who otherwise wouldn\'t qualify.',
+      },
+    ],
+  },
+  {
+    id: 'cosmetic',
+    heading: 'Cosmetic & Smile Restoration',
+    faqs: [
+      {
+        question: 'What is the difference between veneers and crowns?',
+        answer: 'A veneer covers only the front surface of the tooth and requires minimal removal of tooth structure — typically 0.3–0.7mm. It\'s used primarily for cosmetic improvements to visible front teeth. A crown covers the entire tooth and requires more significant preparation. Crowns are indicated when a tooth is significantly damaged, weakened, or needs structural restoration. Dr. Cheong will recommend the most conservative approach that achieves your goals.',
+      },
+      {
+        question: 'How many veneers do I need for a smile makeover?',
+        answer: 'This depends on how wide your smile is and which teeth show when you smile. Most smile makeovers involve 6–10 veneers across the upper front teeth (the teeth visible in a full smile). Some patients treat only the upper arch; others include lower veneers for complete harmony. During your consultation we use digital smile design to visualize the result before any work begins.',
+      },
+      {
+        question: 'How long do porcelain veneers last?',
+        answer: 'With proper care, porcelain veneers last 10–20 years. Longevity depends on bite forces, oral hygiene, and habits like teeth grinding. Patients who grind at night are typically given a custom nightguard to protect the investment. Veneers do eventually need replacement, but they\'re not a permanent alteration — they\'re a long-lasting cosmetic solution.',
+      },
+      {
+        question: 'Can veneers fix crooked teeth, or do I need braces first?',
+        answer: 'Minor to moderate crowding or spacing can often be fully corrected with veneers alone — without orthodontics. More significant misalignment may benefit from clear aligner treatment first, both for a better cosmetic result and to reduce the amount of tooth preparation needed. We evaluate this on a case-by-case basis and can combine treatments when appropriate.',
+      },
+      {
+        question: 'What is a smile makeover vs. full mouth reconstruction?',
+        answer: 'A smile makeover is primarily cosmetic — it improves the appearance of the teeth you have. A full mouth reconstruction addresses both cosmetic and functional concerns, often involving a combination of implants, crowns, veneers, and sometimes orthodontics. Reconstruction is typically for patients with significant tooth loss, wear, damage, or bite dysfunction. The distinction matters for planning and cost.',
+      },
+    ],
+  },
+  {
+    id: 'restorative',
+    heading: 'Restorative Dentistry & Dentures',
+    faqs: [
+      {
+        question: 'What is the difference between a crown and a filling?',
+        answer: 'A filling repairs a small to moderate area of decay or damage, leaving most of the natural tooth intact. A crown caps the entire visible portion of the tooth and is used when decay, fracture, or prior restorations have compromised too much of the structure for a filling to reliably hold. Crowns are also used after root canals, which weaken the tooth, and for supporting dental bridges.',
+      },
+      {
+        question: 'What types of dentures do you offer?',
+        answer: 'We offer conventional full dentures, partial dentures, implant-supported fixed dentures (permanently attached), and snap-on overdentures (removable but implant-retained). The best option depends on how many teeth you\'re missing, your bone quality, your lifestyle, and your budget. Implant-supported options significantly outperform conventional dentures in comfort, function, and bone preservation.',
+      },
+      {
+        question: 'Can dentures be supported by implants?',
+        answer: 'Yes — this is one of the most impactful upgrades a denture patient can make. Implant-supported dentures are anchored to 4–6 implants and are fixed in place (non-removable). Implant-retained snap-on dentures use 2–4 implants and are removable for cleaning but snap securely in place during the day. Both eliminate the problems of conventional dentures: slipping, bone loss, and dietary restrictions.',
+      },
+      {
+        question: 'How do I know if I need a crown or just a filling?',
+        answer: 'If more than about 50% of the tooth\'s biting surface is compromised by decay, an existing filling, or fracture, a crown is typically the appropriate restoration. A filling in a heavily compromised tooth is at high risk of failure or causing the tooth to fracture. We\'ll evaluate your tooth with X-rays and clinical examination and recommend the most conservative option that will hold long-term.',
+      },
+    ],
+  },
+  {
+    id: 'cost',
+    heading: 'Insurance, Cost & Financing',
+    faqs: [
+      {
+        question: 'Do you accept dental insurance?',
+        answer: 'Yes. We accept most major dental insurance plans. Our team will verify your benefits before treatment and provide a clear, itemized estimate of your out-of-pocket costs. We help you maximize your annual benefits and can structure treatment timing to use multiple benefit years when appropriate.',
+      },
+      {
+        question: 'How much does a dental implant cost?',
+        answer: 'A single-tooth implant at our office typically ranges from $3,500–$5,500 depending on whether bone grafting is needed and the type of crown restoration. All-on-4 full-arch cases typically range from $20,000–$30,000 per arch. We provide a detailed written cost estimate after your consultation — there are no surprises. Financing is available to spread the cost over time.',
+      },
+      {
+        question: 'Does insurance cover dental implants?',
+        answer: 'Coverage varies widely by plan. Most PPO dental plans provide some coverage toward implant restorations (the crown portion), though the implant surgery itself is often covered at a lower rate or excluded. Medical insurance may cover implants in some cases involving trauma or medically necessary tooth loss. We\'ll verify your specific coverage and submit claims on your behalf to maximize what you receive.',
+      },
+      {
+        question: 'What financing options do you offer?',
+        answer: 'We offer flexible financing through third-party financing providers, allowing you to start treatment now and pay over time — often with low or 0% interest promotional periods. Options range from 12 to 60-month payment plans. Our treatment coordinator will review all financing options with you before you commit to anything.',
+      },
+      {
+        question: 'Is the consultation free?',
+        answer: 'Yes — consultations for dental implants and major restorative or cosmetic cases are complimentary. During the consultation we take complete digital records including 3D imaging where appropriate, review your history, and develop a customized treatment plan. You\'ll leave with a full understanding of your options and costs, with no obligation to proceed.',
+      },
+    ],
+  },
+  {
+    id: 'appointments',
+    heading: 'Appointments & Your First Visit',
+    faqs: [
+      {
+        question: 'How do I schedule an appointment?',
+        answer: 'You can call us directly at (714) 846-1386 during office hours for the fastest scheduling, or use our online appointment request form and we\'ll follow up within one business day. We typically see new patients within a few days to a week.',
+      },
+      {
+        question: 'What should I bring to my first appointment?',
+        answer: 'Please bring a valid photo ID, your dental insurance card (if applicable), a list of current medications, and any recent dental X-rays or records from your previous dentist. If you\'ve had a CBCT or panoramic X-ray taken recently, bringing that imaging is especially helpful.',
+      },
+      {
+        question: 'How long does the first visit take?',
+        answer: 'New patient consultations are typically 60–90 minutes. This allows time for a thorough examination, complete digital records, and an unhurried conversation about your goals and treatment options. Complex full-arch cases may take slightly longer.',
+      },
+      {
+        question: 'What are your office hours?',
+        answer: 'We are open Monday and Wednesday 9am–5pm, Friday 9am–5pm, and Saturday 10am–2pm. Tuesday and Thursday are by appointment only. Call (714) 846-1386 or use our online form to schedule.',
+      },
+      {
+        question: 'Where are you located?',
+        answer: 'We are located at 16141 Bolsa Chica St., Suite C, Huntington Beach, CA 92649. We serve patients from Huntington Beach, Fountain Valley, Costa Mesa, Newport Beach, Seal Beach, and surrounding communities throughout Orange County.',
+      },
+    ],
+  },
+];
+
+// Build flat FAQ list for schema
+const allFaqs = categories.flatMap(c => c.faqs);
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': allFaqs.map(faq => ({
+    '@type': 'Question',
+    'name': faq.question,
+    'acceptedAnswer': { '@type': 'Answer', 'text': faq.answer },
+  })),
+};
+---
+
+<BaseLayout
+  title="FAQ | Huntington Beach Prosthodontics"
+  description="Answers to common questions about dental implants, veneers, dentures, prosthodontic care, insurance, and appointments at Huntington Beach Prosthodontics."
+  schema={[localBusiness, faqSchema]}
+>
+  <!-- Hero -->
+  <section class="bg-brand-light py-14 md:py-20 border-b border-neutral-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-1.5 border border-neutral-border text-neutral-mid text-xs font-medium px-3 py-1 rounded-full mb-5">
+        Patient Resources
+      </div>
+      <h1 class="font-serif text-4xl md:text-5xl font-bold text-brand-navy mb-4">
+        Frequently Asked Questions
+      </h1>
+      <p class="text-lg text-neutral-mid max-w-2xl mx-auto">
+        Answers to the questions patients ask most — about our practice, treatment options, insurance, and what to expect at your first visit.
+      </p>
+      <!-- Category jump links -->
+      <div class="flex flex-wrap justify-center gap-2 mt-8">
+        {categories.map(cat => (
+          <a
+            href={`#${cat.id}`}
+            class="text-sm px-4 py-1.5 rounded-full border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white transition-colors"
+          >
+            {cat.heading}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Categories -->
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+    {categories.map((cat, catIndex) => (
+      <section id={cat.id}>
+        <h2 class="font-serif text-2xl md:text-3xl font-bold text-brand-navy mb-6 pb-4 border-b border-neutral-border">
+          {cat.heading}
+        </h2>
+        <div class="space-y-3">
+          {cat.faqs.map((faq, faqIndex) => {
+            const uid = `${catIndex}-${faqIndex}`;
+            return (
+              <div class="border border-neutral-border rounded-xl overflow-hidden">
+                <button
+                  class="w-full text-left px-6 py-4 flex justify-between items-center bg-white hover:bg-brand-light transition-colors duration-200"
+                  aria-expanded="false"
+                  data-faq-btn={uid}
+                >
+                  <span class="font-semibold text-brand-navy pr-4">{faq.question}</span>
+                  <svg
+                    class="w-5 h-5 text-brand-blue flex-shrink-0 transition-transform duration-200"
+                    data-faq-icon={uid}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div
+                  class="hidden px-6 py-4 bg-brand-light text-neutral-mid leading-relaxed"
+                  data-faq-content={uid}
+                >
+                  {faq.answer}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <!-- Still have questions -->
+  <section class="bg-brand-light border-t border-neutral-border py-12">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-serif text-2xl font-bold text-brand-navy mb-3">Still have questions?</h2>
+      <p class="text-neutral-mid mb-6">Call us or schedule a complimentary consultation — we're happy to walk through anything in person.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="tel:7148461386" class="btn-secondary text-sm px-6 py-3">
+          Call (714) 846-1386
+        </a>
+        <a href="/schedule" class="btn-primary text-sm px-6 py-3">
+          Book Free Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CTABlock />
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  const buttons = document.querySelectorAll('[data-faq-btn]');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const uid = btn.getAttribute('data-faq-btn');
+      const content = document.querySelector(`[data-faq-content="${uid}"]`);
+      const icon = document.querySelector(`[data-faq-icon="${uid}"]`);
+      const isOpen = !content?.classList.contains('hidden');
+      content?.classList.toggle('hidden');
+      icon?.classList.toggle('rotate-180');
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+</script>
