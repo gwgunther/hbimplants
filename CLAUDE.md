@@ -103,6 +103,9 @@ Require additional .env variables — see `.env.example`:
 
 Run with: `node scripts/<script>.js --help` (most accept --help flags or display usage on error)
 
+## Git Workflow
+No branch protection rules are configured. **Push all changes directly to `main`** — do not create feature branches or PRs unless explicitly asked. Every push to `main` triggers an automatic Cloudflare Pages deploy.
+
 ## GitHub Actions Deploy
 `.github/workflows/deploy.yml` — triggers on push to `main`.
 Required GitHub Secrets:
