@@ -236,35 +236,38 @@ const faqs = [
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
+          // — Dental Implants pillar —
           {
             href: '/dental-implants',
             title: 'Dental Implants',
-            desc: 'The gold standard for tooth replacement. Permanent, natural-looking, and built to last a lifetime.',
+            desc: 'Single-tooth implants, bone grafting, and surgical placement — the permanent gold standard for tooth replacement.',
           },
           {
             href: '/all-on-x',
             title: 'All-on-X / Full Arch',
-            desc: 'Replace an entire arch of teeth with just 4–6 implants. Walk in with failing teeth, leave with a full smile.',
+            desc: 'Replace an entire arch on just 4–6 implants. Walk in with failing teeth, leave with a fixed, full smile.',
           },
+          // — Smile Restoration pillar —
           {
             href: '/veneers',
             title: 'Porcelain Veneers',
-            desc: 'Transform the color, shape, and symmetry of your smile with ultra-thin porcelain shells crafted to perfection.',
-          },
-          {
-            href: '/dentures',
-            title: 'Dentures',
-            desc: 'Modern full and partial dentures that look natural and fit comfortably — far beyond what your grandfather wore.',
-          },
-          {
-            href: '/implant-restorations',
-            title: 'Implant Restorations',
-            desc: 'Crowns, bridges, and dentures anchored to implants for maximum stability, function, and natural appearance.',
+            desc: 'Transform the color, shape, and symmetry of your smile with ultra-thin porcelain shells and complete smile makeovers.',
           },
           {
             href: '/cosmetic-dentistry',
             title: 'Cosmetic Dentistry',
-            desc: 'Teeth whitening, bonding, and comprehensive smile makeovers designed around your unique facial features and goals.',
+            desc: 'Teeth whitening, bonding, and clear aligners — aesthetic treatments designed around your facial features and goals.',
+          },
+          // — Crowns & Dentures pillar —
+          {
+            href: '/restorative-dentistry',
+            title: 'Dentures & Implant Restorations',
+            desc: 'Modern full and partial dentures, snap-on implant dentures, and implant-supported crowns and bridges — all coordinated in-house.',
+          },
+          {
+            href: '/general-dentistry',
+            title: 'General Dentistry',
+            desc: 'Routine cleanings, exams, and preventive care as part of your ongoing prosthodontic relationship.',
           },
         ].map((service) => (
           <a href={service.href} class="bg-white rounded-xl p-6 border border-border-light hover:border-charcoal transition-colors duration-200 group">
