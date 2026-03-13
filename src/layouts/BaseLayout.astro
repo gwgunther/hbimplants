@@ -67,7 +67,11 @@ const breadcrumbSchema = pathSegments.length > 0 ? {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow" />
+    )}
     {articleAuthor && <meta name="author" content={articleAuthor} />}
     {articleDate && <meta name="date" content={articleDate} />}
 
