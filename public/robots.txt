@@ -3,6 +3,8 @@ Allow: /
 Disallow: /thank-you
 Disallow: /referral
 
+# LLM summary for AI crawlers: https://hbimplants.com/llms.txt
+
 # AI search crawlers — explicitly allow indexing for citation in AI answers
 User-agent: GPTBot
 Allow: /
@@ -25,4 +27,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://hbimplants.com/sitemap.xml
+Sitemap: https://hbimplants.com/sitemap-index.xml

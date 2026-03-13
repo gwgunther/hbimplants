@@ -35,7 +35,7 @@
 - Blog: https://hbimplants.com/blog
 - Schedule: https://hbimplants.com/schedule
 - About: https://hbimplants.com/about
-- Sitemap: https://hbimplants.com/sitemap.xml
+- Sitemap: https://hbimplants.com/sitemap-index.xml
 
 ## About Prosthodontics
 
