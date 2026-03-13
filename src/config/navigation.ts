@@ -42,7 +42,7 @@ const servicesGroups: NavDropdownGroup[] = [
 
 export const navLinks: NavLink[] = [
   {
-    label: 'About',
+    label: 'About Us',
     href: '/about',
     avatar: '/images/team/dr-favian-cheong.webp',
     dropdown: [

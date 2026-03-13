@@ -22,7 +22,8 @@ import { localBusinessSchema as localBusiness } from '../../config/site';
   <section class="bg-surface-2 py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
-        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-4">
+        <div class="text-brand-teal text-sm font-semibold uppercase tracking-wide mb-3">Patient Education</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-4 text-charcoal">
           Patient Education Blog
         </h1>
         <p class="text-mid-gray text-lg max-w-2xl mx-auto">
@@ -40,12 +41,12 @@ import { localBusinessSchema as localBusiness } from '../../config/site';
         </div>
       ) : (
         <>
-          <div class="flex flex-wrap items-center gap-1.5 mb-6" id="blog-tags">
+          <div class="flex flex-wrap items-center justify-end gap-1.5 mb-6" id="blog-tags">
             <span class="text-xs font-medium text-mid-gray mr-1">Filter:</span>
             <button
               type="button"
               data-tag=""
-              class="blog-tag active px-2.5 py-1 rounded-md text-xs font-medium transition-colors bg-charcoal text-white hover:bg-brand-teal"
+              class="blog-tag active px-2.5 py-1 rounded-full text-xs font-medium transition-colors bg-charcoal text-white hover:bg-brand-teal"
             >
               All
             </button>
@@ -53,7 +54,7 @@ import { localBusinessSchema as localBusiness } from '../../config/site';
               <button
                 type="button"
                 data-tag={tag}
-                class="blog-tag px-2.5 py-1 rounded-md text-xs font-medium transition-colors border border-border-light bg-white text-mid-gray hover:border-charcoal/30 hover:text-charcoal"
+                class="blog-tag px-2.5 py-1 rounded-full text-xs font-medium transition-colors border border-border-light bg-white text-mid-gray hover:border-brand-teal/50 hover:text-brand-teal"
               >
                 {tag.replace(/-/g, ' ')}
               </button>
@@ -63,7 +64,7 @@ import { localBusinessSchema as localBusiness } from '../../config/site';
             {sortedPosts.map((post) => (
               <a
                 href={`/blog/${post.slug}`}
-                class="blog-card card hover:shadow-lg hover:border-brand-blue transition-all duration-200 group"
+                class="blog-card card hover:shadow-lg hover:border-brand-teal transition-all duration-200 group"
                 data-tags={(post.data.tags || []).join(' ')}
               >
                 {post.data.featuredImage && (
@@ -79,14 +80,14 @@ import { localBusinessSchema as localBusiness } from '../../config/site';
                   </div>
                 )}
                 <div class="flex flex-wrap gap-2 mb-2">
+                  <span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold uppercase bg-brand-teal/15 text-brand-teal border border-brand-teal/20">
+                    {post.data.category.replace(/-/g, ' ')}
+                  </span>
                   {post.data.tags?.slice(0, 3).map((t: string) => (
-                    <span class="text-[10px] rounded px-2 py-0.5 bg-surface-2 text-mid-gray">{t.replace(/-/g, ' ')}</span>
+                    <span class="inline-flex rounded-full px-2.5 py-0.5 text-[10px] font-medium bg-brand-teal/10 text-brand-teal border border-brand-teal/20">{t.replace(/-/g, ' ')}</span>
                   ))}
                 </div>
-                <div class="text-xs text-brand-blue font-semibold uppercase tracking-wide mb-2">
-                  {post.data.category.replace('-', ' ')}
-                </div>
-                <h2 class="font-serif text-lg font-semibold text-brand-navy mb-2 group-hover:text-brand-blue transition-colors leading-tight">
+                <h2 class="font-serif text-lg font-semibold text-charcoal mb-2 group-hover:text-brand-teal transition-colors leading-tight">
                   {post.data.title}
                 </h2>
                 <p class="text-neutral-mid text-sm leading-relaxed mb-4">{post.data.description}</p>
