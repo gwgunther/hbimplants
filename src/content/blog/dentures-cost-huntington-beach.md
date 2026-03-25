@@ -60,7 +60,7 @@ Many dental insurance plans include denture coverage — typically at 50% up to 
 
 Implant coverage varies widely. Some plans include a fixed dollar amount per implant (often $1,000–$1,500); many don't cover implants at all. Read your specific plan language carefully.
 
-Financing through [Cherry](https://withcherry.com/) is available to spread costs across 12–60 months, often with promotional interest rates.
+Financing through [Cherry](https://pay.withcherry.com/huntington-beach-prosthodontics?utm_source=merchant&utm_medium=qr_code_flyer&utm_campaign=v1) is available to spread costs across 12–60 months, often with promotional interest rates.
 
 ## The Cost-Over-Time Perspective
 

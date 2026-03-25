@@ -32,7 +32,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     heading: 'Smile Restoration',
-    href: '/veneers',
+    href: '/smile-restoration',
     desc: 'Transform the look of your smile.',
     services: [
       { name: 'Porcelain Veneers', href: '/veneers/porcelain', desc: 'Transform shape, color & symmetry' },
