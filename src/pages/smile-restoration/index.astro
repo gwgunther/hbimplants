@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABlock from '../../components/CTABlock.astro';
+import FAQBlock from '../../components/FAQBlock.astro';
+
+import { localBusinessSchema as localBusiness } from '../../config/site';
+import { serviceCategories } from '../../config/services';
+
+const smileCategory = serviceCategories.find((c) => c.heading === 'Smile Restoration');
+if (!smileCategory) throw new Error('Smile Restoration category missing from services config');
+
+const faqs = [
+  {
+    question: 'What is smile restoration?',
+    answer: 'Smile restoration is our umbrella for treatments that improve how your teeth look — color, shape, alignment, and overall harmony. It includes porcelain veneers and smile makeovers, professional whitening, composite bonding, clear aligners, and broader cosmetic dentistry. The right plan depends on your goals, timeline, and whether you need structural repair as well as aesthetics.',
+  },
+  {
+    question: 'Is smile restoration the same as restorative dentistry?',
+    answer: 'They overlap in everyday language, but on our site we use them differently. Restorative dentistry focuses on repairing or replacing damaged or missing teeth for health and function — crowns, bridges, dentures, and implant restorations. Smile restoration emphasizes the aesthetic side: veneers, whitening, bonding, and alignment. Many patients combine both; a prosthodontist plans how cosmetic and restorative work fit together.',
+  },
+  {
+    question: 'Why see a prosthodontist for cosmetic smile work?',
+    answer: 'Prosthodontists complete three additional years of training focused on restoring and replacing teeth, including advanced training in materials, occlusion (bite), and aesthetic design. For veneers and smile makeovers, that matters for longevity, natural appearance, and how your new smile functions when you chew. You get specialist-level planning, not a one-size-fits-all cosmetic template.',
+  },
+  {
+    question: 'How do I know whether I need veneers, whitening, or aligners first?',
+    answer: 'Often the sequence is: align teeth if position is the main issue, whiten if shade is the priority and tooth structure is sound, then add veneers or bonding for shape and symmetry. At your consultation we review photos, scans, and your goals to recommend an efficient order — sometimes one treatment is enough; sometimes a phased plan delivers the best result.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
+---
+
+<BaseLayout
+  title="Smile Restoration Huntington Beach | Veneers, Whitening & More"
+  description="Smile restoration in Huntington Beach — veneers, smile makeovers, whitening, bonding, and clear aligners with a certified prosthodontist. Plan your aesthetic goals with specialist care."
+  schema={[localBusiness, faqSchema]}
+>
+  <section class="bg-surface-2 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-brand-teal text-sm font-semibold uppercase tracking-wide mb-3">Smile Restoration · Huntington Beach</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          Smile Restoration in Huntington Beach —<br />
+          <span class="text-brand-teal">Aesthetic Care, Prosthodontist-Led</span>
+        </h1>
+        <p class="text-charcoal text-lg leading-relaxed mb-8">
+          Transform how your smile looks with treatments tailored to your goals — from professional whitening and bonding to porcelain veneers, smile makeovers, and clear aligners. Like our <a href="/dental-implants" class="text-brand-blue hover:underline">dental implants</a> hub, this page is your starting point: explore each option below, then book a consultation to design a plan that fits you.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/schedule" class="btn-accent text-base px-8 py-4 font-semibold text-center">Book Consultation</a>
+          <a href="/veneers/porcelain" class="btn-secondary text-base px-8 py-4 font-semibold text-center">Porcelain Veneers</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-heading mb-6">Smile restoration vs. restorative dentistry</h2>
+        <p class="text-charcoal leading-relaxed mb-4 text-lg">
+          <strong class="text-brand-navy font-semibold">Smile restoration</strong> (this section of our practice) is about appearance: color, shape, symmetry, and alignment. <strong class="text-brand-navy font-semibold">Restorative dentistry</strong> focuses on rebuilding teeth that are damaged or missing — crowns, bridges, dentures, and implant-supported restorations — for comfort and function.
+        </p>
+        <p class="text-charcoal leading-relaxed mb-8">
+          Many people need both. If you are primarily repairing or replacing teeth, start with our <a href="/restorative-dentistry" class="text-brand-blue hover:underline">restorative dentistry</a> overview. If your priority is how your smile looks, the treatments below are the right place to begin.
+        </p>
+
+        <h2 class="section-heading mb-6">Treatments we offer</h2>
+        <p class="text-charcoal leading-relaxed mb-8">{smileCategory.desc}</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {smileCategory.services.map((svc) => (
+            <a href={svc.href} class="card hover:shadow-lg hover:border-brand-blue transition-all group">
+              <h3 class="font-serif text-lg font-semibold text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">{svc.name}</h3>
+              {svc.desc && <p class="text-charcoal text-sm leading-relaxed mb-2">{svc.desc}</p>}
+              <span class="text-brand-blue text-sm font-semibold">Learn more →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface-2 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-heading mb-6">Why Huntington Beach Prosthodontics for your smile</h2>
+        <p class="text-charcoal leading-relaxed mb-4">
+          Dr. Favian Cheong is a certified prosthodontist — training that emphasizes how restorations look, feel, and function together. Whether you want a subtle refinement or a full smile makeover, plans are built around your bite, gum health, and long-term maintenance — not just a photo-ready result on day one.
+        </p>
+        <p class="text-charcoal leading-relaxed">
+          Ready to compare options? Browse the services above or <a href="/gallery" class="text-brand-blue hover:underline">view our before and after gallery</a> for real outcomes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQBlock faqs={faqs} heading="Smile Restoration FAQ" />
+    </div>
+  </section>
+
+  <section class="pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CTABlock />
+    </div>
+  </section>
+</BaseLayout>

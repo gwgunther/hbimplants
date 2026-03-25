@@ -49,7 +49,7 @@ Not all veneers are priced the same, and the differences in cost reflect real di
 
 Dental insurance almost universally classifies porcelain veneers as cosmetic and does not cover the cost. The exception is when a veneer is the clinically appropriate restoration for a broken or structurally compromised tooth — in those cases, partial insurance coverage may apply.
 
-Most cosmetic dental practices, including ours, offer third-party financing through [Cherry](https://withcherry.com/). These plans allow patients to spread the cost over 12–60 months, often with promotional low-interest or no-interest periods.
+Most cosmetic dental practices, including ours, offer third-party financing through [Cherry](https://pay.withcherry.com/huntington-beach-prosthodontics?utm_source=merchant&utm_medium=qr_code_flyer&utm_campaign=v1). These plans allow patients to spread the cost over 12–60 months, often with promotional low-interest or no-interest periods.
 
 ## Porcelain vs. Composite: The Cost Trade-Off
 
@@ -86,7 +86,7 @@ Call us at **(714) 846-1386** or [schedule your consultation online](/dental-imp
 Typically $1,200–$2,500 per tooth. A full smile (8–10 veneers) ranges from $12,000–$25,000 depending on the laboratory quality and case complexity.
 
 **Does insurance cover veneers?**
-Usually no — veneers are classified as cosmetic. Financing through [Cherry](https://withcherry.com/) is available. Exceptions exist when veneers restore a structurally compromised tooth.
+Usually no — veneers are classified as cosmetic. Financing through [Cherry](https://pay.withcherry.com/huntington-beach-prosthodontics?utm_source=merchant&utm_medium=qr_code_flyer&utm_campaign=v1) is available. Exceptions exist when veneers restore a structurally compromised tooth.
 
 **How long do porcelain veneers last?**
 10–20 years with proper care. Porcelain is stain-resistant and durable. The longevity depends on oral hygiene, bite habits, and whether a nightguard is used if grinding is a factor.
