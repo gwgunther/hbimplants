@@ -30,13 +30,26 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqs.map((f) => ({
+    '@type': 'Question',
+    'name': f.question,
+    'acceptedAnswer': {
+      '@type': 'Answer',
+      'text': f.answer,
+    },
+  })),
+};
+
 import { localBusinessSchema as localBusiness } from '../config/site';
 ---
 
 <BaseLayout
   title="Financing & Insurance | Huntington Beach Prosthodontics"
   description="Learn how to pay for dental implants, veneers, and prosthodontic care in Huntington Beach. We accept most PPO insurance and offer Cherry financing."
-  schema={localBusiness}
+  schema={[localBusiness, faqSchema]}
 >
 
   <!-- Hero -->

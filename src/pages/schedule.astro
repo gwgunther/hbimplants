@@ -45,12 +45,25 @@ const faqs = [
     answer: 'Yes. We accept most major dental insurance plans. Our team will verify your coverage and provide a clear breakdown of your estimated out-of-pocket costs before treatment begins. We also offer flexible financing options for procedures not fully covered by insurance.',
   },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqs.map((f) => ({
+    '@type': 'Question',
+    'name': f.question,
+    'acceptedAnswer': {
+      '@type': 'Answer',
+      'text': f.answer,
+    },
+  })),
+};
 ---
 
 <BaseLayout
   title="Schedule an Appointment | Huntington Beach Prosthodontics"
   description="Book an appointment with our Huntington Beach prosthodontist. Dental implants, veneers, dentures, and smile makeovers. Most insurance accepted."
-  schema={[localBusiness, contactPoint]}
+  schema={[localBusiness, contactPoint, faqSchema]}
 >
   <!-- Hero -->
   <section class="bg-surface-2 py-12 md:py-16">

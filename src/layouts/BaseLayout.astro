@@ -34,6 +34,14 @@ const ga4Id = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
 
 const schemaArray = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: site.name,
+  url: site.url,
+  inLanguage: 'en-US',
+};
+
 // Auto-generate BreadcrumbList from URL path
 const pathSegments = Astro.url.pathname.replace(/\/$/, '').split('/').filter(Boolean);
 const breadcrumbSchema = pathSegments.length > 0 ? {
@@ -97,11 +105,25 @@ const breadcrumbSchema = pathSegments.length > 0 ? {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap"
-      rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap"
+      />
+    </noscript>
 
     <!-- JSON-LD Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     {schemaArray.map((s) => (
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}

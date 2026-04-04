@@ -13,7 +13,7 @@ export default defineConfig({
           return { ...item, priority: 1.0, changefreq: 'weekly' };
         }
         // Main service hubs and key conversion pages
-        const highPriority = ['/dental-implants/', '/all-on-x/', '/veneers/', '/schedule', '/about'];
+        const highPriority = ['/dental-implants/', '/all-on-x/', '/veneers/', '/schedule', '/about', '/contact'];
         if (highPriority.some(p => item.url.endsWith(p) || item.url.endsWith(p + '/'))) {
           return { ...item, priority: 0.9, changefreq: 'weekly' };
         }

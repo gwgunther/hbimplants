@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import { localBusinessSchema as localBusiness, site, address, hours } from '../config/site';
+
+const contactPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact Huntington Beach Prosthodontics',
+  url: `${site.url}/contact`,
+  description:
+    'Phone, email, office hours, and location for Huntington Beach Prosthodontics in Huntington Beach, CA.',
+};
+
+const mapEmbedUrl =
+  'https://maps.google.com/maps?q=16141+Bolsa+Chica+St+Suite+C,+Huntington+Beach,+CA+92649&output=embed';
+---
+
+<BaseLayout
+  title="Contact Us | Huntington Beach Prosthodontics"
+  description="Call, email, or visit our Huntington Beach office. Office hours, directions, and map for Huntington Beach Prosthodontics on Bolsa Chica Street."
+  schema={[localBusiness, contactPageSchema]}
+>
+  <section class="bg-surface-2 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-brand-teal text-sm font-semibold uppercase tracking-wide mb-3">Contact</div>
+        <h1 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight text-charcoal">
+          Visit or reach us
+        </h1>
+        <p class="text-charcoal text-lg leading-relaxed">
+          We serve Huntington Beach and surrounding communities. Call during office hours, send a message through our
+          <a href="/schedule" class="text-brand-teal font-medium hover:underline">appointment request form</a>, or use
+          <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" class="text-brand-teal font-medium hover:underline">online booking</a> for available times.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
+        <div class="space-y-8">
+          <div>
+            <h2 class="font-serif text-xl font-semibold text-charcoal mb-3">Phone</h2>
+            <a href={`tel:${site.phoneDigits}`} class="text-brand-teal text-lg font-medium hover:underline">{site.phone}</a>
+          </div>
+          <div>
+            <h2 class="font-serif text-xl font-semibold text-charcoal mb-3">Email</h2>
+            <a href={`mailto:${site.email}`} class="text-brand-teal font-medium hover:underline">{site.email}</a>
+          </div>
+          <div>
+            <h2 class="font-serif text-xl font-semibold text-charcoal mb-3">Address</h2>
+            <address class="not-italic text-charcoal leading-relaxed">
+              {address.street}<br />
+              {address.city}, {address.state} {address.zip}
+            </address>
+            <p class="mt-3">
+              <a
+                href={site.googleProfileLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm text-brand-blue font-medium hover:underline"
+              >
+                View on Google Maps →
+              </a>
+            </p>
+          </div>
+          <div>
+            <h2 class="font-serif text-xl font-semibold text-charcoal mb-3">Hours</h2>
+            <ul class="space-y-1.5 text-charcoal">
+              {hours.display.map((h) => (
+                <li class="flex justify-between gap-4 max-w-xs">
+                  <span>{h.day}</span>
+                  <span>{h.time}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-border-light h-72 md:h-96 lg:min-h-[22rem]">
+          <iframe
+            src={mapEmbedUrl}
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Huntington Beach Prosthodontics location map"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-20 bg-brand-navy">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-serif text-2xl md:text-3xl font-bold text-white mb-4">Ready to schedule?</h2>
+      <p class="text-white/80 mb-8 leading-relaxed">
+        Use our appointment request form, book an available slot online, or call us during office hours.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/schedule" class="inline-block bg-white text-brand-navy font-semibold px-8 py-3.5 rounded-full hover:bg-white/90 transition-colors text-center">
+          Request appointment
+        </a>
+        <a
+          href={site.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block border-2 border-white text-white font-semibold px-8 py-3.5 rounded-full hover:bg-white/10 transition-colors text-center"
+        >
+          Book online
+        </a>
+      </div>
+      <p class="mt-8">
+        <a href={`tel:${site.phoneDigits}`} class="text-white/90 font-medium hover:text-white transition-colors">
+          Or call {site.phone}
+        </a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
