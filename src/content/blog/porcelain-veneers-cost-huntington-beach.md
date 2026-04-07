@@ -11,7 +11,7 @@ faqs:
   - question: "How much do porcelain veneers cost in Huntington Beach?"
     answer: "Porcelain veneers in Huntington Beach typically range from $1,200 to $2,500 per tooth. The variation reflects differences in laboratory quality, the complexity of the case, the provider's experience, and the number of veneers being placed. A full smile (8–10 veneers) represents a significant investment; individual veneers for single tooth repairs are priced per tooth."
   - question: "Do dental insurance plans cover porcelain veneers?"
-    answer: "In most cases, no. Dental insurance classifies veneers as cosmetic and typically does not cover the cost. Exceptions exist when a veneer is the appropriate restorative treatment for a broken or compromised tooth — in those cases, partial coverage may apply. Financing through Cherry is available to spread the cost over time."
+    answer: "In most cases, no. Dental insurance classifies veneers as cosmetic and typically does not cover the cost. Exceptions exist when a veneer is the appropriate restorative treatment for a broken or compromised tooth — in those cases, partial coverage may apply. Financing through Cherry is available for qualified applicants."
   - question: "How many veneers do I need for a smile makeover?"
     answer: "A full smile makeover typically involves 8–10 veneers — the teeth that show when you smile. Some patients address only the most visible teeth (4–6 veneers). The exact number depends on the width of your smile and your aesthetic goals. Your prosthodontist will review what's visible in your smile and recommend an appropriate range."
   - question: "Are porcelain veneers worth the cost?"
@@ -49,7 +49,7 @@ Not all veneers are priced the same, and the differences in cost reflect real di
 
 Dental insurance almost universally classifies porcelain veneers as cosmetic and does not cover the cost. The exception is when a veneer is the clinically appropriate restoration for a broken or structurally compromised tooth — in those cases, partial insurance coverage may apply.
 
-Most cosmetic dental practices, including ours, offer third-party financing through [Cherry](https://pay.withcherry.com/huntington-beach-prosthodontics?utm_source=merchant&utm_medium=qr_code_flyer&utm_campaign=v1). These plans allow patients to spread the cost over 12–60 months, often with promotional low-interest or no-interest periods.
+Most cosmetic dental practices, including ours, offer third-party financing through [Cherry](https://pay.withcherry.com/huntington-beach-prosthodontics?utm_source=merchant&utm_medium=qr_code_flyer&utm_campaign=v1). Financing through Cherry is available for qualified applicants.
 
 ## Porcelain vs. Composite: The Cost Trade-Off
 
