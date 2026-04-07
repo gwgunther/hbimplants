@@ -164,6 +164,9 @@ const faqSchema = {
             <img
               src="/images/heroes/hero-abstract-clean.webp"
               alt="Aerial view of ocean waves at Huntington Beach"
+              width="960"
+              height="1040"
+              fetchpriority="high"
               class="w-full h-full object-cover"
             />
           </div>
@@ -191,12 +194,12 @@ const faqSchema = {
         </div>
         <div class="grid grid-cols-2 gap-4">
           <a href="/about#dr-favian" class="group">
-            <img src="/images/team/dr-favian-cheong.webp" alt="Dr. Favian Cheong" class="rounded-xl w-full aspect-[3/4] object-cover object-top mb-2 group-hover:opacity-95 transition-opacity" />
+            <img src="/images/team/dr-favian-cheong.webp" alt="Dr. Favian Cheong" width="480" height="640" class="rounded-xl w-full aspect-[3/4] object-cover object-top mb-2 group-hover:opacity-95 transition-opacity" />
             <div class="font-semibold text-white text-sm">Dr. Favian Cheong</div>
             <div class="text-brand-teal text-xs font-medium">Prosthodontist</div>
           </a>
           <a href="/about#dr-janelle" class="group">
-            <img src="/images/team/dr-janelle-cheong.webp" alt="Dr. Janelle Cheong" class="rounded-xl w-full aspect-[3/4] object-cover object-top mb-2 group-hover:opacity-95 transition-opacity" />
+            <img src="/images/team/dr-janelle-cheong.webp" alt="Dr. Janelle Cheong" width="480" height="640" class="rounded-xl w-full aspect-[3/4] object-cover object-top mb-2 group-hover:opacity-95 transition-opacity" />
             <div class="font-semibold text-white text-sm">Dr. Janelle Cheong</div>
             <div class="text-brand-teal text-xs font-medium">General Dentist</div>
           </a>
@@ -293,7 +296,7 @@ const faqSchema = {
           { src: '/images/gallery/edc2a9_f4b39cbd01d24b449cba3be2c75552f4~mv2.avif', alt: 'Full mouth reconstruction result with implant-supported crowns and bridges' },
         ].map((img) => (
           <a href="/gallery" class="block overflow-hidden rounded-xl aspect-[4/3] bg-surface-2">
-            <img src={img.src} alt={img.alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+            <img src={img.src} alt={img.alt} width="640" height="480" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
           </a>
         ))}
       </div>

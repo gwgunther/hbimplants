@@ -49,6 +49,8 @@ const procedures = ['All', ...Array.from(new Set(images.map(i => i.procedure).fi
         <img
           src={image.src}
           alt={image.alt}
+          width="400"
+          height="400"
           loading="lazy"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
@@ -105,6 +107,8 @@ const procedures = ['All', ...Array.from(new Set(images.map(i => i.procedure).fi
       id="lb-img"
       src=""
       alt=""
+      width="1200"
+      height="900"
       class="max-h-[80vh] max-w-full object-contain rounded-lg shadow-2xl"
     />
     <div class="text-center">

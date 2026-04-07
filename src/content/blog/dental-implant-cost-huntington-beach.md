@@ -13,7 +13,7 @@ faqs:
   - question: "Does dental insurance cover dental implants?"
     answer: "Most dental insurance plans do not cover the implant post itself, but many cover a portion of the crown (the visible tooth) and may cover related procedures like extractions or bone grafting. Coverage varies significantly by plan. Our team verifies your benefits before treatment begins."
   - question: "What financing options are available for dental implants?"
-    answer: "We offer flexible third-party financing options including Cherry, which allows you to start treatment and pay over time — often with low or 0% interest promotional periods. We also work with patients to phase treatment to fit budget timelines."
+    answer: "We offer flexible third-party financing options including Cherry. Financing through Cherry is available for qualified applicants. We also work with patients to phase treatment to fit budget timelines."
   - question: "Why do dental implant costs vary so much between offices?"
     answer: "Cost differences reflect significant variables: the specialist's training and expertise, the quality of materials used, the type of implant system, whether imaging and records are included, and regional cost-of-living differences. Comparing quotes requires verifying what is actually included in each estimate."
   - question: "Is there a consultation for dental implants at Huntington Beach Prosthodontics?"
@@ -105,8 +105,8 @@ Our team verifies your insurance benefits before your consultation, reviews your
 
 The reality for most patients is that dental implants represent a cost that doesn't fit neatly into a single payment — and that shouldn't prevent you from getting the treatment you need.
 
-We work with Cherry, a third-party financing partner that offers:
-- **0% interest promotional periods** (typically 6–24 months, depending on the amount financed)
+We work with Cherry, a third-party financing partner.
+- Financing through Cherry is available for qualified applicants.
 - **Extended repayment plans** for larger cases
 - **Quick approvals** — many patients are approved at the time of consultation
 
@@ -147,7 +147,7 @@ A single implant in Huntington Beach typically costs $3,500–$6,000 all-in (pos
 Most plans don't cover the implant post, but may cover a portion of the crown and related procedures. Coverage varies significantly — our team verifies your benefits before treatment begins.
 
 **What financing is available?**
-We offer Cherry financing with promotional 0% interest periods. We also work with patients to phase larger treatments over time.
+Financing through Cherry is available for qualified applicants. We also work with patients to phase larger treatments over time.
 
 **Why do quotes vary so much?**
 Training level, implant system quality, materials, and what's included in the quote all contribute. Always confirm whether the quoted price is all-in or covers only part of the procedure.
