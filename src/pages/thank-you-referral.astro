@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import { site } from '../config/site';
+---
+
+<BaseLayout
+  title="Referral Received | Huntington Beach Prosthodontics"
+  description="Thank you for your professional referral. Our team will follow up with your office as appropriate."
+  noindex={true}
+>
+  <section class="min-h-[70vh] bg-brand-light flex items-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+      <div class="bg-white rounded-2xl p-10 shadow-lg border border-neutral-border">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+
+        <h1 class="font-serif text-3xl font-bold text-brand-navy mb-4">Thank you — referral received</h1>
+
+        <p class="text-charcoal leading-relaxed mb-6">
+          We have received your patient referral. Our team at Huntington Beach Prosthodontics will review the information
+          and follow up with your office and the patient as needed.
+        </p>
+
+        <p class="text-sm text-charcoal mb-8">
+          Need to speak with us sooner? Call{' '}
+          <a href={`tel:${site.phoneDigits}`} class="text-brand-teal font-semibold hover:underline">{site.phone}</a>.
+        </p>
+
+        <a href="/" class="btn-primary">Return to homepage</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'conversion', {
+      event_category: 'professional_referral',
+    });
+  }
+</script>
