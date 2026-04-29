@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import { localBusinessSchema as localBusiness, site } from '../config/site';
+
+const formspreeUrl = import.meta.env.PUBLIC_FORMSPREE_REFERRALS_URL as string | undefined;
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY as string | undefined;
+
+const thankYouUrl = new URL('/thank-you-referral', Astro.site ?? site.url).href;
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Patient Referral Form | Huntington Beach Prosthodontics',
+  url: `${site.url}/referrals`,
+  description:
+    'Submit a professional patient referral to Huntington Beach Prosthodontics. For referring dentists and specialists.',
+};
+---
+
+<BaseLayout
+  title="Patient Referral Form | Huntington Beach Prosthodontics"
+  description="Refer a patient to our Huntington Beach prosthodontics practice. Online referral form for dentists and specialists."
+  schema={[localBusiness, webPageSchema]}
+  canonical={`${site.url}/referrals`}
+>
+  <!-- Hero: title matches paper form -->
+  <section class="bg-surface-2 py-12 md:py-14">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="font-serif text-lg md:text-xl font-bold text-charcoal tracking-wide uppercase mb-2">
+        {site.name}
+      </p>
+      <h1 class="font-serif text-3xl md:text-4xl font-bold text-charcoal mb-3">Patient Referral Form</h1>
+      <p class="text-charcoal max-w-xl mx-auto leading-relaxed">
+        For referring doctors and specialists. Complete the form below; we will follow up with your office and the
+        patient as appropriate.
+      </p>
+    </div>
+  </section>
+
+  <!-- Form: order matches reference — Patient → Referral type → Case → Referring doctor -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      {!formspreeUrl ? (
+        <div class="mb-6 rounded-xl border-2 border-amber-200 bg-amber-50 p-6 text-charcoal text-sm leading-relaxed">
+          <p class="font-semibold text-brand-navy mb-2">Referral form is not connected yet</p>
+          <p>
+            Set <code class="text-xs bg-white px-1 py-0.5 rounded border border-amber-200">PUBLIC_FORMSPREE_REFERRALS_URL</code> in
+            your environment and in your GitHub Actions secrets. Questions? Call us at{' '}
+            <a href={`tel:${site.phoneDigits}`} class="text-brand-teal font-medium hover:underline">{site.phone}</a>.
+          </p>
+        </div>
+      ) : (
+        <form
+          action={formspreeUrl}
+          method="POST"
+          class="bg-white rounded-2xl shadow-lg border border-neutral-border p-6 md:p-10 space-y-10"
+        >
+          <input type="hidden" name="_subject" value="Patient Referral — Huntington Beach Prosthodontics" />
+          <input type="hidden" name="_next" value={thankYouUrl} />
+
+          <!-- Patient Information -->
+          <div>
+            <h2 class="font-serif text-xl font-bold text-brand-navy mb-6 pb-2 border-b border-neutral-border">
+              Patient Information
+            </h2>
+            <div class="space-y-5">
+              <div>
+                <label for="patient-name" class="block text-sm font-semibold text-charcoal mb-2">Patient Name</label>
+                <input
+                  id="patient-name"
+                  type="text"
+                  name="Patient Name"
+                  required
+                  autocomplete="name"
+                  class="w-full px-4 py-3 border border-neutral-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                />
+              </div>
+              <div>
+                <label for="patient-phone" class="block text-sm font-semibold text-charcoal mb-2">
+                  Patient Phone Number
+                </label>
+                <input
+                  id="patient-phone"
+                  type="tel"
+                  name="Patient Phone Number"
+                  required
+                  autocomplete="tel"
+                  class="w-full px-4 py-3 border border-neutral-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Referral Information -->
+          <div>
+            <h2 class="font-serif text-xl font-bold text-brand-navy mb-4 pb-2 border-b border-neutral-border">
+              Referral Information
+            </h2>
+            <fieldset class="space-y-3">
+              <legend class="sr-only">Referral Information</legend>
+              <label class="flex items-start gap-3 cursor-pointer group">
+                <input
+                  type="radio"
+                  name="Referral Information"
+                  value="Consultation only"
+                  required
+                  class="mt-1 text-brand-blue focus:ring-brand-blue"
+                />
+                <span class="text-charcoal leading-snug group-hover:text-brand-navy">Consultation only</span>
+              </label>
+              <label class="flex items-start gap-3 cursor-pointer group">
+                <input
+                  type="radio"
+                  name="Referral Information"
+                  value="Consultation and limited treatment as requested"
+                  class="mt-1 text-brand-blue focus:ring-brand-blue"
+                />
+                <span class="text-charcoal leading-snug group-hover:text-brand-navy">
+                  Consultation and limited treatment as requested
+                </span>
+              </label>
+              <label class="flex items-start gap-3 cursor-pointer group">
+                <input
+                  type="radio"
+                  name="Referral Information"
+                  value="Consultation and provide continuing care"
+                  class="mt-1 text-brand-blue focus:ring-brand-blue"
+                />
+                <span class="text-charcoal leading-snug group-hover:text-brand-navy">
+                  Consultation and provide continuing care
+                </span>
+              </label>
+            </fieldset>
+          </div>
+
+          <!-- Case Description -->
+          <div>
+            <h2 class="font-serif text-xl font-bold text-brand-navy mb-4 pb-2 border-b border-neutral-border">
+              Case Description
+            </h2>
+            <label for="case-description" class="sr-only">Case Description</label>
+            <textarea
+              id="case-description"
+              name="Case Description"
+              rows={6}
+              required
+              class="w-full px-4 py-3 border border-neutral-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue text-charcoal resize-y min-h-[8rem]"
+            />
+          </div>
+
+          <!-- Referring Doctor Information -->
+          <div>
+            <h2 class="font-serif text-xl font-bold text-brand-navy mb-6 pb-2 border-b border-neutral-border">
+              Referring Doctor Information
+            </h2>
+            <div class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="referring-doctor" class="block text-sm font-semibold text-charcoal mb-2">
+                    Referring Doctor
+                  </label>
+                  <input
+                    id="referring-doctor"
+                    type="text"
+                    name="Referring Doctor"
+                    required
+                    autocomplete="name"
+                    class="w-full px-4 py-3 border border-neutral-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                  />
+                </div>
+                <div>
+                  <label for="referral-date" class="block text-sm font-semibold text-charcoal mb-2">Date</label>
+                  <input
+                    id="referral-date"
+                    type="date"
+                    name="Date"
+                    class="w-full px-4 py-3 border border-neutral-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="doctor-phone" class="block text-sm font-semibold text-charcoal mb-2">Doctors Phone #</label>
+                <input
+                  id="doctor-phone"
+                  type="tel"
+                  name="Doctors Phone #"
+                  required
+                  autocomplete="tel"
+                  class="w-full px-4 py-3 border border-neutral-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                />
+              </div>
+              <div class="space-y-3 pt-2">
+                <label class="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    name="Please call to discuss before exam and consultation"
+                    value="Yes"
+                    class="mt-1 rounded border-neutral-border text-brand-blue focus:ring-brand-blue"
+                  />
+                  <span class="text-charcoal leading-snug group-hover:text-brand-navy">
+                    Please call to discuss before exam and consultation
+                  </span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    name="Please call to discuss after exam and consultation"
+                    value="Yes"
+                    class="mt-1 rounded border-neutral-border text-brand-blue focus:ring-brand-blue"
+                  />
+                  <span class="text-charcoal leading-snug group-hover:text-brand-navy">
+                    Please call to discuss after exam and consultation
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          {turnstileSiteKey && (
+            <div class="flex justify-center">
+              <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light" />
+            </div>
+          )}
+
+          <button type="submit" class="w-full btn-accent py-4 font-semibold text-base">
+            Submit referral
+          </button>
+
+          <p class="text-xs text-mid-gray text-center leading-relaxed">
+            This form is sent securely. By submitting, you confirm you are authorized to share this information for care
+            coordination.
+          </p>
+        </form>
+      )}
+
+    </div>
+  </section>
+
+  {turnstileSiteKey && formspreeUrl && (
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
+  )}
+</BaseLayout>
