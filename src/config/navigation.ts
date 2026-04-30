@@ -1,6 +1,6 @@
 // Navigation link structure for Header.astro
 // Edit this file to change the site's navigation menu.
-// Order: About | Services | Get Started
+// Order: About | Services | Get Started | Referrals
 
 import { site } from './site';
 import { serviceCategories } from './services';
@@ -48,7 +48,6 @@ export const navLinks: NavLink[] = [
     dropdown: [
       { label: 'About Us', href: '/about', desc: 'Meet Dr. Cheong & our practice' },
       { label: 'Why a Prosthodontist', href: '/why-a-prosthodontist', desc: 'How specialist care is different' },
-      { label: 'Refer a patient (doctors)', href: '/referrals', desc: 'Professional patient referral form' },
       { label: 'Contact Us', href: '/contact', desc: 'Location, hours & directions' },
     ],
   },
@@ -63,11 +62,14 @@ export const navLinks: NavLink[] = [
     external: true,
     dropdown: [
       { label: 'Request appointment', href: '/schedule', desc: 'Online form — we follow up to confirm' },
-      { label: 'Patient referral form', href: '/referrals', desc: 'For referring doctors & specialists' },
       { label: 'Financing & Insurance', href: '/financing', desc: 'Payment plans, insurance & cost guides' },
       { label: 'Consultation', href: '/dental-implants/consultation', desc: 'Exam & personalized treatment plan' },
       { label: 'FAQ', href: '/faq', desc: 'Implants, insurance, appointments & more' },
       { label: 'Blog', href: '/blog', desc: 'Education & treatment guides' },
     ],
+  },
+  {
+    label: 'Referrals',
+    href: '/referrals',
   },
 ];

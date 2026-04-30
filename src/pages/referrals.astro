@@ -5,6 +5,7 @@ import { localBusinessSchema as localBusiness, site } from '../config/site';
 
 const formspreeUrl = import.meta.env.PUBLIC_FORMSPREE_REFERRALS_URL as string | undefined;
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY as string | undefined;
+const referralPdfHref = encodeURI('/images/pdf/Huntington Beach Prosthodontics Patient Referral Form.pdf');
 
 const thankYouUrl = new URL('/thank-you-referral', Astro.site ?? site.url).href;
 
@@ -35,6 +36,11 @@ const webPageSchema = {
         For referring doctors and specialists. Complete the form below; we will follow up with your office and the
         patient as appropriate.
       </p>
+      <div class="mt-6">
+        <a href={referralPdfHref} download class="btn-secondary inline-block">
+          Download referral form (PDF)
+        </a>
+      </div>
     </div>
   </section>
 
