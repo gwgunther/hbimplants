@@ -4,6 +4,7 @@ import { navLinks } from '../config/navigation';
 
 const phone = site.phone;
 const bookHref = site.bookingUrl;
+const isReferralsLink = (label: string) => label === 'Referrals';
 ---
 
 <header class="bg-white border-b border-border-light sticky top-0 z-50">
@@ -24,7 +25,7 @@ const bookHref = site.bookingUrl;
           <div class="relative group">
             <a
               href={link.href}
-              class={`nav-link text-sm py-1.5 flex items-center gap-1.5 ${link.avatar ? 'border border-charcoal/20 rounded-full px-3 hover:border-charcoal/40' : ''} ${link.label === 'Referrals' ? 'btn-secondary px-4 py-2' : ''}`}
+              class={`${isReferralsLink(link.label) ? 'btn-secondary px-4 py-2 text-sm' : 'nav-link text-sm py-1.5 flex items-center gap-1.5'} ${link.avatar ? 'border border-charcoal/20 rounded-full px-3 hover:border-charcoal/40' : ''}`}
               target={link.external ? '_blank' : undefined}
               rel={link.external ? 'noopener noreferrer' : undefined}
             >

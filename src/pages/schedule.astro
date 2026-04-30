@@ -108,18 +108,26 @@ const faqSchema = {
 
       <!-- Contact Info -->
       <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="text-center p-4 bg-surface-2 rounded-xl">
-          <div class="font-semibold text-brand-navy mb-1">Phone</div>
-          <a href={`tel:${site.phoneDigits}`} class="text-brand-teal text-sm hover:underline">{site.phone}</a>
+        <div class="text-center p-4 bg-surface-2 rounded-xl min-h-[170px] flex flex-col">
+          <div class="font-semibold text-brand-navy mb-2">Phone</div>
+          <div class="flex-1 flex items-center justify-center">
+            <a href={`tel:${site.phoneDigits}`} class="text-brand-teal text-sm hover:underline">{site.phone}</a>
+          </div>
         </div>
-        <div class="text-center p-4 bg-surface-2 rounded-xl">
-          <div class="font-semibold text-brand-navy mb-1">Address</div>
-          <div class="text-charcoal text-sm">{address.street}<br />{address.city}, {address.state}</div>
+        <div class="text-center p-4 bg-surface-2 rounded-xl min-h-[170px] flex flex-col">
+          <div class="font-semibold text-brand-navy mb-2">Address</div>
+          <div class="flex-1 flex items-center justify-center">
+            <div class="text-charcoal text-sm">{address.street}<br />{address.city}, {address.state}</div>
+          </div>
         </div>
-        <div class="text-center p-4 bg-surface-2 rounded-xl">
-          <div class="font-semibold text-brand-navy mb-1">Hours</div>
-          <div class="text-charcoal text-sm">
-            {hours.display.map((h) => `${h.day}: ${h.time}`).join(' · ')}
+        <div class="text-center p-4 bg-surface-2 rounded-xl min-h-[170px] flex flex-col">
+          <div class="font-semibold text-brand-navy mb-2">Hours</div>
+          <div class="flex-1 flex items-center justify-center">
+            <ul class="text-charcoal text-sm leading-relaxed">
+              {hours.display.map((h) => (
+                <li>{h.day}: {h.time}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
