@@ -1,13 +1,29 @@
 ---
-import { site } from '../config/site';
+import { site, hours } from '../config/site';
 import { navLinks } from '../config/navigation';
 
 const phone = site.phone;
 const bookHref = site.bookingUrl;
 const isReferralsLink = (label: string) => label === 'Referrals';
+
+// Derive today's open/closed status for the utility bar
+const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const todayLabel = days[new Date().getDay()];
+const todayHours = hours.display.find(h => h.day === todayLabel);
+const todayStatus = todayHours?.time ?? 'Closed';
+const isOpenToday = todayStatus !== 'Closed';
 ---
 
 <header class="bg-white border-b border-border-light sticky top-0 z-50">
+  <!-- Utility bar: hours -->
+  <div class="bg-brand-navy text-white text-xs py-1.5 hidden md:block">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+      <span class="text-white/70">Mon / Wed–Fri: 9am–5pm &nbsp;&middot;&nbsp; Sat: By Appt &nbsp;&middot;&nbsp; Closed Tue &amp; Sun</span>
+      <span class={`font-semibold ${isOpenToday ? 'text-green-300' : 'text-white/60'}`}>
+        Today ({todayLabel}): {todayStatus}
+      </span>
+    </div>
+  </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
       <!-- Logo -->
