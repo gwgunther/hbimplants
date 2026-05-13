@@ -1,0 +1,235 @@
+---
+import LandingLayout from '../../layouts/LandingLayout.astro';
+import { site, doctor } from '../../config/site';
+
+const faqs = [
+  {
+    q: 'Why see a prosthodontist instead of a general dentist for implants?',
+    a: 'Prosthodontists complete 3 additional years of specialty training beyond dental school, focused entirely on restoring and replacing teeth. A prosthodontist designs the final tooth, coordinates placement, and oversees every detail — resulting in implants that fit, feel, and look exactly right.',
+  },
+  {
+    q: 'How long do dental implants last?',
+    a: 'With proper care, implants last a lifetime. The titanium root integrates permanently with your jawbone. The crown on top typically lasts 15–25 years. Many patients keep their implants for 30+ years without issues.',
+  },
+  {
+    q: 'Am I a candidate for dental implants?',
+    a: 'Most adults with missing teeth are good candidates. Key factors are adequate jawbone density and healthy gums. If bone loss has occurred, a bone graft can often restore eligibility. Dr. Cheong will evaluate your specific situation at a free consultation.',
+  },
+  {
+    q: 'Does the implant procedure hurt?',
+    a: 'The procedure is performed under local anesthesia — most patients report it is less uncomfortable than a tooth extraction. Mild soreness for a few days afterward is normal and manageable with over-the-counter pain relief.',
+  },
+];
+---
+
+<LandingLayout
+  title="Dental Implants Huntington Beach | Board-Certified Prosthodontist"
+  description="Permanent dental implants in Huntington Beach by Dr. Favian Cheong, a board-certified prosthodontist. Natural-looking results. Free consultation. Call (714) 846-1386."
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-navy text-white py-16 md:py-24" style="background-image: linear-gradient(135deg, #1B3828 60%, #2D6645 100%);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-brand-gold font-semibold text-sm uppercase tracking-widest mb-4">Board-Certified Prosthodontist · Huntington Beach, CA</p>
+      <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+        Dental Implants Done Right —<br class="hidden md:block" /> By a Specialist
+      </h1>
+      <p class="text-white/85 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        Permanent, natural-looking teeth designed by {doctor.name}, {doctor.credentials} — one of the area's few board-certified prosthodontists. Your result is planned from day one, not figured out at the end.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={site.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track="booking"
+          class="bg-brand-gold text-white font-bold px-8 py-4 rounded-full text-lg hover:opacity-90 transition-opacity text-center"
+        >
+          Book Free Consultation
+        </a>
+        <a
+          href={`tel:${site.phoneDigits}`}
+          class="bg-white/10 border border-white/30 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-white/20 transition-colors text-center"
+        >
+          Call {site.phone}
+        </a>
+      </div>
+      <p class="text-white/60 text-sm mt-5">No obligation · Most insurance accepted · Financing available</p>
+    </div>
+  </section>
+
+  <!-- Trust signals row -->
+  <section class="bg-surface-2 border-b border-neutral-border py-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="font-serif text-3xl font-bold text-brand-navy">4.9</div>
+          <div class="text-sm text-neutral-mid mt-1">Google Rating</div>
+        </div>
+        <div>
+          <div class="font-serif text-3xl font-bold text-brand-navy">200+</div>
+          <div class="text-sm text-neutral-mid mt-1">Patient Reviews</div>
+        </div>
+        <div>
+          <div class="font-serif text-3xl font-bold text-brand-navy">3 Yrs</div>
+          <div class="text-sm text-neutral-mid mt-1">Specialty Training</div>
+        </div>
+        <div>
+          <div class="font-serif text-3xl font-bold text-brand-navy">1</div>
+          <div class="text-sm text-neutral-mid mt-1">Specialist in HB</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why a Prosthodontist -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-charcoal mb-4 text-center">
+        Why a Prosthodontist Makes All the Difference
+      </h2>
+      <p class="text-neutral-mid text-center max-w-2xl mx-auto mb-12">
+        Any dentist can place an implant. Only a prosthodontist is specialty-trained in the full restoration — from bone to final crown — ensuring every detail is planned, precise, and permanent.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card text-center">
+          <div class="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            </svg>
+          </div>
+          <h3 class="font-serif font-bold text-charcoal mb-2">Specialty Credentials</h3>
+          <p class="text-sm text-neutral-mid">Board-certified with 3 years of post-doctoral specialty training focused entirely on implants and tooth replacement.</p>
+        </div>
+        <div class="card text-center">
+          <div class="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-serif font-bold text-charcoal mb-2">Full-Picture Planning</h3>
+          <p class="text-sm text-neutral-mid">Your final smile is designed before anything is placed. No surprises — the outcome is mapped out at your very first consultation.</p>
+        </div>
+        <div class="card text-center">
+          <div class="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-serif font-bold text-charcoal mb-2">Natural-Looking Results</h3>
+          <p class="text-sm text-neutral-mid">Prosthodontists are masters of aesthetics. Your implant crown will match your existing teeth in shape, color, and proportion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="bg-surface-2 py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-charcoal mb-4 text-center">
+        Simple 3-Step Process
+      </h2>
+      <p class="text-neutral-mid text-center max-w-xl mx-auto mb-12">
+        From your first phone call to your final crown, we handle everything in-house.
+      </p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-14 h-14 bg-brand-navy text-white rounded-full flex items-center justify-center mx-auto mb-4 font-serif font-bold text-xl">1</div>
+          <h3 class="font-serif font-bold text-lg text-charcoal mb-2">Free Consultation</h3>
+          <p class="text-sm text-neutral-mid">Dr. Cheong reviews your X-rays, examines your bone structure, and walks you through every option — with transparent pricing, no pressure.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-brand-navy text-white rounded-full flex items-center justify-center mx-auto mb-4 font-serif font-bold text-xl">2</div>
+          <h3 class="font-serif font-bold text-lg text-charcoal mb-2">Custom Treatment Plan</h3>
+          <p class="text-sm text-neutral-mid">We design your final smile first, then work backwards. Implant placement is guided, precise, and coordinated with the restoration from the start.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-brand-navy text-white rounded-full flex items-center justify-center mx-auto mb-4 font-serif font-bold text-xl">3</div>
+          <h3 class="font-serif font-bold text-lg text-charcoal mb-2">Your New Smile</h3>
+          <p class="text-sm text-neutral-mid">Once healed, your custom crown is placed. It looks, feels, and functions like a natural tooth — built to last a lifetime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mid CTA -->
+  <section class="py-12 bg-brand-gold">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-white font-serif text-2xl font-bold mb-2">Ready to replace that missing tooth?</p>
+      <p class="text-white/85 mb-6">Free consultation with {doctor.name}. No obligation, no pressure.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={site.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track="booking"
+          class="bg-white text-brand-navy font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity text-center"
+        >
+          Book Free Consultation
+        </a>
+        <a
+          href={`tel:${site.phoneDigits}`}
+          class="border border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors text-center"
+        >
+          Call {site.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-charcoal mb-10 text-center">
+        Frequently Asked Questions
+      </h2>
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <details class="group border border-neutral-border rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-charcoal list-none hover:bg-surface-2 transition-colors">
+              {faq.q}
+              <svg class="w-5 h-5 text-brand-navy flex-shrink-0 ml-4 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div class="px-6 pb-5 pt-1 text-neutral-mid text-sm leading-relaxed border-t border-neutral-border">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-brand-navy text-white py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">
+        Start With a Free Consultation
+      </h2>
+      <p class="text-white/80 text-lg mb-8 max-w-xl mx-auto">
+        {doctor.name}, {doctor.credentials} will personally review your case, explain your options, and give you a clear cost estimate — at no charge.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <a
+          href={site.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track="booking"
+          class="bg-brand-gold text-white font-bold px-8 py-4 rounded-full text-lg hover:opacity-90 transition-opacity text-center"
+        >
+          Book Online Now
+        </a>
+        <a
+          href={`tel:${site.phoneDigits}`}
+          class="bg-white/10 border border-white/30 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-white/20 transition-colors text-center"
+        >
+          Call {site.phone}
+        </a>
+      </div>
+      <p class="text-white/50 text-sm">Most insurance accepted &middot; CareCredit &amp; financing available &middot; Huntington Beach, CA</p>
+    </div>
+  </section>
+
+</LandingLayout>
