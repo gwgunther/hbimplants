@@ -48,7 +48,7 @@ export const navLinks: NavLink[] = [
     dropdown: [
       { label: 'About Us', href: '/about', desc: 'Meet Dr. Cheong & our practice' },
       { label: 'Why a Prosthodontist', href: '/why-a-prosthodontist', desc: 'How specialist care is different' },
-      { label: 'Contact Us', href: '/contact', desc: 'Location, hours & directions' },
+      { label: 'Hours & Location', href: '/contact', desc: 'Address, hours & directions' },
     ],
   },
   {
