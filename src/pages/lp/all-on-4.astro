@@ -1,0 +1,222 @@
+---
+import LandingLayout from '../../layouts/LandingLayout.astro';
+import { site, doctor } from '../../config/site';
+
+const faqs = [
+  {
+    q: 'What is All-on-4 and how is it different from regular implants?',
+    a: 'All-on-4 replaces an entire arch of teeth (upper or lower) using just four strategically placed implants. Unlike individual implants for each tooth, All-on-4 gives you a full fixed arch in one procedure — at significantly lower cost and with fewer surgical sites.',
+  },
+  {
+    q: 'Can I leave the office with teeth the same day?',
+    a: 'Yes. In most cases, a temporary full arch is attached on the day of surgery. You leave with functional, natural-looking teeth. The final permanent arch is placed after healing is complete (typically 4–6 months).',
+  },
+  {
+    q: 'Is All-on-4 right for me if I currently wear dentures?',
+    a: 'All-on-4 is an excellent option for current denture wearers who are tired of slipping, clicking, or limited eating. As long as you have sufficient bone (or can receive a graft), you are likely a candidate. Dr. Cheong will confirm eligibility at your free consultation.',
+  },
+  {
+    q: 'How does a prosthodontist approach All-on-4 differently?',
+    a: 'A prosthodontist designs the final arch — the part you see and use — before any surgery happens. This ensures the implants are placed in exactly the right positions to support the permanent restoration. The result is a smile engineered for both function and aesthetics from the start.',
+  },
+];
+---
+
+<LandingLayout
+  title="All-on-4 Dental Implants Huntington Beach | Prosthodontist"
+  description="All-on-4 dental implants in Huntington Beach by Dr. Favian Cheong, DDS, MS. Replace failing teeth or loose dentures with a fixed full arch. Free consultation."
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-navy text-white py-16 md:py-24" style="background-image: linear-gradient(135deg, #1B3828 60%, #2D6645 100%);">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-brand-gold font-semibold text-sm uppercase tracking-widest mb-4">All-on-4 · All-on-6 · Full Arch Implants · Huntington Beach</p>
+      <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+        Full Smile. Fixed Permanently.<br class="hidden md:block" /> One Procedure.
+      </h1>
+      <p class="text-white/85 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        Replace an entire arch of failing or missing teeth with implant-supported teeth that never slip, click, or come out. Designed by {doctor.name}, {doctor.credentials}, board-certified prosthodontist.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={site.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track="booking"
+          class="bg-brand-gold text-white font-bold px-8 py-4 rounded-full text-lg hover:opacity-90 transition-opacity text-center"
+        >
+          Book Free Arch Consultation
+        </a>
+        <a
+          href={`tel:${site.phoneDigits}`}
+          class="bg-white/10 border border-white/30 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-white/20 transition-colors text-center"
+        >
+          Call {site.phone}
+        </a>
+      </div>
+      <p class="text-white/60 text-sm mt-5">No obligation · Financing available · Most insurance accepted</p>
+    </div>
+  </section>
+
+  <!-- Pain point callout -->
+  <section class="bg-surface-2 py-12 border-b border-neutral-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <p class="text-center text-neutral-mid font-medium mb-8">Does any of this sound familiar?</p>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {[
+          'My dentures slip when I eat or talk',
+          'I avoid certain foods because of my teeth',
+          'I\'m embarrassed to smile in photos',
+          'I have multiple failing or missing teeth',
+          'I\'ve been told I need "All-on-4"',
+          'I want teeth that feel permanent',
+        ].map((pain) => (
+          <div class="flex items-start gap-3 bg-white rounded-xl p-4 border border-neutral-border">
+            <svg class="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span class="text-sm text-charcoal">{pain}</span>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-brand-navy font-semibold mt-8">All-on-4 may be the permanent solution you've been looking for.</p>
+    </div>
+  </section>
+
+  <!-- What you get -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-charcoal mb-4 text-center">
+        What All-on-4 Gives You
+      </h2>
+      <p class="text-neutral-mid text-center max-w-2xl mx-auto mb-12">
+        A complete, fixed arch supported by four implants — engineered to restore function, confidence, and quality of life.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {[
+          { title: 'Teeth That Stay In', body: 'No adhesive, no removal at night. All-on-4 is fixed to your jaw — you brush and floss like natural teeth.' },
+          { title: 'Eat Anything Again', body: 'Implant-supported teeth handle biting force like real teeth. Steak, apples, corn on the cob — nothing is off limits.' },
+          { title: 'Preserve Your Jawbone', body: 'Implants stimulate the jawbone, stopping the bone loss that causes the sunken look associated with long-term denture wear.' },
+          { title: 'Same-Day Temporaries', body: 'Leave the office with teeth on the day of your procedure. Your permanent arch is placed after osseointegration is complete.' },
+          { title: 'Prosthodontist-Designed', body: 'Dr. Cheong designs your final smile before surgery begins, so the implants are placed in positions that support the best possible restoration.' },
+          { title: 'Financing Available', body: 'Flexible monthly payment options make full-arch restoration accessible. We\'ll walk you through financing at your consultation.' },
+        ].map((item) => (
+          <div class="flex gap-4">
+            <div class="w-2 flex-shrink-0 bg-brand-gold rounded-full mt-1.5 self-start" style="height: 1.25rem;"></div>
+            <div>
+              <h3 class="font-semibold text-charcoal mb-1">{item.title}</h3>
+              <p class="text-sm text-neutral-mid">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="bg-surface-2 py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-charcoal mb-4 text-center">
+        From Consultation to Full Smile
+      </h2>
+      <p class="text-neutral-mid text-center max-w-xl mx-auto mb-12">
+        A clear, predictable process — managed entirely by your prosthodontist from start to finish.
+      </p>
+      <div class="space-y-6">
+        {[
+          { step: '01', title: 'Free Consultation & 3D Imaging', body: 'Dr. Cheong evaluates your bone density, discusses your goals, and designs your final smile. You leave knowing exactly what to expect and what it will cost.' },
+          { step: '02', title: 'Surgery Day — Leave With Teeth', body: 'Four implants are placed under local anesthesia (sedation available). A temporary full arch is attached the same day. You walk out with a full set of teeth.' },
+          { step: '03', title: 'Healing & Final Arch Placement', body: 'Over 4–6 months, implants fuse with your jawbone. Once complete, Dr. Cheong places your custom, permanent arch — the result you\'ll keep for life.' },
+        ].map((item) => (
+          <div class="flex gap-5 items-start bg-white rounded-xl p-6 border border-neutral-border">
+            <div class="font-serif text-3xl font-bold text-brand-gold flex-shrink-0 w-10">{item.step}</div>
+            <div>
+              <h3 class="font-serif font-bold text-lg text-charcoal mb-1">{item.title}</h3>
+              <p class="text-sm text-neutral-mid">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Mid CTA -->
+  <section class="py-12 bg-brand-gold">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-white font-serif text-2xl font-bold mb-2">See if All-on-4 is right for you.</p>
+      <p class="text-white/85 mb-6">Free arch evaluation with {doctor.name}. No commitment required.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={site.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track="booking"
+          class="bg-white text-brand-navy font-bold px-8 py-4 rounded-full hover:opacity-90 transition-opacity text-center"
+        >
+          Book Free Consultation
+        </a>
+        <a
+          href={`tel:${site.phoneDigits}`}
+          class="border border-white text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors text-center"
+        >
+          Call {site.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-charcoal mb-10 text-center">
+        All-on-4 Questions Answered
+      </h2>
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <details class="group border border-neutral-border rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer font-semibold text-charcoal list-none hover:bg-surface-2 transition-colors">
+              {faq.q}
+              <svg class="w-5 h-5 text-brand-navy flex-shrink-0 ml-4 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div class="px-6 pb-5 pt-1 text-neutral-mid text-sm leading-relaxed border-t border-neutral-border">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-brand-navy text-white py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">
+        Permanent Teeth Are Closer Than You Think
+      </h2>
+      <p class="text-white/80 text-lg mb-8 max-w-xl mx-auto">
+        Start with a free, no-pressure consultation. {doctor.name} will evaluate your case, walk you through your options, and give you a clear cost estimate.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <a
+          href={site.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track="booking"
+          class="bg-brand-gold text-white font-bold px-8 py-4 rounded-full text-lg hover:opacity-90 transition-opacity text-center"
+        >
+          Book Online Now
+        </a>
+        <a
+          href={`tel:${site.phoneDigits}`}
+          class="bg-white/10 border border-white/30 text-white font-semibold px-8 py-4 rounded-full text-lg hover:bg-white/20 transition-colors text-center"
+        >
+          Call {site.phone}
+        </a>
+      </div>
+      <p class="text-white/50 text-sm">Most insurance accepted &middot; CareCredit &amp; financing available &middot; Huntington Beach, CA</p>
+    </div>
+  </section>
+
+</LandingLayout>
