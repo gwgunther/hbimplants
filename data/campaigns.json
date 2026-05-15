@@ -1,0 +1,76 @@
+[
+  {
+    "id": "cmp_dental_implants",
+    "name": "Dental Implants",
+    "status": "active",
+    "daily_budget_usd": null,
+    "google_ads_id": null,
+    "ad_schedule": ["Mon", "Wed", "Thu", "Fri", "Sat"],
+    "geo": "Huntington Beach, CA — 15 mile radius",
+    "bidding_strategy": "maximize_conversions",
+    "target_cpa_usd": null,
+    "ad_groups": [
+      {
+        "id": "ag_prosthodontist",
+        "name": "Prosthodontist Keywords",
+        "persona_id": "quality_seeker",
+        "landing_page": "/lp/dental-implants",
+        "google_ads_id": null
+      },
+      {
+        "id": "ag_single_tooth",
+        "name": "Single Tooth Implant",
+        "persona_id": "gap_patient",
+        "landing_page": "/lp/dental-implants",
+        "google_ads_id": null
+      }
+    ]
+  },
+  {
+    "id": "cmp_all_on_4",
+    "name": "All-on-4 / Full Arch",
+    "status": "active",
+    "daily_budget_usd": null,
+    "google_ads_id": null,
+    "ad_schedule": ["Mon", "Wed", "Thu", "Fri", "Sat"],
+    "geo": "Huntington Beach, CA — 15 mile radius",
+    "bidding_strategy": "maximize_conversions",
+    "target_cpa_usd": null,
+    "ad_groups": [
+      {
+        "id": "ag_all_on_4",
+        "name": "All-on-4 Keywords",
+        "persona_id": "all_on_x_candidate",
+        "landing_page": "/lp/all-on-4",
+        "google_ads_id": null
+      },
+      {
+        "id": "ag_denture_alternatives",
+        "name": "Denture Alternative Keywords",
+        "persona_id": "denture_refugee",
+        "landing_page": "/lp/full-arch-restoration",
+        "google_ads_id": null
+      }
+    ]
+  },
+  {
+    "id": "cmp_implant_cost",
+    "name": "Implant Cost / Financing",
+    "status": "active",
+    "daily_budget_usd": null,
+    "google_ads_id": null,
+    "ad_schedule": ["Mon", "Wed", "Thu", "Fri", "Sat"],
+    "geo": "Huntington Beach, CA — 15 mile radius",
+    "bidding_strategy": "maximize_conversions",
+    "target_cpa_usd": null,
+    "ad_groups": [
+      {
+        "id": "ag_cost",
+        "name": "Cost & Financing Keywords",
+        "persona_id": "cost_researcher",
+        "landing_page": "/lp/implant-cost",
+        "google_ads_id": null
+      }
+    ]
+  }
+]

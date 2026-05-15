@@ -1,0 +1,16 @@
+{
+  "_note": "Account-level negative keywords applied to all campaigns.",
+  "keywords": [
+    { "keyword": "free",        "match_type": "broad" },
+    { "keyword": "cheap",       "match_type": "broad" },
+    { "keyword": "discount",    "match_type": "broad" },
+    { "keyword": "diy",         "match_type": "broad" },
+    { "keyword": "school",      "match_type": "broad" },
+    { "keyword": "student",     "match_type": "broad" },
+    { "keyword": "jobs",        "match_type": "broad" },
+    { "keyword": "careers",     "match_type": "broad" },
+    { "keyword": "how to",      "match_type": "phrase" },
+    { "keyword": "wikipedia",   "match_type": "broad" },
+    { "keyword": "pictures",    "match_type": "broad" }
+  ]
+}
