@@ -151,16 +151,31 @@ const breadcrumbSchema = pathSegments.length > 0 ? {
     </main>
     <Footer />
 
-    <!-- Phone click conversion tracking -->
+    <!-- Conversion tracking: phone clicks + booking intent -->
     <script>
       document.addEventListener('click', (e) => {
-        const link = (e.target as Element).closest('a[href^="tel:"]');
+        const link = (e.target as Element).closest('a');
         if (!link) return;
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'phone_click', {
-            event_category: 'contact',
-            event_label: (link as HTMLAnchorElement).href.replace('tel:', ''),
-          });
+        const href = (link as HTMLAnchorElement).href || '';
+
+        // Phone click
+        if (href.startsWith('tel:')) {
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'phone_click', {
+              event_category: 'contact',
+              event_label: href.replace('tel:', ''),
+            });
+          }
+        }
+
+        // Booking intent — clicks to Dentrix Ascend booking page
+        if (href.includes('bookit.dentrixascend.com')) {
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'booking_intent', {
+              event_category: 'booking',
+              event_label: 'dentrix_ascend',
+            });
+          }
         }
       });
     </script>
